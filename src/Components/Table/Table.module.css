@@ -1,0 +1,26 @@
+.summaryIcons {
+  visibility: hidden;
+}
+
+.tableRow:hover .summaryIcons {
+  visibility: visible;
+}
+
+/* title style */
+
+.tableHeadTitle:hover {
+  color: #475569;
+  font-weight: 700;
+}
+
+.tableHeadIcon {
+  visibility: hidden;
+}
+
+.tableHeadIcon:hover {
+  visibility: visible;
+}
+
+.tableHeadTitle:hover~.tableHeadIcon {
+  visibility: visible;
+}
