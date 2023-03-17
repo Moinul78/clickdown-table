@@ -31,8 +31,8 @@ export default function SubTask(props) {
         </div>
       </td>
       <td>
-        <div className='flex flex-row justify-center items-start'>
-          <SVGIcon Icon={avatar1} />
+        <div className=' flex flex-row justify-center items-start'>
+          <SVGIcon className="w-6 h-6" Icon={avatar1} />
         </div>
       </td>
       <td>
