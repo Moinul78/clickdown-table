@@ -1,6 +1,8 @@
+import { Calendar } from 'antd';
 import React, { useEffect, useState } from 'react';
 import { addUserIcon, IssueTypesIcon, arrowDownIcon, arrowRightIcon, circleIcon, dragIcon, editIcon, flagIcon, plusIcon, starCircleIcon, avatar1, avatar2, subtaskIcon, tagIcon, timeIcon, avatar3 } from '../../Assets/SVGcomponents';
 import SVGIcon from '../../SVGIcon/SVGIcon';
+import CalendarData from '../CalendarData';
 
 import DropDown from './DropDown';
 import SelectUser from './SelectUser';
@@ -73,9 +75,7 @@ const ContentBody = (props) => {
           </div>
         </td>
         <td >
-          <div className='flex flex-row justify-center items-center'>
-            <p className='text-slate-600 text-sm font-medium '>15 Mar</p>
-          </div>
+          <CalendarData />
         </td>
         <td>
           <div className='flex flex-row justify-center items-center'>
