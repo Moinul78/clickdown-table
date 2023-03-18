@@ -5,7 +5,7 @@ import ContentBody from './ContentBody';
 
 import styles from './Table.module.css';
 
-const Content = () => {
+export default function Content() {
   const [showSubTask, setshowSubTask] = useState(false);
   const [showTask, setShowTask] = useState(false);
   const [task, setTask] = useState(false);
@@ -75,5 +75,3 @@ const Content = () => {
     </div>
   );
 };
-
-export default Content;
