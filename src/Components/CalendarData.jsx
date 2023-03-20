@@ -4,7 +4,6 @@ import {
   ArrowRight,
   calendar,
   cancel,
-  timeIcon,
 } from '../Assets/SVGcomponents';
 import SVGIcon from '../SVGIcon/SVGIcon';
 // import './CalendarData.css'
@@ -13,12 +12,14 @@ export default function CalendarData() {
   // const months = ['January', 'February', 'March', 'April', 'May', 'June',
   //   'July', 'August', 'September', 'October', 'November', 'December'];
   const days = ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'];
-  const dates = ['31', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30', '31', '1', '2', '3'];
+  const dates = ['31', '1', '2', '3', '4', '5', '6', '7', '8', '9',
+    '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22',
+    '23', '24', '25', '26', '27', '28', '29', '30', '31', '1', '2', '3'];
 
   return (
     <div className="flex flex-row justify-center items-start relative">
       <div onClick={() => setDateOpen(!dateOpen)} role="contentinfo" onKeyDown={() => setDateOpen(!dateOpen)} className="w-6 h-6">
-        <SVGIcon Icon={timeIcon} />
+        <SVGIcon Icon={calendar} />
       </div>
       {
         dateOpen && (
@@ -31,7 +32,9 @@ export default function CalendarData() {
                     <SVGIcon Icon={ArrowLeft} />
                   </div>
 
-                  <div>November, 2023</div>
+                  <div>
+                    <p>v</p>
+                  </div>
                   <div>
                     <SVGIcon Icon={ArrowRight} />
                   </div>
@@ -46,7 +49,7 @@ export default function CalendarData() {
                 <div className="grid grid-cols-7 gap-4 justify-center items-center mt-3 ">
                   {
                     dates.map((date) => (
-                      <p className="flex justify-center items-center bg-[#FFFFFF] hover:bg-[#6239ED] hover:text-[#FFFFFF] rounded">{date}</p>
+                      <p className="flex justify-center items-center p-1 bg-[#FFFFFF] hover:bg-[#6239ED] hover:text-[#FFFFFF] rounded">{date}</p>
                     ))
                   }
                 </div>
@@ -78,7 +81,7 @@ export default function CalendarData() {
                   </div>
                 </div>
                 <div className="flex justify-center items-center mt-5">
-                  <button className="bg-[#6239ED] text-center rounded p-[6px]">Set Date</button>
+                  <button className="bg-[#6239ED] text-[#FFFFFF] text-center rounded p-[6px]">Set Date</button>
                 </div>
               </div>
             </div>

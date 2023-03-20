@@ -6,8 +6,8 @@ import ContentBody from './ContentBody';
 import styles from './Table.module.css';
 
 export default function Content() {
-  const [showSubTask, setshowSubTask] = useState(false);
   const [showTask, setShowTask] = useState(false);
+  const [showSubTask, setShowSubTask] = useState(false);
   const [task, setTask] = useState(false);
   return (
     <div>
@@ -69,7 +69,7 @@ export default function Content() {
             </tr>
           </thead>
           <ContentBody state={{ task, setTask }} value={0} />
-          <ContentBody state={{ showSubTask, setshowSubTask }} value={2} />
+          <ContentBody state={{ showSubTask, setShowSubTask }} value={2} />
           <ContentBody state={{ showTask, setShowTask }} value={3} />
         </table>
       </div>

@@ -21,8 +21,8 @@ import SubTask from './SubTask';
 import styles from './Table.module.css';
 
 export default function ContentBody({ state, value }) {
-  const { showSubTask, setshowSubTask } = state;
   const { valueOfRow } = value;
+  const { showSubTask, setShowSubTask } = state;
   const { showTask, setShowTask } = state;
 
   return (
@@ -37,7 +37,7 @@ export default function ContentBody({ state, value }) {
               {
                 valueOfRow <= 2
                   ? (
-                    <div onClick={() => setshowSubTask(!showSubTask)} role="contentinfo" onKeyDown={() => { }}>
+                    <div onClick={() => setShowSubTask(!showSubTask)} role="contentinfo" onKeyDown={() => { }}>
                       {
                         showSubTask ? (<SVGIcon Icon={arrowDownIcon} />)
                           : (<SVGIcon Icon={arrowRightIcon} />)
