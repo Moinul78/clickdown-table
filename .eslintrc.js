@@ -26,7 +26,8 @@ module.exports = {
     "react/button-has-type": "off",
     'jsx-a11y/no-noninteractive-element-interactions': 'off',
     'linebreak-style': "off",
-    'indent': "off"
+    'indent': "off",
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
   },
   ignorePatterns: [
     "public"],

@@ -1,8 +1,7 @@
-import React, { useState } from 'react';
-
+import React from 'react';
 import Content from './Content';
 
-const Table = () => {
+export default function Table() {
   return (
     <div>
       <Content />
@@ -11,6 +10,4 @@ const Table = () => {
       }
     </div>
   );
-};
-
-export default Table;
+}

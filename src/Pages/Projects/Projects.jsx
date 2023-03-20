@@ -1,16 +1,12 @@
-import Table from "../../Components/Table/Table";
-// import Content from "../../Components/Table/Content";
+import React from 'react';
+import Table from '../../Components/Table/Table';
 
-
-const Projects = () => {
-
+export default function Projects() {
   return (
-    <div className='flex flex-row justify-start'>
-      <div className='w-full'>
+    <div className="flex flex-row justify-startJ">
+      <div className="w-full">
         <Table />
       </div>
     </div>
   );
-};
-
-export default Projects;
+}

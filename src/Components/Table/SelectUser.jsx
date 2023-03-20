@@ -3,6 +3,7 @@ import {
   addUserIcon,
   avatar1,
   avatar2,
+  cancel,
 } from '../../Assets/SVGcomponents';
 import SVGIcon from '../../SVGIcon/SVGIcon';
 
@@ -102,6 +103,7 @@ export default function SelectUser() {
                   {
                     selected.length - 1
                   }
+                  +
                 </p>
               </div>
             </div>
@@ -110,28 +112,30 @@ export default function SelectUser() {
       </div>
       {
         modalOpen && (
-          <div style={{ boxShadow: '0px 10px 15px -3px rgba(0, 0, 0, 0.1), 0px 4px 6px -2px rgba(0, 0, 0, 0.05)' }} className="absolute z-10 w-[11.063em] h-auto   bg-white rounded-md">
+          <div style={{ boxShadow: '0px 10px 15px -3px rgba(0, 0, 0, 0.1), 0px 4px 6px -2px rgba(0, 0, 0, 0.05)' }} className="absolute z-10 w-[11.063em] h-auto bg-white rounded-md">
             <div className="bg-slate-50 px-3">
               {
                 selected.map((member) => (
                   <div key={member.id} className="flex flex-row items-center justify-left gap-x-[0.438rem]">
                     <SVGIcon className="w-6 h-6 rounded-full" Icon={member.icon} />
                     <p className="text-[0.688rem] text-slate-900 font-medium">{member.name}</p>
-                    <button onClick={() => handleRemoveUser(member)} onKeyDown={() => handleRemoveUser(member)} role="contentinfo" >x</button>
+                    <div onClick={() => handleRemoveUser(member)} role="contentinfo" onKeyDown={() => { }}>
+                      <SVGIcon Icon={cancel} />
+                    </div>
                   </div>
                 ))
               }
-              <input onChange={(e) => handleSearchMembers(e.target.value)} className='w-full outline-none bg-slate-50 focus:[ text-primary font-medium text-[0.688rem] ]' type='text' name='search' id='' placeholder={`${selected.length > 0 ? '' : 'Search People'}`} />
+              <input onChange={(e) => handleSearchMembers(e.target.value)} className="w-full outline-none bg-slate-50 focus:[ text-primary font-medium text-[0.688rem] ]" type="text" name="search" placeholder={`${selected.length > 0 ? '' : 'Search People'}`} />
             </div>
             {
-              allmembers.length > 0 ? (<p className='text-slate-500 font-medium text-[0.688rem] pl-3 py-2'>Select People..</p>) : (<p className='text-slate-500 font-medium text-[0.688rem] pl-3 py-2'>No People Found!!</p>)
+              allmembers.length > 0 ? (<p className="text-slate-500 font-medium text-[0.688rem] pl-3 py-2">Select People..</p>) : (<p className="text-slate-500 font-medium text-[0.688rem] pl-3 py-2">No People Found!!</p>)
             }
             {
               allmembers && allmembers.map((user) => (
-                <div key={user.id} onClick={() => handleAddedUser(user)} className='pl-6'>
-                  <div className='flex flex-row items-center justify-left gap-x-2'>
-                    <SVGIcon className='w-6 h-6 flex flex-row rounded-[0.188rem]' Icon={user.icon} />
-                    <p onClick={() => handleAddedUser(user)} className='text-slate-900 font-medium text-[0.688rem]'>{user.name}</p>
+                <div key={user.id} onClick={() => handleAddedUser(user)} role="contentinfo" onKeyDown={() => { }} className="pl-6">
+                  <div className="flex flex-row items-center justify-left gap-x-2">
+                    <SVGIcon className="w-6 h-6 flex flex-row rounded-[0.188rem]" Icon={user.icon} />
+                    <p onClick={() => handleAddedUser(user)} role="contentinfo" onKeyDown={() => { }} className="text-slate-900 font-medium text-[0.688rem]">{user.name}</p>
                   </div>
                 </div>
               ))
