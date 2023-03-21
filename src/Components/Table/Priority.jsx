@@ -42,8 +42,8 @@ export default function DropDown() {
         {
           status
             ? (
-              <div className="flex flex-row justify-center items-center w-6 h-6">
-                <SVGIcon Icon={status.flag} />
+              <div className="flex flex-row justify-center items-center">
+                <SVGIcon className=" w-5 h-5" Icon={status.flag} />
               </div>
             )
             : (<SVGIcon Icon={flagIcon} />)

@@ -1,16 +1,17 @@
 import React from 'react';
 import {
   arrowDownIcon,
-  avatar1,
   circleIcon,
   dragIcon,
-  flagIcon,
-  starCircleIcon,
-  timeIcon,
 } from '../../Assets/SVGcomponents';
 import SVGIcon from '../../SVGIcon/SVGIcon';
 import DropDown from './DropDown';
+import Priority from './Priority';
 import IssueTypes from './IssueTypes';
+import SprintPoint from './SprintPoints';
+import CalendarData from '../CalendarData';
+import Estimate from '../Estimate';
+import SelectUser from './SelectUser';
 
 export default function SubTask() {
   return (
@@ -41,34 +42,23 @@ export default function SubTask() {
       </td>
       <td>
         <div className="flex flex-row justify-center items-start">
-          <SVGIcon className="w-6 h-6" Icon={avatar1} />
+          <SelectUser />
         </div>
       </td>
       <td>
         <DropDown />
       </td>
       <td>
-        <div className="flex flex-row justify-center items-start">
-          <p className="text-slate-600 text-sm font-medium">15 Mar</p>
-        </div>
+        <CalendarData />
       </td>
       <td>
-        <div className="flex flex-row justify-center items-start">
-          <SVGIcon Icon={timeIcon} />
-        </div>
+        <Estimate />
       </td>
       <td>
-        <div className="flex flex-row justify-center items-start">
-          <div className="flex flex-row items-center gap-x-[0.354rem]">
-            <SVGIcon Icon={starCircleIcon} />
-            <p className="text-slate-500 font-medium text-[0.688rem]">5</p>
-          </div>
-        </div>
+        <SprintPoint />
       </td>
       <td>
-        <div className="flex flex-row justify-center items-start">
-          <SVGIcon Icon={flagIcon} />
-        </div>
+        <Priority />
       </td>
     </>
   );

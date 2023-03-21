@@ -31,7 +31,7 @@ export default function Estimate() {
         {
           estimateTime
             ? (
-              <p>
+              <p className="text-[0.688rem] text-slate-600 font-semibold">
                 {estimateTime}
                 h
               </p>
