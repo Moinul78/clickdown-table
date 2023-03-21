@@ -24,16 +24,14 @@ export default function CalendarData() {
       {
         dateOpen && (
           <div style={{ boxShadow: '0px 10px 15px -3px rgba(0, 0, 0, 0.1), 0px 4px 6px -2px rgba(0, 0, 0, 0.05)' }} className="absolute z-10 w-[25rem] p-5 right-1/3 top-8 h-auto   bg-white rounded-md">
-
             <div className="flex">
               <div>
                 <div className="flex justify-evenly">
                   <div className="">
                     <SVGIcon Icon={ArrowLeft} />
                   </div>
-
                   <div>
-                    <p>v</p>
+                    <p>Novembar, 2023</p>
                   </div>
                   <div>
                     <SVGIcon Icon={ArrowRight} />

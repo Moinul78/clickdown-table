@@ -8,15 +8,15 @@ import {
   editIcon,
   flagIcon,
   plusIcon,
-  starCircleIcon,
   subtaskIcon,
   tagIcon,
-  timeIcon,
 } from '../../Assets/SVGcomponents';
 import SVGIcon from '../../SVGIcon/SVGIcon';
 import CalendarData from '../CalendarData';
+import Estimate from '../Estimate';
 import DropDown from './DropDown';
 import SelectUser from './SelectUser';
+import SprintPoint from './SprintPoints';
 import SubTask from './SubTask';
 import styles from './Table.module.css';
 
@@ -83,15 +83,10 @@ export default function ContentBody({ state, value }) {
           <CalendarData />
         </td>
         <td>
-          <div className="flex flex-row justify-center items-center">
-            <SVGIcon Icon={timeIcon} />
-          </div>
+          <Estimate />
         </td>
         <td>
-          <div className="flex flex-row items-center justify-center gap-x-[0.354rem]">
-            <SVGIcon Icon={starCircleIcon} />
-            <p className="text-slate-500 font-medium text-[0.688rem]">5</p>
-          </div>
+          <SprintPoint />
         </td>
         <td>
           <div className="flex flex-row justify-center items-center">

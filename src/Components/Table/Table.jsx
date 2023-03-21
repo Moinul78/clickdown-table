@@ -5,9 +5,6 @@ export default function Table() {
   return (
     <div>
       <Content />
-      {
-
-      }
     </div>
   );
 }
