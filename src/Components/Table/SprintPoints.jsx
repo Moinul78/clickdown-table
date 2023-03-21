@@ -71,16 +71,15 @@ export default function SprintPoint() {
             : (<SVGIcon Icon={starCircleIcon} />)
         }
       </div>
-
       {
         modalOpen && (
-          <div style={{ boxShadow: '0px 10px 15px -3px rgba(0, 0, 0, 0.1), 0px 4px 6px -2px rgba(0, 0, 0, 0.05)' }} className="absolute z-10 w-[6rem] h-auto left-1/3 top-6 bg-white shadow-xl rounded-md">
+          <div style={{ boxShadow: '0px 10px 15px -3px rgba(0, 0, 0, 0.1), 0px 4px 6px -2px rgba(0, 0, 0, 0.05)' }} className="absolute z-10 w-[3rem] h-auto left-1/3 top-6 bg-white shadow-xl rounded-md">
             <input onChange={(e) => handleSearchData(e.target.value)} className="w-full border border-slate-300 outline-none bg-slate-50 text-[0.688rem] ]" type="text" name="search" placeholder="Search.." />
             <div className="bg-slate-50 w-full">
               {
                 allData && allData.map((data) => (
-                  <div key={data.id} className="pl-5">
-                    <div className="gap-x-2">
+                  <div key={data.id}>
+                    <div className="">
                       <p onClick={() => handleStates(data)} role="contentinfo" onKeyDown={() => { }} className="text-slate-900 font-medium text-[0.688rem] border-b-2">{data.value}</p>
                     </div>
                   </div>

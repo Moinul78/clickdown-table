@@ -6,7 +6,6 @@ import {
   circleIcon,
   dragIcon,
   editIcon,
-  flagIcon,
   plusIcon,
   subtaskIcon,
   tagIcon,
@@ -15,6 +14,7 @@ import SVGIcon from '../../SVGIcon/SVGIcon';
 import CalendarData from '../CalendarData';
 import Estimate from '../Estimate';
 import DropDown from './DropDown';
+import Priority from './Priority';
 import SelectUser from './SelectUser';
 import SprintPoint from './SprintPoints';
 import SubTask from './SubTask';
@@ -89,9 +89,7 @@ export default function ContentBody({ state, value }) {
           <SprintPoint />
         </td>
         <td>
-          <div className="flex flex-row justify-center items-center">
-            <SVGIcon Icon={flagIcon} />
-          </div>
+          <Priority />
         </td>
       </tr>
       {

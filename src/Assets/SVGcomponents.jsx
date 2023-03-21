@@ -66,6 +66,10 @@ import { ReactComponent as loveIcon } from './Icons/love-icon.svg';
 import { ReactComponent as pentagonIcon } from './Icons/pentagon.svg';
 import { ReactComponent as IssueTypesIcon } from './Icons/IssueTypes.svg';
 import { ReactComponent as DeleteIcon } from './Icons/DeleteIcon.svg';
+import { ReactComponent as PriorityFlag } from './Icons/PriorityFlag.svg';
+import { ReactComponent as LowPriority } from './Icons/LowPriority.svg';
+import { ReactComponent as MediumPriority } from './Icons/MediumPriority.svg';
+import { ReactComponent as HighPriority } from './Icons/HighPriority.svg';
 import { ReactComponent as avatar1 } from './Icons/avatar 1.svg';
 import { ReactComponent as avatar2 } from './Icons/avatar 2.svg';
 import { ReactComponent as avatar3 } from './Icons/avatar 3.svg';
@@ -84,5 +88,5 @@ export {
   flashIconTwo, dragIcon, starCircleIcon, flagIcon, timeIcon,
   editIcon, tagIcon, subtaskIcon, addUserIcon, arrowRightIconNew, folderIcon,
   loveIcon, pentagonIcon, IssueTypesIcon, DeleteIcon, avatar1, avatar2, avatar3,
-  calendar, cancel, ArrowRight, ArrowLeft,
+  calendar, cancel, ArrowRight, ArrowLeft, PriorityFlag, LowPriority, HighPriority, MediumPriority,
 };
