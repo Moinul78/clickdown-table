@@ -35,7 +35,6 @@ export default function DropDown() {
     setStatus(selectedStatus);
     setModalOpen(!modalOpen);
   };
-
   return (
     <div className="flex flex-row justify-center items-start relative">
       <div onClick={() => setModalOpen(!modalOpen)} role="contentinfo" onKeyDown={() => { }} className="w-6 h-6">

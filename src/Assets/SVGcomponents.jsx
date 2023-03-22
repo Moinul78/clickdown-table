@@ -6,7 +6,7 @@ import { ReactComponent as notificationIcon } from './Icons/Frame 31.svg';
 import { ReactComponent as settingIcon } from './Icons/Frame 32.svg';
 import { ReactComponent as dashboardIconHover } from './Icons/dashboard Hover.svg';
 import { ReactComponent as dashboardIconActive } from './Icons/dashboard Active.svg';
-import { ReactComponent as calendar } from './Icons/calendar.svg';
+import { ReactComponent as CalendarIcon } from './Icons/CalendarIcon.svg';
 import { ReactComponent as cancel } from './Icons/cancel.svg';
 import { ReactComponent as ArrowRight } from './Icons/Arrowright.svg';
 import { ReactComponent as ArrowLeft } from './Icons/ArrowLeft.svg';
@@ -88,5 +88,6 @@ export {
   flashIconTwo, dragIcon, starCircleIcon, flagIcon, timeIcon,
   editIcon, tagIcon, subtaskIcon, addUserIcon, arrowRightIconNew, folderIcon,
   loveIcon, pentagonIcon, IssueTypesIcon, DeleteIcon, avatar1, avatar2, avatar3,
-  calendar, cancel, ArrowRight, ArrowLeft, PriorityFlag, LowPriority, HighPriority, MediumPriority,
+  CalendarIcon, cancel, ArrowRight, ArrowLeft,
+  PriorityFlag, LowPriority, HighPriority, MediumPriority,
 };
