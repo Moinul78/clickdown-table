@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import {
   addUserIcon,
   avatar1,
   avatar2,
   cancel,
 } from '../../Assets/SVGcomponents';
+import useOnclickOutside from '../../Hooks/UseOnClickOutSide';
 import SVGIcon from '../../SVGIcon/SVGIcon';
 
 export default function SelectUser() {
@@ -49,6 +50,8 @@ export default function SelectUser() {
   const [modalOpen, setModalOpen] = useState(false);
   const [allmembers, setAllMembers] = useState(users);
   const [selected, setSelected] = useState([]);
+  const ref = useRef();
+  useOnclickOutside(ref, () => setModalOpen(false));
 
   const handleAddedUser = (selectedMember) => {
     const remainingMembers = allmembers.filter((member) => member.id !== selectedMember.id);
@@ -112,7 +115,7 @@ export default function SelectUser() {
       </div>
       {
         modalOpen && (
-          <div style={{ boxShadow: '0px 10px 15px -3px rgba(0, 0, 0, 0.1), 0px 4px 6px -2px rgba(0, 0, 0, 0.05)' }} className="absolute z-10 w-[11.063em] h-auto bg-white rounded-md">
+          <div ref={ref} style={{ boxShadow: '0px 10px 15px -3px rgba(0, 0, 0, 0.1), 0px 4px 6px -2px rgba(0, 0, 0, 0.05)' }} className="absolute z-10 w-[11.063em] h-auto bg-white rounded-md">
             <div className="bg-slate-50 px-3">
               {
                 selected.map((member) => (

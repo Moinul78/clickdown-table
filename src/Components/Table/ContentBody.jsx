@@ -21,7 +21,8 @@ import SubTask from './SubTask';
 import styles from './Table.module.css';
 
 export default function ContentBody({ state, value }) {
-  const { valueOfRow } = value;
+  const valueOfRow = value;
+  console.log(valueOfRow);
   const { showSubTask, setShowSubTask } = state;
   const { showTask, setShowTask } = state;
 

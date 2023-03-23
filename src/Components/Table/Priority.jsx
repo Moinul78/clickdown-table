@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import {
   flagIcon,
   HighPriority,
@@ -6,6 +6,7 @@ import {
   MediumPriority,
   PriorityFlag,
 } from '../../Assets/SVGcomponents';
+import useOnclickOutside from '../../Hooks/UseOnClickOutSide';
 import SVGIcon from '../../SVGIcon/SVGIcon';
 
 export default function DropDown() {
@@ -31,6 +32,9 @@ export default function DropDown() {
   ];
   const [modalOpen, setModalOpen] = useState(false);
   const [status, setStatus] = useState(false);
+  const ref = useRef();
+  useOnclickOutside(ref, () => setModalOpen(false));
+
   const handleStates = (selectedStatus) => {
     setStatus(selectedStatus);
     setModalOpen(!modalOpen);
@@ -50,7 +54,7 @@ export default function DropDown() {
       </div>
       {
         modalOpen && (
-          <div style={{ boxShadow: '0px 10px 15px -3px rgba(0, 0, 0, 0.1), 0px 4px 6px -2px rgba(0, 0, 0, 0.05)' }} className="absolute z-10 w-[5rem] h-auto right-1/3 top-6 bg-white shadow-xl rounded-md">
+          <div ref={ref} style={{ boxShadow: '0px 10px 15px -3px rgba(0, 0, 0, 0.1), 0px 4px 6px -2px rgba(0, 0, 0, 0.05)' }} className="absolute z-10 w-[5rem] h-auto right-1/3 top-6 bg-white shadow-xl rounded-md">
             <div className="bg-slate-50 w-full">
               {
                 priority.map((s) => (

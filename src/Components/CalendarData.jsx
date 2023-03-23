@@ -1,11 +1,14 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { arrowDownIcon, CalendarIcon, cancel } from '../Assets/SVGcomponents';
+import useOnclickOutside from '../Hooks/UseOnClickOutSide';
 import SVGIcon from '../SVGIcon/SVGIcon';
 
 export default function CalendarData() {
   const [date, setDate] = useState(new Date());
   const [dueDate, setDueDate] = useState({ from: null, to: null });
   const [modalOpen, setModalOpen] = useState(false);
+  const ref = useRef();
+  useOnclickOutside(ref, () => setModalOpen(false));
   const monthNames = [
     'January', 'February', 'March', 'April', 'May', 'June',
     'July', 'August', 'September', 'October', 'November', 'December',
@@ -53,7 +56,6 @@ export default function CalendarData() {
   };
 
   function calculateDaysInRange(range) {
-    console.log(range);
     const startDate = new Date(range.from);
     const endDate = new Date(range.to);
     const differenceInMs = endDate.getTime() - startDate.getTime();
@@ -71,7 +73,7 @@ export default function CalendarData() {
       </div>
       {
         modalOpen && (
-          <div style={{ boxShadow: '0px 10px 15px -3px rgba(0, 0, 0, 0.1), 0px 4px 6px -2px rgba(0, 0, 0, 0.05)' }} className="absolute z-10 right-1/3 top-6 bg-white shadow-xl rounded-md">
+          <div ref={ref} style={{ boxShadow: '0px 10px 15px -3px rgba(0, 0, 0, 0.1), 0px 4px 6px -2px rgba(0, 0, 0, 0.05)' }} className="absolute z-10 right-1/3 top-6 bg-white shadow-xl rounded-md">
             <div className="flex justify-center items-center border w-[26.25rem] overflow-hidden rounded-lg">
               <div className="p-5 w-64 flex">
                 <div className="w-56">
@@ -90,8 +92,8 @@ export default function CalendarData() {
                     <thead>
                       <tr>
                         {
-                          weekdays.map((each) => (
-                            <th className="text-center text-xs font-semibold h-8 w-8 text-[#64748B]">
+                          weekdays.map((each, i = 1) => (
+                            <th key={i} className="text-center text-xs font-semibold h-8 w-8 text-[#64748B]">
                               {each}
                             </th>
                           ))
@@ -100,11 +102,12 @@ export default function CalendarData() {
                     </thead>
                     <tbody>
                       {
-                        calendar.map((week) => (
-                          <tr>
+                        calendar.map((week, i = 1) => (
+                          <tr key={i}>
                             {
-                              week.map((dates) => (
+                              week.map((dates, j = 1) => (
                                 <td
+                                  key={j}
                                   className={`text-center text-xs font-semibold h-8 w-8 cursor-pointer transition-all duration-300 rounded-lg
                                 ${(new Date(dates).toLocaleDateString() === new Date(dueDate?.to).toLocaleDateString()
                                       || new Date(dates).toLocaleDateString()
