@@ -48,7 +48,9 @@ export default function CalendarData() {
     }
   }
   const handleDateClick = (d) => {
-    if (!dueDate.from) {
+    const newStartDate = dueDate.from > d;
+    if (!dueDate.from || newStartDate) {
+      console.log(new Date(d));
       setDueDate((prev) => ({ ...prev, from: new Date(d) }));
     } else {
       setDueDate((prev) => ({ ...prev, to: new Date(d) }));

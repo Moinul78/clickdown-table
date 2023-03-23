@@ -89,7 +89,7 @@ export default function SelectUser() {
     setAllMembers(remainingMembers);
   };
   return (
-    <td>
+    <div>
       <div onClick={() => setModalOpen(!modalOpen)} role="contentinfo" onKeyDown={() => setModalOpen(!modalOpen)} className="flex flex-row justify-center items-start relative">
         {
           selected.length < 1 && (<SVGIcon className="w-6 h-6 rounded-full" onClick={() => setModalOpen(true)} Icon={addUserIcon} />)
@@ -146,6 +146,6 @@ export default function SelectUser() {
           </div>
         )
       }
-    </td>
+    </div>
   );
 }

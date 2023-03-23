@@ -57,12 +57,12 @@ export default function ContentBody({ state, value }) {
             </div>
           </div>
         </td>
-        <td>
+        <td className="w-[43px]">
           <div className="w-6 h-6 rounded-md bg-primary flex flex-row justify-center items-center">
             <SVGIcon Icon={IssueTypesIcon} />
           </div>
         </td>
-        <td className="w-2/5">
+        <td className="w-[500px]">
           <div className="flex flex-row justify-start items-center gap-x-2">
             <h3 className="text-heading text-sm font-medium">Custom Integration</h3>
             <div className="flex flex-row items-center">
@@ -74,22 +74,22 @@ export default function ContentBody({ state, value }) {
             <SVGIcon className={`${styles.summaryIcons}`} Icon={editIcon} />
           </div>
         </td>
-        <SelectUser />
-        <td>
-          <div>
-            <DropDown />
-          </div>
+        <td className="w-[70px]">
+          <SelectUser />
         </td>
-        <td>
+        <td className="w-[113px]">
+          <DropDown />
+        </td>
+        <td className="w-[85px]">
           <CalendarData />
         </td>
-        <td>
+        <td className="w-[105px]">
           <Estimate />
         </td>
-        <td>
+        <td className="w-[136px]">
           <SprintPoint />
         </td>
-        <td>
+        <td className="w-[100px]">
           <Priority />
         </td>
       </tr>
