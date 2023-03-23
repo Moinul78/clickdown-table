@@ -1,9 +1,12 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { flashIconOne, flashIconTwo } from '../../Assets/SVGcomponents';
+import useOnclickOutside from '../../Hooks/UseOnClickOutSide';
 import SVGIcon from '../../SVGIcon/SVGIcon';
 
 export default function IssueTypes() {
   const [modalOpen, setModalOpen] = useState(false);
+  const ref = useRef();
+  useOnclickOutside(ref, () => setModalOpen(false));
   return (
     <div className="flex flex-row justify-center items-start relative">
       <div onClick={() => setModalOpen(!modalOpen)} role="contentinfo" onKeyDown={() => setModalOpen(!modalOpen)} className="w-6 h-6 rounded-md bg-[#E5493A] flex flex-row justify-center items-center">
@@ -11,7 +14,7 @@ export default function IssueTypes() {
       </div>
       {
         modalOpen && (
-          <div style={{ boxShadow: '0px 10px 15px -3px rgba(0, 0, 0, 0.1), 0px 4px 6px -2px rgba(0, 0, 0, 0.05)' }} className="absolute z-10 w-[11.063em] h-auto left-1/3 top-8 bg-white rounded-md">
+          <div ref={ref} style={{ boxShadow: '0px 10px 15px -3px rgba(0, 0, 0, 0.1), 0px 4px 6px -2px rgba(0, 0, 0, 0.05)' }} className="absolute z-10 w-[11.063em] h-auto left-1/3 top-8 bg-white rounded-md">
             <div className="bg-slate-50 px-3 py-2">
               <p className="text-[0.688rem] text-slate-500 font-medium">Issue type to search or add...</p>
             </div>

@@ -54,10 +54,10 @@ export default function DropDown() {
               </div>
             )
             : (
-              <div className="flex flex-row justify-center items-center">
+              <div className="bg-[#E2E8F0] text-[#475569] flex justify-left items-center text-white text-bold my-2 px-[8px] w-[90px] h-[24px] rounded-[4px]">
                 <p className="w-[6px] h-[6px] rounded-full bg-[#475569] mr-[4px]">{ }</p>
-                <p className="text-[10px] text-[#475569] text-center font-medium mr-[6.5px] w-auto">TO DO</p>
-                <SVGIcon className="w-5 h-5 " Icon={arrowDownIcon} />
+                <p className="text-[10px] text-[#475569] text-center font-medium w-auto">TO DO</p>
+                <SVGIcon className="w-5 h-5" Icon={arrowDownIcon} />
               </div>
             )
         }
