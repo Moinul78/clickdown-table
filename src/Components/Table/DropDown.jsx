@@ -11,25 +11,25 @@ export default function DropDown() {
       id: 1,
       status: 'TO DO',
       ellipsis: 'w-[6px] h-[6px] rounded-full bg-[#475569] mr-[4px]',
-      className: 'bg-[#E2E8F0] text-[#475569] flex justify-left items-center text-white text-bold my-2 px-[8px] w-[90px] h-[24px]  rounded-[4px]',
+      className: 'bg-[#E2E8F0] text-[#475569] flex justify-left items-center  text-bold my-2 px-[8px] w-[90px] h-[24px]  rounded-[4px]',
     },
     {
       id: 2,
       status: 'IN PROGRESS',
       ellipsis: 'w-[6px] h-[6px] rounded-full bg-[#6239ED] mr-[4px]',
-      className: 'bg-[#6239ed1a] text-[#475569] flex justify-left items-center text-white text-bold my-2 px-[4px] w-[115px] h-[24px]  rounded-[4px]',
+      className: 'bg-[#6239ed1a] text-[#475569] flex justify-left items-center  text-bold my-2 px-[4px] w-[115px] h-[24px]  rounded-[4px]',
     },
     {
       id: 3,
       status: 'IN REVIEW',
       ellipsis: 'w-[6px] h-[6px] rounded-full bg-[#FE7317] mr-[4px]',
-      className: 'bg-[#FFF1E8] text-[#475569] flex justify-left items-center text-white text-bold my-2 px-[8px] w-[105px] h-[24px] rounded-[4px]',
+      className: 'bg-[#FFF1E8] text-[#475569] flex justify-left items-center  text-bold my-2 px-[8px] w-[105px] h-[24px] rounded-[4px]',
     },
     {
       id: 4,
       status: 'DONE',
       ellipsis: 'w-[6px] h-[6px] rounded-full bg-[#22C55E] mr-[4px]',
-      className: 'bg-[#DCFCE7] text-[#475569] flex flex-row justify-left items-center text-white text-bold my-2 px-[8px] w-[80px] h-[24px] rounded-[4px]',
+      className: 'bg-[#DCFCE7] text-[#475569] flex flex-row justify-left items-center  text-bold my-2 px-[8px] w-[80px] h-[24px] rounded-[4px]',
     },
   ];
   const [modalOpen, setModalOpen] = useState(false);
@@ -54,7 +54,7 @@ export default function DropDown() {
               </div>
             )
             : (
-              <div className="bg-[#E2E8F0] text-[#475569] flex justify-left items-center text-white text-bold my-2 px-[8px] w-[90px] h-[24px] rounded-[4px]">
+              <div className="bg-[#E2E8F0] text-[#475569] flex justify-left items-center my-2 px-[8px] w-[80px] h-[24px] rounded-[4px]">
                 <p className="w-[6px] h-[6px] rounded-full bg-[#475569] mr-[4px]">{ }</p>
                 <p className="text-[10px] text-[#475569] text-center font-medium w-auto">TO DO</p>
                 <SVGIcon className="w-5 h-5" Icon={arrowDownIcon} />
