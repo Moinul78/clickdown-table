@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react';
-import { arrowDownIcon, CalendarIcon, cancel } from '../Assets/SVGcomponents';
-import useOnclickOutside from '../Hooks/UseOnClickOutSide';
-import SVGIcon from '../SVGIcon/SVGIcon';
+import { arrowDownIcon, CalendarIcon, cancel } from '../../Assets/SVGcomponents';
+import useOnclickOutside from '../../Hooks/UseOnClickOutSide';
+import SVGIcon from '../../SVGIcon/SVGIcon';
 
 export default function CalendarData() {
   const [date, setDate] = useState(new Date());

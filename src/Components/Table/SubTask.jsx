@@ -9,8 +9,8 @@ import DropDown from './DropDown';
 import Priority from './Priority';
 import IssueTypes from './IssueTypes';
 import SprintPoint from './SprintPoints';
-import CalendarData from '../CalendarData';
-import Estimate from '../Estimate';
+import CalendarData from './CalendarData';
+import Estimate from './Estimate';
 import SelectUser from './SelectUser';
 
 export default function SubTask() {

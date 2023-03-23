@@ -11,8 +11,8 @@ import {
   tagIcon,
 } from '../../Assets/SVGcomponents';
 import SVGIcon from '../../SVGIcon/SVGIcon';
-import CalendarData from '../CalendarData';
-import Estimate from '../Estimate';
+import CalendarData from './CalendarData';
+import Estimate from './Estimate';
 import DropDown from './DropDown';
 import Priority from './Priority';
 import SelectUser from './SelectUser';
