@@ -1,14 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   IssueTypesIcon,
   arrowDownIcon,
   arrowRightIcon,
   circleIcon,
   dragIcon,
-  editIcon,
-  plusIcon,
-  subtaskIcon,
-  tagIcon,
 } from '../../Assets/SVGcomponents';
 import SVGIcon from '../../SVGIcon/SVGIcon';
 import CalendarData from './CalendarData';
@@ -17,91 +13,135 @@ import DropDown from './DropDown';
 import Priority from './Priority';
 import SelectUser from './SelectUser';
 import SprintPoint from './SprintPoints';
-import SubTask from './SubTask';
 import styles from './Table.module.css';
+import { subData } from '../../data';
+import IssueTypes from './IssueTypes';
 
-export default function ContentBody({ state, value }) {
-  const valueOfRow = value;
-  console.log(valueOfRow);
-  const { showSubTask, setShowSubTask } = state;
-  const { showTask, setShowTask } = state;
-
+export default function ContentBody() {
+  const [showTask, setShowTask] = useState(false);
+  const [showSubTask, setShowSubTask] = useState(false);
+  console.log(showTask);
+  const handleTask = (id) => {
+    setShowTask(!showTask);
+    setShowSubTask(id);
+  };
   return (
-    <tbody>
-      <tr className={`hover:bg-slate-50 ${styles.tableRow}`}>
-        <td>
-          <div>
-            {/* col-1 */}
-            <div className="flex flex-row justify-center items-center gap-x-2">
-              <SVGIcon Icon={circleIcon} />
-              <SVGIcon Icon={dragIcon} />
-              {
-                valueOfRow <= 2
-                  ? (
-                    <div onClick={() => setShowSubTask(!showSubTask)} role="contentinfo" onKeyDown={() => { }}>
-                      {
-                        showSubTask ? (<SVGIcon Icon={arrowDownIcon} />)
-                          : (<SVGIcon Icon={arrowRightIcon} />)
-                      }
+    <div>
+      {
+        subData.map((data) => (
+          <div key={data.id} className={`hover:bg-slate-50 ${styles.tableRow}`}>
+            <div className="grid grid-cols-12 border-0 border-b-[0.063rem] border-slate-200 py-2">
+              <div className="flex justify-center items-center ">
+                {/* col-1 */}
+                <div className="flex flex-row justify-center items-center gap-x-2">
+                  <SVGIcon Icon={circleIcon} />
+                  <SVGIcon Icon={dragIcon} />
+                  <div onClick={() => handleTask(data.id)} role="contentinfo" onKeyDown={() => { }}>
+                    {
+                      showSubTask ? (<SVGIcon Icon={arrowDownIcon} />)
+                        : (<SVGIcon Icon={arrowRightIcon} />)
+                    }
+                  </div>
+                </div>
+              </div>
+              {/* col-2 */}
+              <div className="flex flex-row justify-center items-center w-[3rem]">
+                <SVGIcon Icon={IssueTypesIcon} />
+              </div>
+              {/* col-3 */}
+              <div className="col-span-4 flex flex-row justify-start items-center gap-x-2 ml-[-3rem]">
+                <h3 className="text-heading text-sm font-medium">{data.text}</h3>
+                <div className="flex flex-row items-center">
+                  <SVGIcon Icon={data.subTaskIcon} />
+                  <p className="text-slate-500 font-medium text-[0.688rem]">{data.subTaskQuantity}</p>
+                </div>
+                <SVGIcon className={`${styles.summaryIcons}`} Icon={data.plusIcon} />
+                <SVGIcon className={`${styles.summaryIcons}`} Icon={data.tagIcon} />
+                <SVGIcon className={`${styles.summaryIcons}`} Icon={data.editIcon} />
+              </div>
+              {/* col-4 */}
+              <div className="grid justify-center items-center">
+                <SelectUser />
+              </div>
+              {/* col-5 */}
+              <div className="grid justify-center items-center">
+                <DropDown />
+              </div>
+              {/* col-6 */}
+              <div className="grid justify-center items-center">
+                <CalendarData />
+              </div>
+              {/* col-7 */}
+              <div className="grid justify-center items-center">
+                <Estimate />
+              </div>
+              {/* col-8 */}
+              <div className="grid justify-center items-center">
+                <SprintPoint />
+              </div>
+              {/* col-9 */}
+              <div className="grid justify-center items-center">
+                <Priority />
+              </div>
+            </div>
+            {
+              showSubTask && (
+                subData[showSubTask].subTask.map((datas) => (
+                  (
+                    <div key={datas.id}>
+                      <div className="grid grid-cols-12 border-0 border-b-[0.063rem] border-slate-200 py-2 duration-500">
+                        {/* col-1 */}
+                        <div className="grid justify-center items-center">
+                          <div className="flex flex-row justify-center items-center gap-x-2">
+                            <SVGIcon className="invisible" Icon={circleIcon} />
+                            <SVGIcon className="invisible" Icon={dragIcon} />
+                            <SVGIcon Icon={arrowDownIcon} />
+                          </div>
+                        </div>
+                        {/* col-2 */}
+                        <div className="grid justify-center items-center ml-[-4rem]">
+                          <IssueTypes />
+                        </div>
+                        {/* col-3 */}
+                        <div className="col-span-4 flex flex-row justify-start items-start gap-x-2 ">
+                          <p className="text-slate-600 font-normal text-sm text-justify">
+                            {datas.details}
+                          </p>
+                        </div>
+                        {/* col-4 */}
+                        <div className="grid justify-center items-center">
+                          <SelectUser />
+                        </div>
+                        {/* col-5 */}
+                        <div className="grid justify-center items-center">
+                          <DropDown />
+                        </div>
+                        {/* col-6 */}
+                        <div className="grid justify-center items-center">
+                          <CalendarData />
+                        </div>
+                        {/* col-7 */}
+                        <div className="grid justify-center items-center">
+                          <Estimate />
+                        </div>
+                        {/* col-8 */}
+                        <div className="grid justify-center items-center">
+                          <SprintPoint />
+                        </div>
+                        {/* col-9 */}
+                        <div className="grid justify-center items-center">
+                          <Priority />
+                        </div>
+                      </div>
                     </div>
                   )
-                  : (
-                    <div onClick={() => setShowTask(!showTask)} role="contentinfo" onKeyDown={() => { }}>
-                      {
-                        showTask ? (<SVGIcon Icon={arrowDownIcon} />)
-                          : (<SVGIcon Icon={arrowRightIcon} />)
-                      }
-                    </div>
-                  )
-              }
-            </div>
+                ))
+              )
+            }
           </div>
-        </td>
-        <td className="w-[43px]">
-          <div className="w-6 h-6 rounded-md bg-primary flex flex-row justify-center items-center">
-            <SVGIcon Icon={IssueTypesIcon} />
-          </div>
-        </td>
-        <td className="w-[500px]">
-          <div className="flex flex-row justify-start items-center gap-x-2">
-            <h3 className="text-heading text-sm font-medium">Custom Integration</h3>
-            <div className="flex flex-row items-center">
-              <SVGIcon Icon={subtaskIcon} />
-              <p className="text-slate-500 font-medium text-[0.688rem] ml-[0.3rem]">{valueOfRow}</p>
-            </div>
-            <SVGIcon className={`${styles.summaryIcons}`} Icon={plusIcon} />
-            <SVGIcon className={`${styles.summaryIcons}`} Icon={tagIcon} />
-            <SVGIcon className={`${styles.summaryIcons}`} Icon={editIcon} />
-          </div>
-        </td>
-        <td className="w-[70px]">
-          <SelectUser />
-        </td>
-        <td className="w-[113px]">
-          <DropDown />
-        </td>
-        <td className="w-[85px]">
-          <CalendarData />
-        </td>
-        <td className="w-[105px]">
-          <Estimate />
-        </td>
-        <td className="w-[136px]">
-          <SprintPoint />
-        </td>
-        <td className="w-[100px]">
-          <Priority />
-        </td>
-      </tr>
-      {
-        showSubTask
-        && [1, 2].map((i) => <tr><SubTask key={i} /></tr>)
-      }
-      {
-        showTask
-        && [1, 2, 3].map((i) => <tr><SubTask key={i} /></tr>)
-      }
+        ))
 
-    </tbody>
+      }
+    </div>
   );
 }

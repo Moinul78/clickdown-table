@@ -90,33 +90,41 @@ export default function SelectUser() {
   };
   return (
     <div>
-      <div onClick={() => setModalOpen(!modalOpen)} role="contentinfo" onKeyDown={() => setModalOpen(!modalOpen)} className="flex flex-row justify-center items-start relative">
+      <div onClick={() => setModalOpen(!modalOpen)} role="contentinfo" onKeyDown={() => { }} className="flex flex-row justify-center items-start relative">
         {
-          selected.length < 1 && (<SVGIcon className="w-6 h-6 rounded-full" onClick={() => setModalOpen(true)} Icon={addUserIcon} />)
+          selected.length < 1 && (<SVGIcon className="w-[32px] h-[32px] rounded-full" onClick={() => setModalOpen(!modalOpen)} Icon={addUserIcon} />)
         }
         {
-          selected.length === 1 && (<SVGIcon className="w-6 h-6 rounded-full" onClick={() => setModalOpen(true)} Icon={selected[0].icon} />)
+          selected.length === 1 && (<SVGIcon className="w-[32px] h-[32px]  ml-[-30px] rounded-full" onClick={() => setModalOpen(!modalOpen)} Icon={selected[0].icon} />)
         }
         {
           selected.length > 1 && (
             <div className="flex flex-row items-centers">
-              <SVGIcon className="w-6 h-6 rounded-full" onClick={() => setModalOpen(true)} Icon={selected[0].icon} />
-              <div onClick={() => setModalOpen(true)} onKeyDown={() => setModalOpen(true)} role="contentinfo" className="w-6 h-6 rounded-full bg-[#E3DBFC] flex flex-row justify-center items-center">
-                <p className="text-primary font-medium text-[0.813rem]">
-                  {
-                    selected.length - 1
-                  }
-                  +
-                </p>
-              </div>
+              {
+                selected.slice(0, 4).map((user) => (
+                  <SVGIcon className="w-[32px] h-[32px] ml-[-18px] rounded-full" onClick={() => setModalOpen(!modalOpen)} Icon={user.icon} />
+                ))
+              }
+              {
+                selected.length > 4 && (
+                  <div onClick={() => setModalOpen(true)} onKeyDown={() => setModalOpen(!modalOpen)} role="contentinfo" className="w-[32px] h-[32px] ml-[-30px] rounded-full bg-[#E3DBFC] flex flex-row justify-center items-center">
+                    <p className="text-primary font-medium text-[0.813rem]">
+                      {
+                        selected.length - 3
+                      }
+                      +
+                    </p>
+                  </div>
+                )
+              }
             </div>
           )
         }
       </div>
       {
         modalOpen && (
-          <div ref={ref} style={{ boxShadow: '0px 10px 15px -3px rgba(0, 0, 0, 0.1), 0px 4px 6px -2px rgba(0, 0, 0, 0.05)' }} className="absolute z-10 w-[11.063em] h-auto bg-white rounded-md">
-            <div className="bg-slate-50 px-3">
+          <div ref={ref} style={{ boxShadow: '0px 10px 15px -3px rgba(0, 0, 0, 0.1), 0px 4px 6px -2px rgba(0, 0, 0, 0.05)' }} className="absolute z-10 w-[11.063em] h-auto bg-white rounded-md cursor-pointer">
+            <div>
               {
                 selected.map((member) => (
                   <div key={member.id} className="flex flex-row items-center justify-left gap-x-[0.438rem]">

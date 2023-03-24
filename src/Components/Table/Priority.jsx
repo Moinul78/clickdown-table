@@ -9,7 +9,7 @@ import {
 import useOnclickOutside from '../../Hooks/UseOnClickOutSide';
 import SVGIcon from '../../SVGIcon/SVGIcon';
 
-export default function DropDown() {
+export default function Priority() {
   const priority = [
     {
       id: 1,

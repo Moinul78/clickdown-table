@@ -64,7 +64,7 @@ export default function DropDown() {
       </div>
       {
         modalOpen && (
-          <div ref={ref} style={{ boxShadow: '0px 10px 15px -3px rgba(0, 0, 0, 0.1), 0px 4px 6px -2px rgba(0, 0, 0, 0.05)' }} className="absolute z-10 h-auto right-1/3 top-7 py-[6px] px-[4px] bg-white shadow-2xl rounded-md">
+          <div ref={ref} style={{ boxShadow: '0px 10px 15px -3px rgba(0, 0, 0, 0.1), 0px 4px 6px -2px rgba(0, 0, 0, 0.05)' }} className="absolute z-10 h-auto right-1/3 top-7 py-[6px] px-[4px] bg-white shadow-2xl rounded-md cursor-pointer">
             <div>
               {
                 priority.map((s) => (
