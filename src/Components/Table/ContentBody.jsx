@@ -1,19 +1,18 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {
-  IssueTypesIcon,
   circleIcon,
-  dragIcon,
+  dragIcon, IssueTypesIcon,
 } from '../../Assets/SVGcomponents';
+import { subData } from '../../data';
 import SVGIcon from '../../SVGIcon/SVGIcon';
 import CalendarData from './CalendarData';
-import Estimate from './Estimate';
 import DropDown from './DropDown';
+import Estimate from './Estimate';
+import IssueTypes from './IssueTypes';
 import Priority from './Priority';
 import SelectUser from './SelectUser';
 import SprintPoint from './SprintPoints';
 import styles from './Table.module.css';
-import { subData } from '../../data';
-import IssueTypes from './IssueTypes';
 
 export default function ContentBody() {
   return (
@@ -27,12 +26,11 @@ export default function ContentBody() {
   );
 }
 function Row({ data }) {
-  const [showSubTask, setShowSubTask] = useState([]);
-  const [expand, setExpand] = useState(false);
   const handleTask = (d) => {
-    setShowSubTask(d.id);
-    setExpand(!expand);
+    const subTasksWrapper = document.getElementById(`${d.id}subtasks`);
+    subTasksWrapper.style.display = 'block';
   };
+
   return (
     <div className={`hover:bg-slate-50 ${styles.tableRow}`}>
       <div className="grid grid-cols-12 border-0 border-b-[0.063rem] border-slate-200 py-2">
@@ -42,10 +40,7 @@ function Row({ data }) {
             <SVGIcon Icon={circleIcon} />
             <SVGIcon Icon={dragIcon} />
             <div onClick={() => handleTask(data)} role="contentinfo" onKeyDown={() => { }}>
-              {
-                expand ? (<SVGIcon Icon={data.arrowDownIcon} />)
-                  : (<SVGIcon Icon={data.ArrowRight} />)
-              }
+              <SVGIcon Icon={data.ArrowRight} />
             </div>
           </div>
         </div>
@@ -89,10 +84,9 @@ function Row({ data }) {
           <Priority />
         </div>
       </div>
-      <div id="task">
+      <div id={`${data.id}subtasks`} style={{ display: 'none' }}>
         {
-          expand
-          && subData[showSubTask]?.subTask?.map((datas) => (
+          data.subTask?.map((datas) => (
             (
               <div key={datas.id}>
                 <div className="grid grid-cols-12 border-0 border-b-[0.063rem] border-slate-200 py-2 duration-500">
@@ -101,7 +95,9 @@ function Row({ data }) {
                     <div className="flex flex-row justify-center items-center gap-x-2">
                       <SVGIcon className="invisible" Icon={datas.circleIcon} />
                       <SVGIcon className="invisible" Icon={datas.dragIcon} />
-                      <SVGIcon Icon={datas.ArrowRight} />
+                      <div onClick={console.log('clicked')} role="contentinfo" onKeyDown={() => { }}>
+                        <SVGIcon Icon={datas.ArrowRight} />
+                      </div>
                     </div>
                   </div>
                   {/* col-2 */}
@@ -143,6 +139,10 @@ function Row({ data }) {
             )
           ))
         }
+        {/* {
+          console.log(subData[showSubTask]?.subTask[childData]?.child)
+        } */}
+
       </div>
     </div>
   );

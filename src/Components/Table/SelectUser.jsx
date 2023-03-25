@@ -56,20 +56,20 @@ export default function SelectUser() {
           selected.length < 1 && (<SVGIcon className="w-[32px] h-[32px] rounded-full" onClick={() => setModalOpen(!modalOpen)} Icon={addUserIcon} />)
         }
         {
-          selected.length === 1 && (<SVGIcon className="w-[32px] h-[32px]  ml-[-30px] rounded-full" onClick={() => setModalOpen(!modalOpen)} Icon={selected[0].icon} />)
+          selected.length === 1 && (<SVGIcon className="w-[32px] h-[32px]  ml-[-10px] rounded-full" onClick={() => setModalOpen(!modalOpen)} Icon={selected[0].icon} />)
         }
         {
           selected.length > 1 && (
             <div className="flex flex-row items-centers">
               {
                 selected.slice(0, 4).map((user) => (
-                  <SVGIcon className="w-[32px] h-[32px] ml-[-18px] rounded-full" onClick={() => setModalOpen(!modalOpen)} Icon={user.icon} />
+                  <SVGIcon className="w-[32px] h-[32px] ml-[-20px] rounded-full" onClick={() => setModalOpen(!modalOpen)} Icon={user.icon} />
                 ))
               }
               {
                 selected.length > 4 && (
                   <div onClick={() => setModalOpen(true)} onKeyDown={() => setModalOpen(!modalOpen)} role="contentinfo" className="w-[32px] h-[32px] ml-[-30px] rounded-full bg-[#E3DBFC] flex flex-row justify-center items-center">
-                    <p className="text-primary font-medium text-[0.813rem]">
+                    <p className=" text-primary font-medium text-[0.813rem]">
                       {
                         selected.length - 3
                       }

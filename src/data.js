@@ -59,6 +59,22 @@ const subData = [
         dragIcon,
         ArrowRight,
         details: 'As a new Certified ScrumMaster, once my name has been loaded to the registry I am sent an email welcoming me to the Scrum Alliance and containing instructions on how to register/activate my membership',
+        child: [
+          {
+            id: 1,
+            circleIcon,
+            dragIcon,
+            ArrowRight,
+            details: 'As a new Certified ScrumMaster, once my name has been loaded to the registry I am sent an email welcoming me to the Scrum Alliance and containing instructions on how to register/activate my membership',
+          },
+          {
+            id: 2,
+            circleIcon,
+            dragIcon,
+            ArrowRight,
+            details: 'As a new Certified ScrumMaster, once my name has been loaded to the registry I am sent an email welcoming me to the Scrum Alliance and containing instructions on how to r,,egister/activate my membership',
+          },
+        ],
       },
       {
         id: 2,
