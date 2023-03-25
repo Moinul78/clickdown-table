@@ -4,34 +4,9 @@ import {
 } from '../../Assets/SVGcomponents';
 import useOnclickOutside from '../../Hooks/UseOnClickOutSide';
 import SVGIcon from '../../SVGIcon/SVGIcon';
+import { Status } from '../../data';
 
 export default function DropDown() {
-  const priority = [
-    {
-      id: 1,
-      status: 'TO DO',
-      ellipsis: 'w-[6px] h-[6px] rounded-full bg-[#475569] mr-[4px]',
-      className: 'bg-[#E2E8F0] text-[#475569] flex justify-left items-center  text-bold my-2 px-[8px] w-[90px] h-[24px]  rounded-[4px]',
-    },
-    {
-      id: 2,
-      status: 'IN PROGRESS',
-      ellipsis: 'w-[6px] h-[6px] rounded-full bg-[#6239ED] mr-[4px]',
-      className: 'bg-[#6239ed1a] text-[#475569] flex justify-left items-center  text-bold my-2 px-[4px] w-[115px] h-[24px]  rounded-[4px]',
-    },
-    {
-      id: 3,
-      status: 'IN REVIEW',
-      ellipsis: 'w-[6px] h-[6px] rounded-full bg-[#FE7317] mr-[4px]',
-      className: 'bg-[#FFF1E8] text-[#475569] flex justify-left items-center  text-bold my-2 px-[8px] w-[105px] h-[24px] rounded-[4px]',
-    },
-    {
-      id: 4,
-      status: 'DONE',
-      ellipsis: 'w-[6px] h-[6px] rounded-full bg-[#22C55E] mr-[4px]',
-      className: 'bg-[#DCFCE7] text-[#475569] flex flex-row justify-left items-center  text-bold my-2 px-[8px] w-[80px] h-[24px] rounded-[4px]',
-    },
-  ];
   const [modalOpen, setModalOpen] = useState(false);
   const [status, setStatus] = useState(false);
   const ref = useRef();
@@ -67,7 +42,7 @@ export default function DropDown() {
           <div ref={ref} style={{ boxShadow: '0px 10px 15px -3px rgba(0, 0, 0, 0.1), 0px 4px 6px -2px rgba(0, 0, 0, 0.05)' }} className="absolute z-10 h-auto right-1/3 top-7 py-[6px] px-[4px] bg-white shadow-2xl rounded-md cursor-pointer">
             <div>
               {
-                priority.map((s) => (
+                Status.map((s) => (
                   <div key={s.id}>
                     <div onClick={() => handleStates(s)} role="contentinfo" onKeyDown={() => { }} className={s.className}>
                       <p className={s.ellipsis}>{ }</p>

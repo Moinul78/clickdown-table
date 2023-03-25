@@ -1,41 +1,12 @@
 import React, { useRef, useState } from 'react';
 import { starCircleIcon } from '../../Assets/SVGcomponents';
+import { Options } from '../../data';
 import useOnclickOutside from '../../Hooks/UseOnClickOutSide';
 import SVGIcon from '../../SVGIcon/SVGIcon';
 
 export default function SprintPoint() {
-  const Optiondata = [
-    {
-      id: 1,
-      value: '0',
-    },
-    {
-      id: 2,
-      value: '1',
-    },
-    {
-      id: 3,
-      value: '2',
-    },
-    {
-      id: 4,
-      value: '3',
-    },
-    {
-      id: 5,
-      value: '4',
-    },
-    {
-      id: 6,
-      value: '5',
-    },
-    {
-      id: 7,
-      value: '8',
-    },
-  ];
   const [modalOpen, setModalOpen] = useState(false);
-  const [allData, setAllData] = useState(Optiondata);
+  const [allData, setAllData] = useState(Options);
   const [selected, setSelected] = useState(false);
   const ref = useRef();
   useOnclickOutside(ref, () => setModalOpen(false));
@@ -43,12 +14,12 @@ export default function SprintPoint() {
   const handleStates = (data) => {
     setSelected(data.value);
     setModalOpen(!modalOpen);
-    setAllData(Optiondata);
+    setAllData(Options);
   };
   const handleSearchData = (searchName) => {
     const searchString = searchName.trim();
     if (searchString === '') {
-      const remainingData = Optiondata.filter((data) => !selected.some(
+      const remainingData = Options.filter((data) => !selected.some(
         (selectedData) => selectedData.id === data.id,
       ));
       setAllData(remainingData);

@@ -1,40 +1,17 @@
 import React, { useRef, useState } from 'react';
 import {
   flagIcon,
-  HighPriority,
-  LowPriority,
-  MediumPriority,
   PriorityFlag,
 } from '../../Assets/SVGcomponents';
+import { priority } from '../../data';
 import useOnclickOutside from '../../Hooks/UseOnClickOutSide';
 import SVGIcon from '../../SVGIcon/SVGIcon';
 
 export default function Priority() {
-  const priority = [
-    {
-      id: 1,
-      status: 'Low',
-      flag: LowPriority,
-      className: 'bg-[#22C55E] flex justify-left items-center text-white py-[4px] leading-[24px] text-semibold mb-1 rounded',
-    },
-    {
-      id: 2,
-      status: 'Medium',
-      flag: MediumPriority,
-      className: 'bg-[#FE7317] flex justify-left items-center text-white py-[4px] leading-[24px] text-semibold mb-1 rounded',
-    },
-    {
-      id: 3,
-      status: 'High',
-      flag: HighPriority,
-      className: 'bg-[#DC2626] flex justify-left items-center text-white py-[4px] leading-[24px] text-semibold mb-1 rounded',
-    },
-  ];
   const [modalOpen, setModalOpen] = useState(false);
   const [status, setStatus] = useState(false);
   const ref = useRef();
   useOnclickOutside(ref, () => setModalOpen(false));
-
   const handleStates = (selectedStatus) => {
     setStatus(selectedStatus);
     setModalOpen(!modalOpen);

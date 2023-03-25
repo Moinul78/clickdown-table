@@ -169,7 +169,7 @@ export default function CalendarData() {
                           <SVGIcon Icon={CalendarIcon} />
                           <h1 className="text-[#475569] text-sm leading-4 font-medium ml-[0.875rem]">
                             {
-                              dueDate.from ? new Date(dueDate.from).toLocaleDateString() : 'start Date'
+                              dueDate.from ? new Date(dueDate.from).toLocaleDateString() : <input className="w-[70px] h-[25px] font-medium text-[11px] leading-[16px] text-[#475569] p - 2" placeholder="Start Date" type="text" id="startDate" pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}" />
                             }
                           </h1>
                         </div>

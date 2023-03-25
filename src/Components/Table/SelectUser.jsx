@@ -1,52 +1,13 @@
 import React, { useRef, useState } from 'react';
 import {
   addUserIcon,
-  avatar1,
-  avatar2,
   cancel,
 } from '../../Assets/SVGcomponents';
+import { users } from '../../data';
 import useOnclickOutside from '../../Hooks/UseOnClickOutSide';
 import SVGIcon from '../../SVGIcon/SVGIcon';
 
 export default function SelectUser() {
-  const users = [
-    {
-      id: 1,
-      name: 'Moinul Islam',
-      icon: avatar1,
-      isAdded: false,
-    },
-    {
-      id: 2,
-      name: 'Ramjan Ali Anik',
-      icon: avatar2,
-      isAdded: false,
-    },
-    {
-      id: 3,
-      name: 'Rakibul Yeasin',
-      icon: avatar1,
-      isAdded: false,
-    },
-    {
-      id: 4,
-      name: 'Mizanur Rahman Hasan',
-      icon: avatar2,
-      isAdded: false,
-    },
-    {
-      id: 5,
-      name: 'Jayeen Bin Alam',
-      icon: avatar1,
-      isAdded: false,
-    },
-    {
-      id: 6,
-      name: 'Rasel Miah',
-      icon: avatar2,
-      isAdded: false,
-    },
-  ];
   const [modalOpen, setModalOpen] = useState(false);
   const [allmembers, setAllMembers] = useState(users);
   const [selected, setSelected] = useState([]);

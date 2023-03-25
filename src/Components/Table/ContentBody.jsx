@@ -20,7 +20,7 @@ export default function ContentBody() {
     <div>
       {
         subData.map((data) => (
-          <Row data={data} />
+          <Row key={data.id} data={data} />
         ))
       }
     </div>
@@ -34,7 +34,7 @@ function Row({ data }) {
     setExpand(!expand);
   };
   return (
-    <div key={data.id} className={`hover:bg-slate-50 ${styles.tableRow}`}>
+    <div className={`hover:bg-slate-50 ${styles.tableRow}`}>
       <div className="grid grid-cols-12 border-0 border-b-[0.063rem] border-slate-200 py-2">
         <div className="flex justify-center items-center ">
           {/* col-1 */}
@@ -55,7 +55,7 @@ function Row({ data }) {
         </div>
         {/* col-3 */}
         <div className="col-span-4 flex flex-row justify-start items-center gap-x-2 ml-[-3rem]">
-          <h3 className="text-heading text-sm font-medium">{data.text}</h3>
+          <h3 className="text-heading text-sm font-medium leading-6">{data.text}</h3>
           <div className="flex flex-row items-center">
             <SVGIcon Icon={data.subTaskIcon} />
             <p className="text-slate-500 font-medium text-[0.688rem]">{data.subTaskQuantity}</p>

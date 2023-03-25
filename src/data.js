@@ -1,10 +1,15 @@
 import {
   arrowDownIcon,
   ArrowRight,
+  avatar1,
+  avatar2,
   circleIcon,
   dragIcon,
   editIcon,
+  HighPriority,
   IssueTypesIcon,
+  LowPriority,
+  MediumPriority,
   plusIcon,
   subtaskIcon,
   tagIcon,
@@ -103,14 +108,128 @@ const subData = [
     isOpen: false,
   },
 ];
-const personDetails = {
-  id: 1,
-  username: 'Moinul Islam',
-  designation: 'MERN Developer',
-  email: 'moinul@coredevs.ltd',
-  phone: '+880 1235-889250',
-  location: 'Core Devs Ltd.',
-  isActive: true,
-};
+const users = [
+  {
+    id: 1,
+    name: 'Moinul Islam',
+    icon: avatar1,
+    isAdded: false,
+  },
+  {
+    id: 2,
+    name: 'Ramjan Ali Anik',
+    icon: avatar2,
+    isAdded: false,
+  },
+  {
+    id: 3,
+    name: 'Rakibul Yeasin',
+    icon: avatar1,
+    isAdded: false,
+  },
+  {
+    id: 4,
+    name: 'Mizanur Rahman Hasan',
+    icon: avatar2,
+    isAdded: false,
+  },
+  {
+    id: 5,
+    name: 'Jayeen Bin Alam',
+    icon: avatar1,
+    isAdded: false,
+  },
+  {
+    id: 6,
+    name: 'Rasel Miah',
+    icon: avatar2,
+    isAdded: false,
+  },
+];
 
-export { subData, personDetails };
+const priority = [
+  {
+    id: 1,
+    status: 'Low',
+    flag: LowPriority,
+    className: 'bg-[#22C55E] flex justify-left items-center text-white py-[4px] leading-[24px] text-semibold mb-1 rounded',
+  },
+  {
+    id: 2,
+    status: 'Medium',
+    flag: MediumPriority,
+    className: 'bg-[#FE7317] flex justify-left items-center text-white py-[4px] leading-[24px] text-semibold mb-1 rounded',
+  },
+  {
+    id: 3,
+    status: 'High',
+    flag: HighPriority,
+    className: 'bg-[#DC2626] flex justify-left items-center text-white py-[4px] leading-[24px] text-semibold mb-1 rounded',
+  },
+];
+
+const Options = [
+  {
+    id: 1,
+    value: '0',
+  },
+  {
+    id: 2,
+    value: '1',
+  },
+  {
+    id: 3,
+    value: '2',
+  },
+  {
+    id: 4,
+    value: '3',
+  },
+  {
+    id: 5,
+    value: '4',
+  },
+  {
+    id: 6,
+    value: '5',
+  },
+  {
+    id: 7,
+    value: '8',
+  },
+];
+
+const Status = [
+  {
+    id: 1,
+    status: 'TO DO',
+    ellipsis: 'w-[6px] h-[6px] rounded-full bg-[#475569] mr-[4px]',
+    className: 'bg-[#E2E8F0] text-[#475569] flex justify-left items-center  text-bold my-2 px-[8px] w-[90px] h-[24px]  rounded-[4px]',
+  },
+  {
+    id: 2,
+    status: 'IN PROGRESS',
+    ellipsis: 'w-[6px] h-[6px] rounded-full bg-[#6239ED] mr-[4px]',
+    className: 'bg-[#6239ed1a] text-[#475569] flex justify-left items-center  text-bold my-2 px-[4px] w-[115px] h-[24px]  rounded-[4px]',
+  },
+  {
+    id: 3,
+    status: 'IN REVIEW',
+    ellipsis: 'w-[6px] h-[6px] rounded-full bg-[#FE7317] mr-[4px]',
+    className: 'bg-[#FFF1E8] text-[#475569] flex justify-left items-center  text-bold my-2 px-[8px] w-[105px] h-[24px] rounded-[4px]',
+  },
+  {
+    id: 4,
+    status: 'DONE',
+    ellipsis: 'w-[6px] h-[6px] rounded-full bg-[#22C55E] mr-[4px]',
+    className: 'bg-[#DCFCE7] text-[#475569] flex flex-row justify-left items-center  text-bold my-2 px-[8px] w-[80px] h-[24px] rounded-[4px]',
+  },
+];
+
+export {
+  subData,
+  users,
+  priority,
+  Options,
+  Status,
+};
