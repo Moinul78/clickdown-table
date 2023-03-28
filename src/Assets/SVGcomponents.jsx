@@ -50,7 +50,7 @@ import { ReactComponent as plusIcon } from './Icons/plus-sign.svg';
 import { ReactComponent as folderSharpIcon } from './Icons/folder-sharp.svg';
 import { ReactComponent as folderIcon } from './Icons/folder.svg';
 import { ReactComponent as addMemberIcon } from './Icons/user-add-02 1.svg';
-import { ReactComponent as circleIcon } from './Icons/circle 3.svg';
+import { ReactComponent as circleIcon } from './Icons/circleIcon.svg';
 import { ReactComponent as arrowUpDownIcon } from './Icons/arrow-up-down.svg';
 import { ReactComponent as flashIconOne } from './Icons/flash-1.svg';
 import { ReactComponent as flashIconTwo } from './Icons/flash-2.svg';

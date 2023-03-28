@@ -3,26 +3,19 @@ import {
   ArrowRight,
   avatar1,
   avatar2,
-  circleIcon,
   dragIcon,
   editIcon,
   HighPriority,
   IssueTypesIcon,
   LowPriority,
+  circleIcon,
   MediumPriority,
   plusIcon,
   subtaskIcon,
   tagIcon,
+  flashIconTwo,
+  flashIconOne,
 } from './Assets/SVGcomponents';
-// import arrowDownIcon from './Assets/Icons/arrow down.svg';
-// import ArrowRight from './Assets/Icons/Arrowright.svg';
-// import circleIcon from './Assets/Icons/circle 3.svg';
-// import dragIcon from './Assets/Icons/Drag icon.svg';
-// import editIcon from './Assets/Icons/edit-icon.svg';
-// import IssueTypesIcon from './Assets/Icons/IssueTypes.svg';
-// import plusIcon from './Assets/Icons/plus-sign.svg';
-// import subtaskIcon from './Assets/Icons/Sub task.svg';
-// import tagIcon from './Assets/Icons/tag-icon.svg';
 
 const subData = [
   {
@@ -36,7 +29,9 @@ const subData = [
     plusIcon,
     tagIcon,
     editIcon,
+    circleIcon,
     dragIcon,
+    IssueTypesIcon,
     subTask: [],
     isOpen: false,
   },
@@ -52,12 +47,62 @@ const subData = [
     tagIcon,
     editIcon,
     dragIcon,
+    circleIcon,
     subTask: [
       {
         id: 1,
-        circleIcon,
+        circle: circleIcon,
         dragIcon,
-        ArrowRight,
+        rightArrow: ArrowRight,
+        downArrow: arrowDownIcon,
+        details: 'As a new Certified ScrumMaster, once my name has been loaded to the registry I am sent an email welcoming me to the Scrum Alliance and containing instructions on how to register/activate my membership',
+      },
+      {
+        id: 2,
+        circle: circleIcon,
+        dragIcon,
+        rightArrow: ArrowRight,
+        downArrow: arrowDownIcon,
+        details: 'As a new Certified ScrumMaster, once my name has been loaded to the registry I am sent an email welcoming me to the Scrum Alliance and containing instructions on how to register/activate my membership',
+        child: [
+          {
+            id: 1,
+            circleIcon,
+            dragIcon,
+            ArrowRight,
+            details: 'As a new Certified ScrumMaster, once my name has been loaded to the registry I am sent an email welcoming me to the Scrum Alliance and containing instructions on how to register/activate my membership',
+          },
+          {
+            id: 2,
+            circleIcon,
+            dragIcon,
+            ArrowRight,
+            details: 'As a new Certified ScrumMaster, once my name has been loaded to the registry I am sent an email welcoming me to the Scrum Alliance and containing instructions on how to r,,egister/activate my membership',
+          },
+        ],
+      },
+    ],
+    isOpen: false,
+  },
+  {
+    id: 2,
+    issueTypesIcon: IssueTypesIcon,
+    text: 'Custom Integration',
+    subTaskIcon: subtaskIcon,
+    subTaskQuantity: 3,
+    arrowDownIcon,
+    ArrowRight,
+    plusIcon,
+    tagIcon,
+    editIcon,
+    dragIcon,
+    subTask: [
+      {
+        id: 1,
+        circle: circleIcon,
+        dragIcon,
+        rightArrow: ArrowRight,
+        downArrow: arrowDownIcon,
         details: 'As a new Certified ScrumMaster, once my name has been loaded to the registry I am sent an email welcoming me to the Scrum Alliance and containing instructions on how to register/activate my membership',
         child: [
           {
@@ -78,47 +123,51 @@ const subData = [
       },
       {
         id: 2,
-        circleIcon,
+        circle: circleIcon,
         dragIcon,
-        ArrowRight,
+        rightArrow: ArrowRight,
+        downArrow: arrowDownIcon,
         details: 'As a new Certified ScrumMaster, once my name has been loaded to the registry I am sent an email welcoming me to the Scrum Alliance and containing instructions on how to register/activate my membership',
-      },
-    ],
-    isOpen: false,
-  },
-  {
-    id: 2,
-    issueTypesIcon: IssueTypesIcon,
-    text: 'Custom Integration',
-    subTaskIcon: subtaskIcon,
-    subTaskQuantity: 3,
-    arrowDownIcon,
-    ArrowRight,
-    plusIcon,
-    tagIcon,
-    editIcon,
-    dragIcon,
-    subTask: [
-      {
-        id: 1,
-        circleIcon,
-        dragIcon,
-        ArrowRight,
-        details: 'As a new Certified ScrumMaster, once my name has been loaded to the registry I am sent an email welcoming me to the Scrum Alliance and containing instructions on how to register/activate my membership',
-      },
-      {
-        id: 2,
-        circleIcon,
-        dragIcon,
-        ArrowRight,
-        details: 'As a new Certified ScrumMaster, once my name has been loaded to the registry I am sent an email welcoming me to the Scrum Alliance and containing instructions on how to register/activate my membership',
+        child: [
+          {
+            id: 1,
+            circleIcon,
+            dragIcon,
+            ArrowRight,
+            details: 'As a new Certified ScrumMaster, once my name has been loaded to the registry I am sent an email welcoming me to the Scrum Alliance and containing instructions on how to register/activate my membership',
+          },
+          {
+            id: 2,
+            circleIcon,
+            dragIcon,
+            ArrowRight,
+            details: 'As a new Certified ScrumMaster, once my name has been loaded to the registry I am sent an email welcoming me to the Scrum Alliance and containing instructions on how to r,,egister/activate my membership',
+          },
+        ],
       },
       {
         id: 3,
-        circleIcon,
+        circle: circleIcon,
         dragIcon,
-        ArrowRight,
+        rightArrow: ArrowRight,
+        downArrow: arrowDownIcon,
         details: 'As a new Certified ScrumMaster, once my name has been loaded to the registry I am sent an email welcoming me to the Scrum Alliance and containing instructions on how to register/activate my membership',
+        child: [
+          {
+            id: 1,
+            circleIcon,
+            dragIcon,
+            ArrowRight,
+            details: 'As a new Certified ScrumMaster, once my name has been loaded to the registry I am sent an email welcoming me to the Scrum Alliance and containing instructions on how to register/activate my membership',
+          },
+          {
+            id: 2,
+            circleIcon,
+            dragIcon,
+            ArrowRight,
+            details: 'As a new Certified ScrumMaster, once my name has been loaded to the registry I am sent an email welcoming me to the Scrum Alliance and containing instructions on how to r,,egister/activate my membership',
+          },
+        ],
       },
     ],
     isOpen: false,
@@ -241,6 +290,57 @@ const Status = [
     className: 'bg-[#DCFCE7] text-[#475569] flex flex-row justify-left items-center  text-bold my-2 px-[8px] w-[80px] h-[24px] rounded-[4px]',
   },
 ];
+const issuetypes = [
+  {
+    id: 0,
+    type: 'None',
+    icon: flashIconTwo,
+    iconClass: 'w-6 h-6 bg-slate-200 rounded-[0.188rem]',
+    textClass: 'text-slate-900 font-medium text-[0.688rem]',
+  },
+  {
+    id: 1,
+    type: 'Epic',
+    icon: flashIconOne,
+    iconClass: 'w-6 h-6 bg-[#904EE2] flex flex-row justify-center items-center rounded-[0.188rem',
+    textClass: 'text-slate-900 font-medium text-[0.688rem]',
+  },
+  {
+    id: 2,
+    type: 'Bug',
+    icon: flashIconOne,
+    iconClass: 'w-6 h-6 bg-[#E5493A] flex flex-row justify-center items-center rounded-[0.188rem]',
+    textClass: 'text-slate-900 font-medium text-[0.688rem]',
+  },
+  {
+    id: 3,
+    type: 'New Feature',
+    icon: flashIconTwo,
+    iconClass: 'w-6 h-6 bg-[#68B447] flex flex-row justify-center items-center rounded-[0.188rem]',
+    textClass: 'text-slate-900 font-medium text-[0.688rem]',
+  },
+  {
+    id: 4,
+    type: 'Improvement',
+    icon: flashIconTwo,
+    iconClass: 'w-6 h-6 bg-[#E5493A] flex flex-row justify-center items-center rounded-[0.188rem]',
+    textClass: 'text-slate-900 font-medium text-[0.688rem]',
+  },
+  {
+    id: 5,
+    type: 'Task',
+    icon: flashIconTwo,
+    iconClass: 'w-6 h-6 bg-[#4BADE8] flex flex-row justify-center items-center rounded-[0.188rem]',
+    textClass: 'text-slate-900 font-medium text-[0.688rem]',
+  },
+  {
+    id: 6,
+    type: 'Sub Task',
+    icon: flashIconTwo,
+    iconClass: 'w-6 h-6 bg-[#FFA2C0] flex flex-row justify-center items-center rounded-[0.188rem]',
+    textClass: 'text-slate-900 font-medium text-[0.688rem]',
+  },
+];
 
 export {
   subData,
@@ -248,4 +348,5 @@ export {
   priority,
   Options,
   Status,
+  issuetypes,
 };

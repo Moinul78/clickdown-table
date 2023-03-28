@@ -1,16 +1,28 @@
 import React, { useRef, useState } from 'react';
-import { flashIconOne, flashIconTwo } from '../../Assets/SVGcomponents';
+import { flashIconTwo } from '../../Assets/SVGcomponents';
+import { issuetypes } from '../../data';
 import useOnclickOutside from '../../Hooks/UseOnClickOutSide';
 import SVGIcon from '../../SVGIcon/SVGIcon';
 
 export default function IssueTypes() {
   const [modalOpen, setModalOpen] = useState(false);
+  const [type, setType] = useState(false);
+  console.log(type);
   const ref = useRef();
   useOnclickOutside(ref, () => setModalOpen(false));
+
+  const handleStates = (selectedType) => {
+    console.log(selectedType);
+    setType(selectedType);
+    setModalOpen(!modalOpen);
+  };
   return (
     <div className="flex flex-row justify-center items-start relative">
       <div onClick={() => setModalOpen(!modalOpen)} role="contentinfo" onKeyDown={() => setModalOpen(!modalOpen)} className="w-6 h-6 rounded-md bg-[#E5493A] flex flex-row justify-center items-center">
-        <SVGIcon Icon={flashIconTwo} />
+        {
+          type ? <SVGIcon className={type.iconClass} Icon={type.icon} />
+            : <SVGIcon Icon={flashIconTwo} />
+        }
       </div>
       {
         modalOpen && (
@@ -20,52 +32,20 @@ export default function IssueTypes() {
             </div>
             <p className="text-[0.688rem] text-slate-500 font-medium py-2 pl-3">Select Issue types</p>
             <div className="pl-3">
-              <div className="flex flex-row items-center gap-x-3">
-                <div className="w-6 h-6 bg-slate-200 rounded-[0.188rem]">
-                  { }
-                </div>
-                <p className="text-slate-900 font-medium text-[0.688rem]">None</p>
-              </div>
-              <div className="flex flex-row items-center gap-x-3 pt-2">
-                <div className="w-6 h-6 bg-primary flex flex-row justify-center items-center rounded-[0.188rem]">
-                  <SVGIcon Icon={flashIconOne} />
-                </div>
-                <p className="text-slate-900 font-medium text-[0.688rem]">Epic</p>
-              </div>
-              <div className="flex flex-row items-center gap-x-3 pt-2">
-                <div className="w-6 h-6 bg-[#E5493A] flex flex-row justify-center items-center rounded-[0.188rem]">
-                  <SVGIcon Icon={flashIconTwo} />
-                </div>
-                <p className="text-slate-900 font-medium text-[0.688rem]">Bug</p>
-              </div>
-              <div className="flex flex-row items-center gap-x-3 pt-2">
-                <div className="w-6 h-6 bg-[#68B447] flex flex-row justify-center items-center rounded-[0.188rem]">
-                  <SVGIcon Icon={flashIconOne} />
-                </div>
-                <p className="text-slate-900 font-medium text-[0.688rem]">New Feature</p>
-              </div>
-              <div className="flex flex-row items-center gap-x-3 pt-2">
-                <div className="w-6 h-6 bg-[#E5493A] flex flex-row justify-center items-center rounded-[0.188rem]">
-                  <SVGIcon Icon={flashIconOne} />
-                </div>
-                <p className="text-slate-900 font-medium text-[0.688rem]">Improvement</p>
-              </div>
-              <div className="flex flex-row items-center gap-x-3 pt-2">
-                <div className="w-6 h-6 bg-[#4BADE8] flex flex-row justify-center items-center rounded-[0.188rem]">
-                  <SVGIcon Icon={flashIconOne} />
-                </div>
-                <p className="text-slate-900 font-medium text-[0.688rem]">Task</p>
-              </div>
-              <div className="flex flex-row items-center gap-x-3 pt-2">
-                <div className="w-6 h-6 bg-[#FFA2C0] flex flex-row justify-center items-center rounded-[0.188rem]">
-                  <SVGIcon Icon={flashIconOne} />
-                </div>
-                <p className="text-slate-900 font-medium text-[0.688rem]">Sub Task</p>
-              </div>
+              {
+                issuetypes.map((issue) => (
+                  <div key={issue.id} className="flex flex-row items-center gap-x-3 pt-2">
+                    <div className={issue.iconClass}>
+                      <SVGIcon Icon={issue.icon} />
+                    </div>
+                    <p onClick={() => handleStates(issue)} role="contentinfo" onKeyDown={() => { }} className={issue.textClass}>
+                      {issue.type}
+                    </p>
+                  </div>
+                ))
+              }
+              <button className="pl-3 py-2 text-slate-500 font-medium text-[0.688rem] underline">Add/edit options</button>
             </div>
-
-            <button className="pl-3 py-2 text-slate-500 font-medium text-[0.688rem] underline">Add/edit options</button>
-
           </div>
         )
       }

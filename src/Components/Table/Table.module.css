@@ -24,3 +24,7 @@
 .tableHeadTitle:hover~.tableHeadIcon {
   visibility: visible;
 }
+
+.rotateIcon {
+  transform: rotateZ(90deg);
+}
