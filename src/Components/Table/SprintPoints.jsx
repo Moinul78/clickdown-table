@@ -10,8 +10,10 @@ export default function SprintPoint() {
   useOnclickOutside(ref, () => setModalOpen(false));
   const getPoints = () => {
     const point = document.getElementById('points').value;
-    setSelected(point);
-    setModalOpen(!modalOpen);
+    if (point >= 0) {
+      setSelected(point);
+      setModalOpen(!modalOpen);
+    }
   };
   return (
     <div className="flex flex-row justify-center items-start relative hover:cursor-pointer">
@@ -30,7 +32,7 @@ export default function SprintPoint() {
       {
         modalOpen && (
           <div ref={ref} style={{ boxShadow: '0px 10px 15px -3px rgba(0, 0, 0, 0.1), 0px 4px 6px -2px rgba(0, 0, 0, 0.05)' }} className="absolute z-10 w-[10rem] h-auto right-1/3 p-2 top-6 bg-white shadow-2xl rounded-md">
-            <input id="points" onInput={getPoints} className="w-full p-2 outline-none bg-[#F8FAFC] text-[0.688rem] ]" type="text" name="search" placeholder="Give Point" />
+            <input id="points" autoComplete="off" onInput={getPoints} className="w-full p-2 outline-none bg-[#F8FAFC] text-[0.688rem] ]" type="text" name="search" placeholder="Give Point" />
           </div>
         )
       }

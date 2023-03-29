@@ -61,16 +61,20 @@ export default function CalendarData() {
       setDueDate({ to: null });
     }
   };
-  function addManualDate() {
+  function InputStartDate() {
+    const startDateInput = document.getElementById('startDate').value;
+    if (dueDate.from === null || !dueDate.from) {
+      setDueDate((prev) => ({ ...prev, from: (startDateInput) }));
+    }
+  }
+  function InputEndDate() {
+    const endDateInput = document.getElementById('endDate').value;
+    if (dueDate.to === null || !dueDate.to) {
+      setDueDate((prev) => ({ ...prev, to: (endDateInput) }));
+    }
+  }
+  function setInputDate() {
     setModalOpen(false);
-    if (dueDate.from === null) {
-      const startDateInput = document.getElementById('startDate').value;
-      setDueDate({ from: (startDateInput) });
-    }
-    if (dueDate.to === null) {
-      const endDateInput = document.getElementById('endDate').value;
-      setDueDate({ to: (endDateInput) });
-    }
   }
 
   function calculateDaysInRange(range) {
@@ -89,7 +93,8 @@ export default function CalendarData() {
     <div className="flex flex-row justify-center items-start relative cursor-pointer">
       <div onClick={() => setModalOpen(!modalOpen)} role="contentinfo" onKeyDown={() => setModalOpen(!modalOpen)} className="w-6 h-6 rounded-md right-1/3 flex flex-row justify-center items-center">
         {
-          dueDate.to ? <p className="text-center font-semibold text-[0.688rem] text-[#64748B]">{new Date(dueDate.to).toLocaleDateString()}</p>
+          modalOpen === false
+            && dueDate.to ? <p className="text-center font-semibold text-[0.688rem] text-[#64748B]">{new Date(dueDate.to).toLocaleDateString()}</p>
             : <SVGIcon Icon={CalendarIcon} />
         }
 
@@ -175,7 +180,7 @@ export default function CalendarData() {
                             <SVGIcon Icon={CalendarIcon} />
                             <h1 className="text-[#475569] text-sm leading-4 font-medium ml-[0.3rem]">
                               {
-                                dueDate.from ? new Date(dueDate.from).toLocaleDateString() : <input className="w-[110px] h-[25px] outline-none font-medium text-[11px] leading-[16px] text-[#475569] p-2" placeholder="yyyy/mm/dd" type="text" id="startDate" pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}" />
+                                dueDate.from ? new Date(dueDate.from).toLocaleDateString() : <input onChange={InputStartDate} className="w-[110px] h-[25px] outline-none font-medium text-[11px] leading-[16px] text-[#475569] p-2" placeholder="yyyy/mm/dd" type="text" id="startDate" pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}" />
                               }
                             </h1>
                           </div>
@@ -188,7 +193,7 @@ export default function CalendarData() {
                             <SVGIcon Icon={CalendarIcon} />
                             <h1 className="text-[#475569] text-sm leading-4 font-medium ml-[0.3rem]">
                               {
-                                dueDate.to ? new Date(dueDate.to).toLocaleDateString() : <input className="w-[110px] h-[25px] outline-none font-medium text-[11px] leading-[16px] p-2" placeholder="yyyy/mm/dd" type="text" id="endDate" pattern="(^0[1-9]|[12][0-9]|3[01])-(0[1-9]|1[0-2])-(\d{4}$)" />
+                                dueDate.to ? new Date(dueDate.to).toLocaleDateString() : <input onChange={InputEndDate} className="w-[110px] h-[25px] outline-none font-medium text-[11px] leading-[16px] p-2" placeholder="yyyy/mm/dd" type="text" id="endDate" pattern="(^0[1-9]|[12][0-9]|3[01])-(0[1-9]|1[0-2])-(\d{4}$)" />
                               }
                             </h1>
                           </div>
@@ -196,8 +201,8 @@ export default function CalendarData() {
                       </div>
                     </div>
                   </div>
-                  <div className="absolute w-full bottom-5">
-                    <button onClick={() => addManualDate()} className="w-32 bg-[#6239ED] py-[0.375rem] text-sm text-center text-white leading-4 font-medium rounded-md">
+                  <div onClick={setInputDate} role="contentinfo" onKeyDown={() => { }} className="absolute w-full bottom-5">
+                    <button className="w-32 bg-[#6239ED] py-[0.375rem] text-sm text-center text-white leading-4 font-medium rounded-md">
                       Set date
                     </button>
                   </div>

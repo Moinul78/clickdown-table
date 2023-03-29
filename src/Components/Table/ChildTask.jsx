@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import SVGIcon from '../../SVGIcon/SVGIcon';
 import CalendarData from './CalendarData';
 import DropDown from './DropDown';
@@ -9,6 +9,7 @@ import SelectUser from './SelectUser';
 import SprintPoint from './SprintPoints';
 
 function ChildTask({ childData }) {
+  const [open, setOpen] = useState(false);
   console.log(childData);
   return (
     <div key={childData.id}>
@@ -19,8 +20,11 @@ function ChildTask({ childData }) {
           <div className="flex flex-row justify-center items-center gap-x-2">
             <SVGIcon className="invisible" Icon={childData.circleIcon} />
             <SVGIcon className="invisible" Icon={childData.dragIcon} />
-            <div>
-              <SVGIcon Icon={childData.ArrowRight} />
+            <div onClick={() => setOpen(!open)} role="contentinfo" onKeyDown={() => { }}>
+              {
+                open ? (<SVGIcon Icon={childData.ArrowRight} />)
+                  : (<SVGIcon className="rotate-90" Icon={childData.ArrowRight} />)
+              }
             </div>
           </div>
         </div>

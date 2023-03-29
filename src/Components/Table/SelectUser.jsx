@@ -51,7 +51,7 @@ export default function SelectUser() {
   };
   return (
     <div>
-      <div onClick={() => setModalOpen(!modalOpen)} role="contentinfo" onKeyDown={() => { }} className="flex flex-row justify-center items-start relative">
+      <div onClick={() => setModalOpen(!modalOpen)} role="contentinfo" onKeyDown={() => { }} className="flex flex-row justify-center items-start relative cursor-pointer">
         {
           selected.length < 1 && (<SVGIcon className="w-8 h-8 rounded-full" onClick={() => setModalOpen(!modalOpen)} Icon={addUserIcon} />)
         }
