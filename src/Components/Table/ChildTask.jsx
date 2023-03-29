@@ -12,9 +12,10 @@ function ChildTask({ childData }) {
   console.log(childData);
   return (
     <div key={childData.id}>
-      <div className="grid grid-cols-12 border-0 border-b-[0.063rem] border-slate-200 py-2 duration-500">
+      <div className="grid grid-cols-12 border-0 border-b-[0.063rem] border-slate-200 py-2 duration-500 cursor-pointer">
         {/* col-1 */}
-        <div className="grid justify-center items-center">
+        <div className="flex justify-center items-center cursor-pointer">
+          {/* col-1 */}
           <div className="flex flex-row justify-center items-center gap-x-2">
             <SVGIcon className="invisible" Icon={childData.circleIcon} />
             <SVGIcon className="invisible" Icon={childData.dragIcon} />
@@ -24,7 +25,7 @@ function ChildTask({ childData }) {
           </div>
         </div>
         {/* col-2 */}
-        <div className="grid justify-center items-center ml-[-4rem]">
+        <div className="grid justify-start items-center w-[3rem]">
           <IssueTypes />
         </div>
         {/* col-3 */}

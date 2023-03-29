@@ -17,7 +17,7 @@ export default function IssueTypes() {
     setModalOpen(!modalOpen);
   };
   return (
-    <div className="flex flex-row justify-center items-start relative">
+    <div className="relative cursor-pointer">
       <div onClick={() => setModalOpen(!modalOpen)} role="contentinfo" onKeyDown={() => setModalOpen(!modalOpen)} className="w-6 h-6 rounded-md bg-[#E5493A] flex flex-row justify-center items-center">
         {
           type ? <SVGIcon className={type.iconClass} Icon={type.icon} />
@@ -27,18 +27,18 @@ export default function IssueTypes() {
       {
         modalOpen && (
           <div ref={ref} style={{ boxShadow: '0px 10px 15px -3px rgba(0, 0, 0, 0.1), 0px 4px 6px -2px rgba(0, 0, 0, 0.05)' }} className="absolute z-10 w-[11.063em] h-auto left-1/3 top-8 bg-white rounded-md">
-            <div className="bg-slate-50 px-3 py-2">
+            <div className="bg-slate-50 px-3 py-2 rounded-md">
               <p className="text-[0.688rem] text-slate-500 font-medium">Issue type to search or add...</p>
             </div>
             <p className="text-[0.688rem] text-slate-500 font-medium py-2 pl-3">Select Issue types</p>
             <div className="pl-3">
               {
                 issuetypes.map((issue) => (
-                  <div key={issue.id} className="flex flex-row items-center gap-x-3 pt-2">
+                  <div onClick={() => handleStates(issue)} role="contentinfo" onKeyDown={() => { }} key={issue.id} className="flex flex-row items-center gap-x-3 pt-2">
                     <div className={issue.iconClass}>
                       <SVGIcon Icon={issue.icon} />
                     </div>
-                    <p onClick={() => handleStates(issue)} role="contentinfo" onKeyDown={() => { }} className={issue.textClass}>
+                    <p className={issue.textClass}>
                       {issue.type}
                     </p>
                   </div>

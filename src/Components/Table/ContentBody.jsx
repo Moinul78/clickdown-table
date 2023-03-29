@@ -30,14 +30,14 @@ function Row({ data }) {
     setExpand(!expand);
   };
   return (
-    <div className={`hover:bg-slate-50 ${styles.tableRow}`}>
-      <div className="grid grid-cols-12 border-0 border-b-[0.063rem] border-slate-200 py-2">
-        <div className="flex justify-center items-center ">
+    <div className={`${styles.tableRow}`}>
+      <div className="grid grid-cols-12 border-0 border-b-[0.063rem] hover:bg-[#6239ED] hover:bg-opacity-10 border-[#E2E8F0] py-2">
+        <div className="flex justify-center items-center cursor-pointer">
           {/* col-1 */}
           <div className="flex flex-row justify-center items-center gap-x-2">
             <SVGIcon Icon={circleIcon} />
             <SVGIcon Icon={data.dragIcon} />
-            <div onClick={() => handleTask(data)} role="contentinfo" onKeyDown={() => { }}>
+            <div className="w-[20px] h-[20px]" onClick={() => handleTask(data)} role="contentinfo" onKeyDown={() => { }}>
               {
                 expand ? (<SVGIcon Icon={data.arrowDownIcon} />)
                   : (<SVGIcon Icon={data.ArrowRight} />)
@@ -46,11 +46,11 @@ function Row({ data }) {
           </div>
         </div>
         {/* col-2 */}
-        <div className="flex flex-row justify-center items-center w-[3rem]">
+        <div className="flex flex-row justify-start items-center w-[3rem]">
           <SVGIcon Icon={data.issueTypesIcon} />
         </div>
         {/* col-3 */}
-        <div className="col-span-4 flex flex-row justify-start items-center gap-x-2 ml-[-3rem]">
+        <div className="col-span-4 flex flex-row justify-start items-center gap-x-2 ml-[-3rem] cursor-pointer">
           <h3 className="text-heading text-sm font-medium leading-6">{data.text}</h3>
           <div className="flex flex-row items-center">
             <SVGIcon Icon={data.subTaskIcon} />

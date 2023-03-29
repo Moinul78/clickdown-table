@@ -11,13 +11,13 @@ export default function Content() {
   return (
     <div>
       <div>
-        <div className="grid grid-cols-12 border-0 border-b-[0.063rem] border-slate-100 py-5 text-slate-500 font-medium text-[0.688rem]">
+        <div className="grid grid-cols-12 cursor-pointer border-0 border-b-[0.063rem] border-slate-100 py-5 text-slate-500 font-medium text-[0.688rem]">
           {/* col-1 */}
           <div className="flex flex-row justify-center items-center ml-[-3.5rem]">
             <SVGIcon Icon={circleIcon} />
           </div>
           {/* col-2 */}
-          <div className="flex flex-row justify-center items-center w-[3rem] ml-[0.6rem]">
+          <div className="flex flex-row justify-center items-center w-[3rem] ">
             <p className={`${styles.tableHeadTitle}`}>TYPE</p>
             <SVGIcon className={`${styles.tableHeadIcon}`} Icon={arrowUpDownIcon} />
           </div>

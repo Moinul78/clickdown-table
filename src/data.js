@@ -15,6 +15,7 @@ import {
   tagIcon,
   flashIconTwo,
   flashIconOne,
+  avatar3,
 } from './Assets/SVGcomponents';
 
 const subData = [
@@ -178,37 +179,37 @@ const users = [
     id: 1,
     name: 'Moinul Islam',
     icon: avatar1,
-    isAdded: false,
+    isActive: true,
   },
   {
     id: 2,
     name: 'Ramjan Ali Anik',
     icon: avatar2,
-    isAdded: false,
+    isActive: false,
   },
   {
     id: 3,
     name: 'Rakibul Yeasin',
-    icon: avatar1,
-    isAdded: false,
+    icon: avatar3,
+    isActive: true,
   },
   {
     id: 4,
     name: 'Mizanur Rahman Hasan',
-    icon: avatar2,
-    isAdded: false,
+    icon: avatar1,
+    isActive: false,
   },
   {
     id: 5,
     name: 'Jayeen Bin Alam',
-    icon: avatar1,
-    isAdded: false,
+    icon: avatar2,
+    isActive: true,
   },
   {
     id: 6,
     name: 'Rasel Miah',
-    icon: avatar2,
-    isAdded: false,
+    icon: avatar3,
+    isActive: false,
   },
 ];
 

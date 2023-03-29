@@ -22,20 +22,23 @@ function SubTask({ subtasks }) {
   };
   return (
     <div key={subtasks.subtasks.id}>
-      <div className="grid grid-cols-12 border-0 border-b-[0.063rem] border-slate-200 py-2 duration-500">
+      <div className="grid grid-cols-12 border-0 border-b-[0.063rem] border-slate-200 py-2 duration-500 cursor-pointer">
         {/* col-1 */}
-        <div className="grid justify-end items-center">
-          <SVGIcon className="invisible" Icon={subtasks.subtasks.circle} />
-          <SVGIcon className="invisible" Icon={subtasks.subtasks.dragIcon} />
-          <div className=" ml-[-1.3rem] mt-[-3.3rem]" onClick={() => handleSubtaskChild(subtasks.subtasks)} role="contentinfo" onKeyDown={() => { }}>
-            {
-              open ? (<SVGIcon Icon={subtasks.subtasks.downArrow} />)
-                : (<SVGIcon Icon={subtasks.subtasks.rightArrow} />)
-            }
+        <div className="flex justify-center items-center cursor-pointer">
+          {/* col-1 */}
+          <div className="flex flex-row justify-center items-center gap-x-2">
+            <SVGIcon className="invisible" Icon={subtasks.subtasks.circle} />
+            <SVGIcon className="invisible" Icon={subtasks.subtasks.dragIcon} />
+            <div onClick={() => handleSubtaskChild(subtasks.subtasks)} role="contentinfo" onKeyDown={() => { }}>
+              {
+                open ? (<SVGIcon Icon={subtasks.subtasks.downArrow} />)
+                  : (<SVGIcon Icon={subtasks.subtasks.rightArrow} />)
+              }
+            </div>
           </div>
         </div>
         {/* col-2 */}
-        <div className="grid justify-start items-center ml-[0.7rem]">
+        <div className="grid justify-start items-center w-[3rem]">
           <IssueTypes />
         </div>
         {/* col-3 */}

@@ -17,7 +17,7 @@ export default function Priority() {
     setModalOpen(!modalOpen);
   };
   return (
-    <div className="flex flex-row justify-center items-start relative">
+    <div className="flex flex-row justify-center items-start relative hover:cursor-pointer">
       <div onClick={() => setModalOpen(!modalOpen)} role="contentinfo" onKeyDown={() => { }} className="w-6 h-6">
         {
           status
@@ -31,14 +31,15 @@ export default function Priority() {
       </div>
       {
         modalOpen && (
-          <div ref={ref} style={{ boxShadow: '0px 10px 15px -3px rgba(0, 0, 0, 0.1), 0px 4px 6px -2px rgba(0, 0, 0, 0.05)' }} className="absolute z-10 w-[6rem] h-auto right-1/3 top-6 bg-white shadow-xl">
-            <div>
+          <div ref={ref} style={{ boxShadow: '0px 10px 15px -3px rgba(0, 0, 0, 0.1), 0px 4px 6px -2px rgba(0, 0, 0, 0.05)' }} className="absolute z-10 w-[8rem] h-auto right-1/3 top-6 bg-white shadow-xl">
+            <div className="px-[12px] py-[8px]">
+              <p className="text-[#94A3B8] font-medium text-[0.688rem] w-[150px] h-[24px]">Select Priority</p>
               {
                 priority.map((s) => (
-                  <div key={s.id}>
+                  <div key={s.id} className="cursor-pointer" onClick={() => handleStates(s)} role="contentinfo" onKeyDown={() => { }}>
                     <div className={s.className}>
                       <SVGIcon className="mx-[8px]" Icon={PriorityFlag} />
-                      <p onClick={() => handleStates(s)} role="contentinfo" onKeyDown={() => { }}>{s.status}</p>
+                      <p>{s.status}</p>
                     </div>
                   </div>
                 ))

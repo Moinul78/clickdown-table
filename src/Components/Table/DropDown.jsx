@@ -17,7 +17,7 @@ export default function DropDown() {
     setModalOpen(!modalOpen);
   };
   return (
-    <div className="flex flex-row justify-center items-start relative">
+    <div className="flex flex-row justify-center items-start relative cursor pointer">
       <div onClick={() => setModalOpen(!modalOpen)} role="contentinfo" onKeyDown={() => { }} className="h-[56px] grid justify-center items-center">
         {
           status
@@ -39,8 +39,10 @@ export default function DropDown() {
       </div>
       {
         modalOpen && (
-          <div ref={ref} style={{ boxShadow: '0px 10px 15px -3px rgba(0, 0, 0, 0.1), 0px 4px 6px -2px rgba(0, 0, 0, 0.05)' }} className="absolute z-10 h-auto right-1/3 top-7 py-[6px] px-[4px] bg-white shadow-2xl rounded-md cursor-pointer">
-            <div>
+          <div ref={ref} style={{ boxShadow: '0px 10px 15px -3px rgba(0, 0, 0, 0.1), 0px 4px 6px -2px rgba(0, 0, 0, 0.05)' }} className="absolute z-10 h-auto right-1/3 top-7 bg-white shadow-2xl rounded-md cursor-pointer">
+
+            <div className="px-[12px] py-[8px]">
+              <p className="text-[0.688rem] text-slate-500 font-medium">Select Status</p>
               {
                 Status.map((s) => (
                   <div key={s.id}>
