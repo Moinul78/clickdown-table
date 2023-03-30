@@ -63,14 +63,21 @@ export default function CalendarData() {
   };
   function InputStartDate() {
     const startDateInput = document.getElementById('startDate').value;
+    console.log(startDateInput);
     if (dueDate.from === null || !dueDate.from) {
-      setDueDate((prev) => ({ ...prev, from: (startDateInput) }));
+      if (startDateInput.length === 10) {
+        setDueDate((prev) => ({ ...prev, from: (startDateInput) }));
+      }
+      console.log(dueDate);
     }
   }
   function InputEndDate() {
     const endDateInput = document.getElementById('endDate').value;
+    console.log(endDateInput);
     if (dueDate.to === null || !dueDate.to) {
-      setDueDate((prev) => ({ ...prev, to: (endDateInput) }));
+      if (endDateInput.length === 10) {
+        setDueDate((prev) => ({ ...prev, to: (endDateInput) }));
+      }
     }
   }
   function setInputDate() {
@@ -180,7 +187,7 @@ export default function CalendarData() {
                             <SVGIcon Icon={CalendarIcon} />
                             <h1 className="text-[#475569] text-sm leading-4 font-medium ml-[0.3rem]">
                               {
-                                dueDate.from ? new Date(dueDate.from).toLocaleDateString() : <input onChange={InputStartDate} className="w-[110px] h-[25px] outline-none font-medium text-[11px] leading-[16px] text-[#475569] p-2" placeholder="yyyy/mm/dd" type="text" id="startDate" pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}" />
+                                dueDate.from ? new Date(dueDate.from).toLocaleDateString() : <input onChange={InputStartDate} className="w-[110px] h-[25px] outline-none font-medium text-[11px] leading-[16px] text-[#475569] p-2" autoComplete="off" placeholder="yyyy/mm/dd" type="text" id="startDate" pattern="(^0[1-9]|[12][0-9]|3[01])-(0[1-9]|1[0-2])-(\d{4}$)" />
                               }
                             </h1>
                           </div>
@@ -193,7 +200,7 @@ export default function CalendarData() {
                             <SVGIcon Icon={CalendarIcon} />
                             <h1 className="text-[#475569] text-sm leading-4 font-medium ml-[0.3rem]">
                               {
-                                dueDate.to ? new Date(dueDate.to).toLocaleDateString() : <input onChange={InputEndDate} className="w-[110px] h-[25px] outline-none font-medium text-[11px] leading-[16px] p-2" placeholder="yyyy/mm/dd" type="text" id="endDate" pattern="(^0[1-9]|[12][0-9]|3[01])-(0[1-9]|1[0-2])-(\d{4}$)" />
+                                dueDate.to ? new Date(dueDate.to).toLocaleDateString() : <input onChange={InputEndDate} className="w-[110px] h-[25px] outline-none font-medium text-[11px] leading-[16px] p-2" autoComplete="off" placeholder="yyyy/mm/dd" type="text" id="endDate" pattern="(^0[1-9]|[12][0-9]|3[01])-(0[1-9]|1[0-2])-(\d{4}$)" />
                               }
                             </h1>
                           </div>

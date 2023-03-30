@@ -29,6 +29,9 @@ module.exports = {
     'indent': "off",
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
     "no-param-reassign": [2, { "props": false }],
+    "jsx-a11y/no-autofocus": [2, {
+      "ignoreNonDOM": true
+    }],
   },
   ignorePatterns: [
     "public"],

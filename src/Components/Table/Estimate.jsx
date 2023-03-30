@@ -18,12 +18,9 @@ export default function Estimate() {
   const clearTime = () => {
     const text = document.getElementById('time');
     text.value = '';
-    const estimate = document.getElementById('estimateTime');
-    if (estimate != null) {
-      estimate.innerText = '';
-      setEstimateTime('');
-      setOpenPopUp(false);
-    }
+    setEstimateTime('');
+    setTimeGet(false);
+    setOpenPopUp(false);
   };
   const handleChange = (event) => {
     const time = event.target.value;
