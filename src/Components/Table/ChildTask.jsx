@@ -29,12 +29,12 @@ function ChildTask({ childData }) {
           </div>
         </div>
         {/* col-2 */}
-        <div className="grid justify-start items-center w-[3rem]">
+        <div className="grid justify-start items-center w-[3rem] ml-[-0.5rem]">
           <IssueTypes />
         </div>
         {/* col-3 */}
-        <div className="col-span-4 flex flex-row justify-start items-start gap-x-2 ">
-          <p className="text-slate-600 font-normal text-sm text-justify ml-[2rem]">
+        <div className="col-span-4 flex flex-row justify-start items-start ">
+          <p className="text-slate-600 font-normal text-sm text-justify ">
             {childData.details}
           </p>
         </div>

@@ -14,6 +14,7 @@ export default function Estimate() {
   const setTime = () => {
     setOpenPopUp(false);
     setEstimateTime(timeget);
+    setModalOpen(false);
   };
   const clearTime = () => {
     const text = document.getElementById('time');
@@ -55,7 +56,7 @@ export default function Estimate() {
           <div ref={ref} style={{ boxShadow: '0px 10px 15px -3px rgba(0, 0, 0, 0.1), 0px 4px 6px -2px rgba(0, 0, 0, 0.05)' }} className="absolute z-10 w-[12.063rem] h-auto left-1/3 top-6 bg-white shadow-2xl rounded-md">
             <div className="bg-slate-50 flex justify-between items-center p-2">
               <p className="text-[0.688rem] text-slate-600 font-semibold">Time Estimate: </p>
-              <input id="time" autoComplete="off" onChange={handleChange} className="w-20 h-6 border border-slate-300" type="text" />
+              <input id="time" type="Number" autoComplete="off" onChange={handleChange} className="w-20 h-6 border border-slate-300" />
               <SVGIcon onClick={clearTime} className="" Icon={cancel} />
             </div>
 

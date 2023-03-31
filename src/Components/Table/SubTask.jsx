@@ -22,7 +22,7 @@ function SubTask({ subtasks }) {
   };
   return (
     <div key={subtasks.subtasks.id}>
-      <div className="grid grid-cols-12 border-0 border-b-[0.063rem] border-slate-200 py-2 duration-500 cursor-pointer">
+      <div className="grid grid-cols-12 border-0 border-b-[0.063rem] border-slate-200 py-2 duration-500">
         {/* col-1 */}
         <div className="flex justify-center items-center cursor-pointer">
           {/* col-1 */}
@@ -38,12 +38,12 @@ function SubTask({ subtasks }) {
           </div>
         </div>
         {/* col-2 */}
-        <div className="grid justify-start items-center w-[3rem]">
+        <div className="grid justify-start items-center w-[3rem] ml-[-0.5rem]">
           <IssueTypes />
         </div>
         {/* col-3 */}
-        <div className="col-span-4 flex flex-row justify-start items-start gap-x-2 ">
-          <p className="text-slate-600 font-normal text-sm text-justify">
+        <div className="col-span-4 flex flex-row justify-start items-start ">
+          <p className="text-slate-600 font-normal text-sm text-justify ml-[-2.5rem]">
             {subtasks.subtasks.details}
           </p>
         </div>

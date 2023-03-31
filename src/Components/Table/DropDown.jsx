@@ -18,24 +18,26 @@ export default function DropDown() {
   };
   return (
     <div className="flex flex-row justify-center items-start relative cursor-pointer">
-      <div onClick={() => setModalOpen(!modalOpen)} role="contentinfo" onKeyDown={() => { }} className="h-[56px] grid justify-center items-center">
-        {
-          status
-            ? (
-              <div className={status.className}>
-                <p className={status.ellipsis}>{ }</p>
-                <p className="text-[10px] text-[#475569] text-center font-medium mr-[6.5px] w-auto">{status.status}</p>
-                <SVGIcon className="w-5 h-5" Icon={arrowDownIcon} />
-              </div>
-            )
-            : (
-              <div className="bg-[#E2E8F0] text-[#475569] flex justify-left items-center my-2 px-[8px] w-[80px] h-[24px] rounded-[4px]">
-                <p className="w-[6px] h-[6px] rounded-full bg-[#475569] mr-[4px]">{ }</p>
-                <p className="text-[10px] text-[#475569] text-center font-medium w-auto">TO DO</p>
-                <SVGIcon className="w-5 h-5" Icon={arrowDownIcon} />
-              </div>
-            )
-        }
+      <div className="grid justify-center items-center">
+        <div onClick={() => setModalOpen(!modalOpen)} role="contentinfo" onKeyDown={() => { }}>
+          {
+            status
+              ? (
+                <div className={status.className}>
+                  <p className={status.ellipsis}>{ }</p>
+                  <p className="text-[10px] text-[#475569] text-center font-medium mr-[6.5px] w-auto">{status.status}</p>
+                  <SVGIcon className="w-5 h-5" Icon={arrowDownIcon} />
+                </div>
+              )
+              : (
+                <div className="bg-[#E2E8F0] text-[#475569] flex justify-left items-center pl-[8px] w-[80px] h-[24px] rounded-[4px]">
+                  <p className="w-[6px] h-[6px] rounded-full bg-[#475569] mr-[4px]">{ }</p>
+                  <p className="text-[10px] text-[#475569] text-center font-medium w-auto">TO DO</p>
+                  <SVGIcon className="w-5 h-5" Icon={arrowDownIcon} />
+                </div>
+              )
+          }
+        </div>
       </div>
       {
         modalOpen && (

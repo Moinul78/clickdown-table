@@ -31,7 +31,7 @@ function Row({ data }) {
   };
   return (
     <div className={`${styles.tableRow}`}>
-      <div className="grid grid-cols-12 border-0 border-b-[0.063rem] hover:bg-[#6239ED] hover:bg-opacity-10 border-[#E2E8F0] py-2">
+      <div className="grid grid-cols-12 h-[56px] border-0 border-b-[0.063rem] hover:bg-[#6239ED] hover:bg-opacity-10 border-[#E2E8F0] py-2">
         <div className="flex justify-center items-center cursor-pointer">
           {/* col-1 */}
           <div className="flex flex-row justify-center items-center gap-x-2">
@@ -46,11 +46,11 @@ function Row({ data }) {
           </div>
         </div>
         {/* col-2 */}
-        <div className="flex flex-row justify-start items-center w-[3rem]">
+        <div className="flex flex-row justify-start items-center w-[3rem] ml-[-0.5rem]">
           <SVGIcon Icon={data.issueTypesIcon} />
         </div>
         {/* col-3 */}
-        <div className="col-span-4 flex flex-row justify-start items-center gap-x-2 ml-[-3rem] cursor-pointer">
+        <div className="col-span-4 flex flex-row justify-start items-center gap-x-2 ml-[-4.5rem] cursor-pointer">
           <h3 className="text-heading text-sm font-medium leading-6">{data.text}</h3>
           <div className="flex flex-row items-center">
             <SVGIcon Icon={data.subTaskIcon} />

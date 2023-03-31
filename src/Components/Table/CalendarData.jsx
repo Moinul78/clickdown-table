@@ -3,10 +3,17 @@ import { arrowDownIcon, CalendarIcon, cancel } from '../../Assets/SVGcomponents'
 import useOnclickOutside from '../../Hooks/UseOnClickOutSide';
 import SVGIcon from '../../SVGIcon/SVGIcon';
 
+function parseDate(date) {
+  if (!date || typeof (date) !== 'string') throw Error('A valid string must be provided e.g. DD/MM/YYYY');
+  const [day, month, year] = date.split('/');
+  return new Date(`${month}-${day}-${year}`);
+}
+
 export default function CalendarData() {
   const [date, setDate] = useState(new Date());
   const [dueDate, setDueDate] = useState({ from: null, to: null });
   const [modalOpen, setModalOpen] = useState(false);
+  const [borderRed, setBorderRed] = useState(false);
   const ref = useRef();
   useOnclickOutside(ref, () => setModalOpen(false));
   const monthNames = [
@@ -61,41 +68,45 @@ export default function CalendarData() {
       setDueDate({ to: null });
     }
   };
+  function calculateDaysInRange(range) {
+    const startDate = new Date(range.from);
+    const endDate = new Date(range.to);
+    const differenceInMs = endDate.getTime() - startDate.getTime();
+    const differenceInDays = Math.floor(differenceInMs / (1000 * 60 * 60 * 24));
+    if (differenceInDays === 0) return null;
+    return differenceInDays + 1;
+  }
   function InputStartDate() {
     const startDateInput = document.getElementById('startDate').value;
-    console.log(startDateInput);
-    if (dueDate.from === null || !dueDate.from) {
-      if (startDateInput.length === 10) {
-        setDueDate((prev) => ({ ...prev, from: (startDateInput) }));
-      }
-      console.log(dueDate);
+    console.log(parseDate(startDateInput));
+    if (startDateInput.length === 10) {
+      setDueDate((prev) => ({ ...prev, from: parseDate(startDateInput) }));
+    }
+    if (startDateInput.length < 10) {
+      setDueDate({ from: null });
     }
   }
   function InputEndDate() {
     const endDateInput = document.getElementById('endDate').value;
-    console.log(endDateInput);
-    if (dueDate.to === null || !dueDate.to) {
-      if (endDateInput.length === 10) {
-        setDueDate((prev) => ({ ...prev, to: (endDateInput) }));
-      }
+    if (endDateInput.length === 10) {
+      setDueDate((prev) => ({ ...prev, to: parseDate(endDateInput) }));
+    }
+    const differenceInMs = new Date(parseDate(endDateInput)).getTime()
+      - new Date(dueDate.from).getTime();
+    const differenceInDays = Math.floor(differenceInMs / (1000 * 60 * 60 * 24));
+    const time = differenceInDays + 1;
+    console.log(time);
+    console.log(borderRed);
+    if ((time < 0) && (endDateInput.length === 10)) {
+      setBorderRed(true);
+    } else {
+      setBorderRed(false);
     }
   }
   function setInputDate() {
     setModalOpen(false);
   }
 
-  function calculateDaysInRange(range) {
-    const startDate = new Date(range.from);
-    const endDate = new Date(range.to);
-    const differenceInMs = endDate.getTime() - startDate.getTime();
-    const differenceInDays = Math.floor(differenceInMs / (1000 * 60 * 60 * 24));
-    return differenceInDays + 1;
-  }
-  /*
-  <input className="w-[70px] h-[25px] font-medium text-[11px]
-  leading - [16px] text - [#475569] p - 2" placeholder="Start Date" type="text"
-  id = "startDate" pattern = "[0-9]{4}-[0-9]{2}-[0-9]{2}" />
-  */
   return (
     <div className="flex flex-row justify-center items-start relative cursor-pointer">
       <div onClick={() => setModalOpen(!modalOpen)} role="contentinfo" onKeyDown={() => setModalOpen(!modalOpen)} className="w-6 h-6 rounded-md right-1/3 flex flex-row justify-center items-center">
@@ -104,7 +115,6 @@ export default function CalendarData() {
             && dueDate.to ? <p className="text-center font-semibold text-[0.688rem] text-[#64748B]">{new Date(dueDate.to).toLocaleDateString()}</p>
             : <SVGIcon Icon={CalendarIcon} />
         }
-
       </div>
       {
         modalOpen && (
@@ -175,33 +185,29 @@ export default function CalendarData() {
                       <h1 className="text-xs font-medium text-[#64748B] py-[0.125rem]">Project deadline</h1>
                       <h1 className="text-sm leading-4 font-semibold text-[#6239ED] py-[0.125rem]">
                         {
-                          dueDate.to ? `Total ${calculateDaysInRange(dueDate)} days` : 'Task deadline'
+                          dueDate.to ? `Total ${calculateDaysInRange(dueDate) || 0} days` : 'Task deadline'
                         }
                       </h1>
                     </div>
                     <div>
                       <div>
                         <p className="w-[70px] first-line:font-medium text-[11px] leading-[16px] text-[#475569] ">Start date:</p>
-                        <div className="border rounded-md">
-                          <div className="flex justify-start items-center py-2  w-[150px] h-[32px]">
+                        <div className="border rouded-md">
+                          <div className="flex justify-start items-center py-2 w-[150px] h-[32px]">
                             <SVGIcon Icon={CalendarIcon} />
                             <h1 className="text-[#475569] text-sm leading-4 font-medium ml-[0.3rem]">
-                              {
-                                dueDate.from ? new Date(dueDate.from).toLocaleDateString() : <input onChange={InputStartDate} className="w-[110px] h-[25px] outline-none font-medium text-[11px] leading-[16px] text-[#475569] p-2" autoComplete="off" placeholder="yyyy/mm/dd" type="text" id="startDate" pattern="(^0[1-9]|[12][0-9]|3[01])-(0[1-9]|1[0-2])-(\d{4}$)" />
-                              }
+                              <input onChange={InputStartDate} defaultValue={dueDate.from ? new Date(dueDate.from).toLocaleDateString() : ''} className="w-[110px] h-[25px] outline-none font-medium text-[11px] leading-[16px] text-[#475569] p-2" autoComplete="off" placeholder="dd/mm/yyyy" type="text" id="startDate" />
                             </h1>
                           </div>
                         </div>
                       </div>
                       <div className="mt-2">
                         <p className="w-[70px] font-medium text-[11px] leading-[16px] text-[#475569] ">End date:</p>
-                        <div className="border rounded-md">
+                        <div className={borderRed ? 'border border-red-900 rounded-md' : 'border rounded-md'}>
                           <div className="flex justify-start items-center py-2 w-[150px] h-[32px]">
                             <SVGIcon Icon={CalendarIcon} />
                             <h1 className="text-[#475569] text-sm leading-4 font-medium ml-[0.3rem]">
-                              {
-                                dueDate.to ? new Date(dueDate.to).toLocaleDateString() : <input onChange={InputEndDate} className="w-[110px] h-[25px] outline-none font-medium text-[11px] leading-[16px] p-2" autoComplete="off" placeholder="yyyy/mm/dd" type="text" id="endDate" pattern="(^0[1-9]|[12][0-9]|3[01])-(0[1-9]|1[0-2])-(\d{4}$)" />
-                              }
+                              <input onChange={InputEndDate} defaultValue={dueDate.to ? new Date(dueDate.to).toLocaleDateString() : ''} className="w-[110px] h-[25px] outline-none font-medium text-[11px] leading-[16px] p-2" autoComplete="off" placeholder="dd/mm/yyyy" type="text" id="endDate" />
                             </h1>
                           </div>
                         </div>

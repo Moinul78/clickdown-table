@@ -17,12 +17,12 @@ export default function Content() {
             <SVGIcon Icon={circleIcon} />
           </div>
           {/* col-2 */}
-          <div className="flex flex-row justify-center items-center w-[3rem] ">
+          <div className="flex flex-row justify-center items-center w-[3rem] ml-[-0.5rem]">
             <p className={`${styles.tableHeadTitle}`}>TYPE</p>
             <SVGIcon className={`${styles.tableHeadIcon}`} Icon={arrowUpDownIcon} />
           </div>
           {/* col-3 */}
-          <div className="col-span-4 flex flex-row justify-start items-center ml-[-3rem]">
+          <div className="col-span-4 flex flex-row justify-start items-center ml-[-4.5rem]">
             <p className={`${styles.tableHeadTitle}`}>SUMMARY</p>
             <SVGIcon className={`${styles.tableHeadIcon}`} Icon={arrowUpDownIcon} />
           </div>
