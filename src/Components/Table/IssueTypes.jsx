@@ -7,12 +7,10 @@ import SVGIcon from '../../SVGIcon/SVGIcon';
 export default function IssueTypes() {
   const [modalOpen, setModalOpen] = useState(false);
   const [type, setType] = useState(false);
-  console.log(type);
   const ref = useRef();
   useOnclickOutside(ref, () => setModalOpen(false));
 
   const handleStates = (selectedType) => {
-    console.log(selectedType);
     setType(selectedType);
     setModalOpen(!modalOpen);
   };

@@ -14,11 +14,8 @@ function SubTask({ subtasks }) {
   const [childId, setChildId] = useState([]);
   const [open, setOpen] = useState(false);
   const handleSubtaskChild = (d) => {
-    console.log('clicked');
     setChildId(d.id);
-    console.log(open);
     setOpen(!open);
-    console.log(open);
   };
   return (
     <div key={subtasks.subtasks.id}>

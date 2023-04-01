@@ -30,7 +30,6 @@ export default function SelectUser() {
   };
   const handleSearchMembers = (searchName) => {
     const searchString = searchName.trim();
-    // console.log(searchString);
     if (searchString === '') {
       const remainingMembers = users.filter((member) => !selected.some(
         (selectedMember) => selectedMember.id === member.id,
@@ -53,7 +52,7 @@ export default function SelectUser() {
     <div>
       <div onClick={() => setModalOpen(!modalOpen)} role="contentinfo" onKeyDown={() => { }} className="flex flex-row justify-center items-start relative cursor-pointer">
         {
-          selected.length < 1 && (<SVGIcon className="w-8 h-8 rounded-full" onClick={() => setModalOpen(!modalOpen)} Icon={addUserIcon} />)
+          selected.length < 1 && (<SVGIcon className="w-8 h-8 rounded-full ml-[-17px]" onClick={() => setModalOpen(!modalOpen)} Icon={addUserIcon} />)
         }
         {
           selected.length === 1 && (<SVGIcon className="w-8 h-8 ml-[-17px] rounded-full" onClick={() => setModalOpen(!modalOpen)} Icon={selected[0].icon} />)

@@ -10,7 +10,6 @@ import SprintPoint from './SprintPoints';
 
 function ChildTask({ childData }) {
   const [open, setOpen] = useState(false);
-  console.log(childData);
   return (
     <div key={childData.id}>
       <div className="grid grid-cols-12 border-0 border-b-[0.063rem] border-slate-200 py-2 duration-500 cursor-pointer">

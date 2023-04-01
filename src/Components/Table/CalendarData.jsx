@@ -78,11 +78,10 @@ export default function CalendarData() {
   }
   function InputStartDate() {
     const startDateInput = document.getElementById('startDate').value;
-    console.log(parseDate(startDateInput));
     if (startDateInput.length === 10) {
       setDueDate((prev) => ({ ...prev, from: parseDate(startDateInput) }));
     }
-    if (startDateInput.length < 10) {
+    if (startDateInput.length < 6) {
       setDueDate({ from: null });
     }
   }
@@ -95,9 +94,7 @@ export default function CalendarData() {
       - new Date(dueDate.from).getTime();
     const differenceInDays = Math.floor(differenceInMs / (1000 * 60 * 60 * 24));
     const time = differenceInDays + 1;
-    console.log(time);
-    console.log(borderRed);
-    if ((time < 0) && (endDateInput.length === 10)) {
+    if ((time <= 0) && (endDateInput.length === 10)) {
       setBorderRed(true);
     } else {
       setBorderRed(false);
