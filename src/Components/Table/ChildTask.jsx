@@ -21,8 +21,8 @@ function ChildTask({ childData }) {
             <SVGIcon className="invisible" Icon={childData.dragIcon} />
             <div onClick={() => setOpen(!open)} role="contentinfo" onKeyDown={() => { }}>
               {
-                open ? (<SVGIcon Icon={childData.ArrowRight} />)
-                  : (<SVGIcon className="rotate-90" Icon={childData.ArrowRight} />)
+                open ? (<SVGIcon className="rotate-90" Icon={childData.ArrowRight} />)
+                  : (<SVGIcon Icon={childData.ArrowRight} />)
               }
             </div>
           </div>

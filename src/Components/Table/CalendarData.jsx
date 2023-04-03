@@ -2,6 +2,7 @@ import React, { useRef, useState } from 'react';
 import { arrowDownIcon, CalendarIcon, cancel } from '../../Assets/SVGcomponents';
 import useOnclickOutside from '../../Hooks/UseOnClickOutSide';
 import SVGIcon from '../../SVGIcon/SVGIcon';
+import './CalendarData.css';
 
 function parseDate(date) {
   if (!date || typeof (date) !== 'string') throw Error('A valid string must be provided e.g. DD/MM/YYYY');
@@ -62,10 +63,15 @@ export default function CalendarData() {
       setDueDate((prev) => ({ ...prev, to: new Date(d) }));
     }
     if (new Date(dueDate.from).getTime() === new Date(d).getTime()) {
-      setDueDate({ from: null });
+      if (new Date(d).getTime() === dueDate.from.getTime()) {
+        console.log('clicked on from');
+        setDueDate((prev) => ({ ...prev, from: dueDate.to }));
+        setDueDate((prev) => ({ ...prev, to: null }));
+      }
     }
     if (new Date(dueDate.to).getTime() === new Date(d).getTime()) {
-      setDueDate({ to: null });
+      console.log('clicked on to');
+      setDueDate((prev) => ({ ...prev, to: null }));
     }
   };
   function calculateDaysInRange(range) {

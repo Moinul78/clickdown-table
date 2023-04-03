@@ -84,7 +84,7 @@ export default function SelectUser() {
       {
         modalOpen && (
           <div ref={ref} style={{ boxShadow: '0px 10px 15px -3px rgba(0, 0, 0, 0.1), 0px 4px 6px -2px rgba(0, 0, 0, 0.05)' }} className="absolute z-10 w-[13.188rem] h-auto  bg-white cursor-pointer rounded-md">
-            <div className="py-[12px] px-[8px]  w-full">
+            <div className="py-[12px] px-[8px] w-full">
               {
                 selected.map((member) => (
                   <div key={member.id} className="flex flex-row items-center justify-left gap-x-[0.438rem]">
@@ -96,7 +96,7 @@ export default function SelectUser() {
                   </div>
                 ))
               }
-              <input onChange={(e) => handleSearchMembers(e.target.value)} className="w-[113px] h-[24px] outline-none focus:[ text-slate-900 font-medium text-[0.688rem] ] py-[8px]" type="text" name="search" placeholder={`${selected.length > 0 ? '' : 'Search For a Person...'}`} />
+              <input onChange={(e) => handleSearchMembers(e.target.value)} className="w-[113px] h-[24px] outline-none focus:[ text-slate-900 font-medium text-[0.688rem] ] py-[8px]" autoComplete="off" type="text" name="search" placeholder={`${selected.length > 0 ? '' : 'Search For a Person...'}`} />
             </div>
             {
               allmembers.length > 0 ? (<p className="text-[#94A3B8] font-medium text-[0.688rem] w-[150px] h-[24px] pl-[8px]">Select One or More People</p>) : (<p className="text-Slate-900 font-medium text-[0.688rem] w-[138px] h-[24px] px-[8px]">No People Found!!</p>)
