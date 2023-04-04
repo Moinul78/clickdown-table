@@ -57,6 +57,15 @@ export default function CalendarData() {
       }
     }
   }
+  function calculateDaysInRange(range) {
+    const startDate = new Date(range.from);
+    const endDate = new Date(range.to);
+    const differenceInMs = endDate.getTime() - startDate.getTime();
+    const differenceInDays = Math.floor(differenceInMs / (1000 * 60 * 60 * 24));
+    if (differenceInDays === 0) return null;
+    return differenceInDays + 1;
+  }
+
   function InputStartDate() {
     const startDateInput = document.getElementById('startDate').value;
     setEdit(true);
@@ -89,15 +98,18 @@ export default function CalendarData() {
     if (!dueDate.from || newStartDate) {
       setDueDate((prev) => ({ ...prev, from: new Date(d) }));
       if (edit) {
-        console.log(edit);
         document.getElementById('startDate').value = dueDate.from ? new Date(dueDate.from).toLocaleDateString() : '';
       }
     } else {
       setDueDate((prev) => ({ ...prev, to: new Date(d) }));
       if (edit) {
-        console.log(edit);
         document.getElementById('endDate').value = dueDate.to ? new Date(dueDate.to).toLocaleDateString() : '';
       }
+    }
+    if ((calculateDaysInRange <= 0)) {
+      setBorderRed(true);
+    } else {
+      setBorderRed(false);
     }
     if (new Date(d)?.getTime() === dueDate.from?.getTime()) {
       setDueDate((prev) => ({ ...prev, from: new Date(dueDate.to) }));
@@ -107,15 +119,6 @@ export default function CalendarData() {
       setDueDate((prev) => ({ ...prev, to: null }));
     }
   };
-  function calculateDaysInRange(range) {
-    const startDate = new Date(range.from);
-    const endDate = new Date(range.to);
-    const differenceInMs = endDate.getTime() - startDate.getTime();
-    const differenceInDays = Math.floor(differenceInMs / (1000 * 60 * 60 * 24));
-    if (differenceInDays === 0) return null;
-    return differenceInDays + 1;
-  }
-
   function setInputDate() {
     setModalOpen(false);
   }
