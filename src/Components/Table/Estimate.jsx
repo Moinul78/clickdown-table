@@ -2,6 +2,7 @@ import React, { useRef, useState } from 'react';
 import { cancel, timeIcon } from '../../Assets/SVGcomponents';
 import useOnclickOutside from '../../Hooks/UseOnClickOutSide';
 import SVGIcon from '../../SVGIcon/SVGIcon';
+import './Estimate.css';
 
 export default function Estimate() {
   const [modalOpen, setModalOpen] = useState(false);
