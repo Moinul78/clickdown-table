@@ -15,6 +15,7 @@ export default function CalendarData() {
   const [dueDate, setDueDate] = useState({ from: null, to: null });
   const [modalOpen, setModalOpen] = useState(false);
   const [borderRed, setBorderRed] = useState(false);
+  const [edit, setEdit] = useState(false);
   // const [boxDateClick, setBoxDateClick] = useState(false);
   const ref = useRef();
   useOnclickOutside(ref, () => setModalOpen(false));
@@ -58,7 +59,9 @@ export default function CalendarData() {
   }
   function InputStartDate() {
     const startDateInput = document.getElementById('startDate').value;
+    setEdit(true);
     if (startDateInput?.length === 10) {
+      console.log(edit);
       setDueDate((prev) => ({ ...prev, from: parseDate(startDateInput) }));
     }
     if (startDateInput.length === 6) {
@@ -67,6 +70,7 @@ export default function CalendarData() {
   }
   function InputEndDate() {
     const endDateInput = document.getElementById('endDate').value;
+    setEdit(true);
     if (endDateInput.length === 10) {
       setDueDate((prev) => ({ ...prev, to: parseDate(endDateInput) }));
     }
@@ -84,10 +88,16 @@ export default function CalendarData() {
     const newStartDate = dueDate.from >= d;
     if (!dueDate.from || newStartDate) {
       setDueDate((prev) => ({ ...prev, from: new Date(d) }));
-      document.getElementById('startDate').value = dueDate.from ? new Date(dueDate.from).toLocaleDateString() : '';
+      if (edit) {
+        console.log(edit);
+        document.getElementById('startDate').value = dueDate.from ? new Date(dueDate.from).toLocaleDateString() : '';
+      }
     } else {
       setDueDate((prev) => ({ ...prev, to: new Date(d) }));
-      document.getElementById('endDate').value = dueDate.to ? new Date(dueDate.to).toLocaleDateString() : '';
+      if (edit) {
+        console.log(edit);
+        document.getElementById('endDate').value = dueDate.to ? new Date(dueDate.to).toLocaleDateString() : '';
+      }
     }
     if (new Date(d)?.getTime() === dueDate.from?.getTime()) {
       setDueDate((prev) => ({ ...prev, from: new Date(dueDate.to) }));
