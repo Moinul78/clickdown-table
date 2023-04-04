@@ -56,35 +56,6 @@ export default function CalendarData() {
       }
     }
   }
-  const handleDateClick = (d) => {
-    const newStartDate = dueDate.from >= d;
-    if (!dueDate.from || newStartDate) {
-      setDueDate((prev) => ({ ...prev, from: new Date(d) }));
-      // defaultValue={dueDate?.to ? new Date(dueDate.to).toLocaleDateString() : ''}
-      // console.log(startInput);
-      // startInput.defaultValue = new Date(dueDate.from);
-    } else {
-      setDueDate((prev) => ({ ...prev, to: new Date(d) }));
-      // const endInput = document.getElementById('endDate').value;
-      // console.log(endInput);
-      // endDate.defaultValue = new Date(dueDate.to);
-    }
-    if (new Date(d)?.getTime() === dueDate.from?.getTime()) {
-      setDueDate((prev) => ({ ...prev, from: new Date(dueDate.to) }));
-      setDueDate((prev) => ({ ...prev, to: null }));
-    }
-    if (new Date(dueDate.to).getTime() === new Date(d).getTime()) {
-      setDueDate((prev) => ({ ...prev, to: null }));
-    }
-  };
-  function calculateDaysInRange(range) {
-    const startDate = new Date(range.from);
-    const endDate = new Date(range.to);
-    const differenceInMs = endDate.getTime() - startDate.getTime();
-    const differenceInDays = Math.floor(differenceInMs / (1000 * 60 * 60 * 24));
-    if (differenceInDays === 0) return null;
-    return differenceInDays + 1;
-  }
   function InputStartDate() {
     const startDateInput = document.getElementById('startDate').value;
     if (startDateInput?.length === 10) {
@@ -108,6 +79,31 @@ export default function CalendarData() {
     } else {
       setBorderRed(false);
     }
+  }
+  const handleDateClick = (d) => {
+    const newStartDate = dueDate.from >= d;
+    if (!dueDate.from || newStartDate) {
+      setDueDate((prev) => ({ ...prev, from: new Date(d) }));
+      document.getElementById('startDate').value = dueDate.from ? new Date(dueDate.from).toLocaleDateString() : '';
+    } else {
+      setDueDate((prev) => ({ ...prev, to: new Date(d) }));
+      document.getElementById('endDate').value = dueDate.to ? new Date(dueDate.to).toLocaleDateString() : '';
+    }
+    if (new Date(d)?.getTime() === dueDate.from?.getTime()) {
+      setDueDate((prev) => ({ ...prev, from: new Date(dueDate.to) }));
+      setDueDate((prev) => ({ ...prev, to: null }));
+    }
+    if (new Date(dueDate.to).getTime() === new Date(d).getTime()) {
+      setDueDate((prev) => ({ ...prev, to: null }));
+    }
+  };
+  function calculateDaysInRange(range) {
+    const startDate = new Date(range.from);
+    const endDate = new Date(range.to);
+    const differenceInMs = endDate.getTime() - startDate.getTime();
+    const differenceInDays = Math.floor(differenceInMs / (1000 * 60 * 60 * 24));
+    if (differenceInDays === 0) return null;
+    return differenceInDays + 1;
   }
 
   function setInputDate() {
