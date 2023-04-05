@@ -4,7 +4,8 @@ import useOnclickOutside from '../../Hooks/UseOnClickOutSide';
 import SVGIcon from '../../SVGIcon/SVGIcon';
 
 function parseDate(date) {
-  if (!date || typeof (date) !== 'string') console.log('A valid string must be provided e.g. DD/MM/YYYY');
+  // if (!date || typeof (date) !== 'string')
+  //   console.log('A valid string must be provided e.g. DD/MM/YYYY');
   const [day, month, year] = date.split('/');
   return new Date(`${month}-${day}-${year}`);
 }
@@ -64,7 +65,13 @@ export default function CalendarData() {
   }
   function Input(d) {
     const newStartDate = dueDate.from >= d;
+    const startDateInput = document.getElementById('startDate').value;
     if (edit) {
+      if (startDateInput.length === 0) {
+        document.getElementById('startDate').value = dueDate.from
+          ? new Date(d).toLocaleDateString() : '';
+        setDueDate((prev) => ({ ...prev, from: new Date(d) }));
+      }
       if (!dueDate.from || newStartDate) {
         document.getElementById('startDate').value = dueDate.from
           ? new Date(d).toLocaleDateString() : '';
@@ -76,9 +83,9 @@ export default function CalendarData() {
   }
   function InputStartDate() {
     const startDateInput = document.getElementById('startDate').value;
+    console.log(startDateInput.length);
     setEdit(true);
-
-    if (typeof (new Date(startDateInput).getTime()) === 'number') {
+    if ((typeof (new Date(startDateInput).getTime()) === 'number') || startDateInput.length === 0) {
       setDueDate((prev) => ({ ...prev, from: parseDate(startDateInput) }));
     }
     // if ((typeof (new Date(startDateInput).getTime()) === 'number')) {
