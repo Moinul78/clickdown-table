@@ -14,7 +14,6 @@ export default function CalendarData() {
   const [modalOpen, setModalOpen] = useState(false);
   const [borderRed, setBorderRed] = useState(false);
   const [edit, setEdit] = useState(false);
-  // const [boxDateClick, setBoxDateClick] = useState(false);
   const ref = useRef();
   useOnclickOutside(ref, () => setModalOpen(false));
   const monthNames = [
