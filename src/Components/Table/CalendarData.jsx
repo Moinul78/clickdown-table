@@ -4,12 +4,10 @@ import useOnclickOutside from '../../Hooks/UseOnClickOutSide';
 import SVGIcon from '../../SVGIcon/SVGIcon';
 
 function parseDate(date) {
-  // if (!date || typeof (date) !== 'string')
-  //   throw Error('A valid string must be provided e.g. DD/MM/YYYY');
+  if (!date || typeof (date) !== 'string') console.log('A valid string must be provided e.g. DD/MM/YYYY');
   const [day, month, year] = date.split('/');
   return new Date(`${month}-${day}-${year}`);
 }
-
 export default function CalendarData() {
   const [date, setDate] = useState(new Date());
   const [dueDate, setDueDate] = useState({ from: null, to: null });
@@ -65,29 +63,45 @@ export default function CalendarData() {
     if (differenceInDays === 0) return null;
     return differenceInDays + 1;
   }
-
+  function Input(d) {
+    const newStartDate = dueDate.from >= d;
+    if (edit) {
+      if (!dueDate.from || newStartDate) {
+        document.getElementById('startDate').value = dueDate.from
+          ? new Date(d).toLocaleDateString() : '';
+      } else {
+        document.getElementById('endDate').value = dueDate.to
+          ? new Date(d).toLocaleDateString() : '';
+      }
+    }
+  }
   function InputStartDate() {
     const startDateInput = document.getElementById('startDate').value;
     setEdit(true);
-    if (startDateInput?.length === 10) {
-      console.log(edit);
+
+    if (typeof (new Date(startDateInput).getTime()) === 'number') {
       setDueDate((prev) => ({ ...prev, from: parseDate(startDateInput) }));
     }
-    if (startDateInput.length === 6) {
-      setDueDate({ from: null });
+    // if ((typeof (new Date(startDateInput).getTime()) === 'number')) {
+    //   setDueDate({ from: null });
+    // }
+    if ((new Date(dueDate.to).getTime() < new Date(parseDate(startDateInput)).getTime()) && (typeof (new Date(startDateInput).getTime()) === 'number')) {
+      setBorderRed(true);
+    } else {
+      setBorderRed(false);
     }
   }
   function InputEndDate() {
     const endDateInput = document.getElementById('endDate').value;
     setEdit(true);
-    if (endDateInput.length === 10) {
+    if (typeof (new Date(endDateInput).getTime()) === 'number') {
       setDueDate((prev) => ({ ...prev, to: parseDate(endDateInput) }));
     }
     const differenceInMs = new Date(parseDate(endDateInput)).getTime()
       - new Date(dueDate.from).getTime();
     const differenceInDays = Math.floor(differenceInMs / (1000 * 60 * 60 * 24));
     const time = differenceInDays + 1;
-    if ((time <= 0) && (endDateInput.length === 10)) {
+    if ((time <= 0) && (typeof (new Date(endDateInput).getTime()) === 'number')) {
       setBorderRed(true);
     } else {
       setBorderRed(false);
@@ -97,14 +111,8 @@ export default function CalendarData() {
     const newStartDate = dueDate.from >= d;
     if (!dueDate.from || newStartDate) {
       setDueDate((prev) => ({ ...prev, from: new Date(d) }));
-      if (edit) {
-        document.getElementById('startDate').value = dueDate.from ? new Date(dueDate.from).toLocaleDateString() : '';
-      }
     } else {
       setDueDate((prev) => ({ ...prev, to: new Date(d) }));
-      if (edit) {
-        document.getElementById('endDate').value = dueDate.to ? new Date(dueDate.to).toLocaleDateString() : '';
-      }
     }
     if ((calculateDaysInRange <= 0)) {
       setBorderRed(true);
@@ -119,10 +127,6 @@ export default function CalendarData() {
       setDueDate((prev) => ({ ...prev, to: null }));
     }
   };
-  function setInputDate() {
-    setModalOpen(false);
-  }
-
   return (
     <div className="flex flex-row justify-center items-start relative cursor-pointer">
       <div onClick={() => setModalOpen(!modalOpen)} role="contentinfo" onKeyDown={() => setModalOpen(!modalOpen)} className="w-6 h-6 rounded-md right-1/3 flex flex-row justify-center items-center">
@@ -177,7 +181,7 @@ export default function CalendarData() {
                                         ? 'text-[#000316]' : 'text-[#64748B]'}`}                       
                                    ${((new Date(dueDate?.from).getTime() < new Date(dates).getTime()) && (new Date(dueDate?.to).getTime() > new Date(dates).getTime()))
                                       ? 'rounded-none bg-[#EFEBFD]' : ''}`}
-                                  onClick={() => handleDateClick(dates)}
+                                  onClick={() => { handleDateClick(dates); Input(dates); }}
                                   onKeyDown={() => { }}
                                 >
                                   {new Date(dates).getDate()}
@@ -230,7 +234,7 @@ export default function CalendarData() {
                       </div>
                     </div>
                   </div>
-                  <div onClick={setInputDate} role="contentinfo" onKeyDown={() => { }} className="absolute w-full bottom-5">
+                  <div onClick={() => setModalOpen(false)} role="contentinfo" onKeyDown={() => { }} className="absolute w-full bottom-5">
                     <button className="w-32 bg-[#6239ED] py-[0.375rem] text-sm text-center text-white leading-4 font-medium rounded-md">
                       Set date
                     </button>
