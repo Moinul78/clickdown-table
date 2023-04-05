@@ -88,9 +88,6 @@ export default function CalendarData() {
     if ((typeof (new Date(startDateInput).getTime()) === 'number') || startDateInput.length === 0) {
       setDueDate((prev) => ({ ...prev, from: parseDate(startDateInput) }));
     }
-    // if ((typeof (new Date(startDateInput).getTime()) === 'number')) {
-    //   setDueDate({ from: null });
-    // }
     if ((new Date(dueDate.to).getTime() < new Date(parseDate(startDateInput)).getTime()) && (typeof (new Date(startDateInput).getTime()) === 'number')) {
       setBorderRed(true);
     } else {
