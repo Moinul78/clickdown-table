@@ -19,14 +19,6 @@ export default function SelectUser() {
     const newSelectedMembers = [...selected, selectedMember];
     setSelected(newSelectedMembers);
     setAllMembers(remainingMembers);
-
-    //   let ele = document.getElementById('container');
-    //   ele.innerHTML += `
-    // <div class='flex justify-center items-center gap-x'>
-    // <p class='text-slate-900 font-medium text-[0.688rem]'>${user.name}</p>
-    // <p>x</p></div>
-
-    //   `
   };
   const handleSearchMembers = (searchName) => {
     const searchString = searchName.trim();

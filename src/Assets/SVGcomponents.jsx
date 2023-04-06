@@ -10,29 +10,29 @@ import { ReactComponent as CalendarIcon } from './Icons/CalendarIcon.svg';
 import { ReactComponent as cancel } from './Icons/cancel.svg';
 import { ReactComponent as ArrowRight } from './Icons/Arrowright.svg';
 import { ReactComponent as ArrowLeft } from './Icons/ArrowLeft.svg';
-import { ReactComponent as chatinput1 } from './Icons/Frame.svg';
-import { ReactComponent as chatinput2 } from './Icons/Frame-1.svg';
-import { ReactComponent as chatinput3 } from './Icons/Frame-2.svg';
-import { ReactComponent as chatinput4 } from './Icons/Frame-3.svg';
-import { ReactComponent as chatinput5 } from './Icons/Frame-4.svg';
-import { ReactComponent as chatinput6 } from './Icons/Frame-5.svg';
-import { ReactComponent as chatinput7 } from './Icons/Frame-6.svg';
-import { ReactComponent as chatinput8 } from './Icons/Frame 135.svg';
-import { ReactComponent as chatinput9 } from './Icons/Frame-8.svg';
-import { ReactComponent as chatinput10 } from './Icons/Frame-9.svg';
-import { ReactComponent as chatinput11 } from './Icons/Frame-10.svg';
-import { ReactComponent as chatinput12 } from './Icons/Frame-11.svg';
-import { ReactComponent as chatinput13 } from './Icons/Frame-12.svg';
-import { ReactComponent as chatinputline } from './Icons/Line 24.svg';
+import { ReactComponent as BoldIcon } from './Icons/Frame.svg';
+import { ReactComponent as ItalicIcon } from './Icons/Frame-1.svg';
+import { ReactComponent as UnderLineIcon } from './Icons/Frame-2.svg';
+import { ReactComponent as FrameIcon3Icon } from './Icons/Frame-3.svg';
+import { ReactComponent as TextColorIcon } from './Icons/Frame-4.svg';
+import { ReactComponent as TextFormatIcon } from './Icons/Frame-5.svg';
+import { ReactComponent as SpaceRightAlignIcon } from './Icons/Frame-6.svg';
+import { ReactComponent as SpaceLeftAlignIcon } from './Icons/Frame 135.svg';
+import { ReactComponent as AddNumberListAlignIcon } from './Icons/Frame-8.svg';
+import { ReactComponent as AddListAlignIcon } from './Icons/Frame-9.svg';
+import { ReactComponent as ApostropheIcon } from './Icons/Frame-10.svg';
+import { ReactComponent as LinkIcon } from './Icons/Frame-11.svg';
+import { ReactComponent as CodeIcon } from './Icons/Frame-12.svg';
+import { ReactComponent as chatinputlineIcon } from './Icons/Line 24.svg';
 import { ReactComponent as chatinput14 } from './Icons/Frame-7.svg';
-import { ReactComponent as chatinput15 } from './Icons/Tt.svg';
+import { ReactComponent as Ttext } from './Icons/Tt.svg';
 import { ReactComponent as smileIcon } from './Icons/smile 1.svg';
 import { ReactComponent as imageIcon } from './Icons/image-01 1.svg';
 import { ReactComponent as attachmentIcon } from './Icons/attachment-02 1.svg';
 import { ReactComponent as micIcon } from './Icons/micphone.svg';
 import { ReactComponent as sendIcon } from './Icons/send-button.svg';
-import { ReactComponent as audioCallIcon } from './Icons/call 2.svg';
-import { ReactComponent as videoCallIcon } from './Icons/call 2 (1).svg';
+import { ReactComponent as audioCallIcon } from './Icons/audioCallIcon.svg';
+import { ReactComponent as videoCallIcon } from './Icons/videoCallIcon.svg';
 import { ReactComponent as locationIcon } from './Icons/location-01 1.svg';
 import { ReactComponent as mailIcon } from './Icons/mail-01 1.svg';
 import { ReactComponent as fileIcon } from './Icons/file-01 1.svg';
@@ -70,14 +70,22 @@ import { ReactComponent as PriorityFlag } from './Icons/PriorityFlag.svg';
 import { ReactComponent as LowPriority } from './Icons/LowPriority.svg';
 import { ReactComponent as MediumPriority } from './Icons/MediumPriority.svg';
 import { ReactComponent as HighPriority } from './Icons/HighPriority.svg';
+import { ReactComponent as ChatAvatar } from './Icons/ChatAvatar.svg';
+import { ReactComponent as ThreeDotIcon } from './Icons/ThreeDotIcon.svg';
+import { ReactComponent as VoiceMessage } from './Icons/VoiceMessage.svg';
+import { ReactComponent as PlayCircleIcon } from './Icons/PlayCircleIcon.svg';
+import { ReactComponent as PinnedMessageIcon } from './Icons/pin 1.svg';
+import { ReactComponent as ChatActive } from './Icons/ChatActive.svg';
 import { ReactComponent as avatar1 } from './Icons/avatar 1.svg';
 import { ReactComponent as avatar2 } from './Icons/avatar 2.svg';
 import { ReactComponent as avatar3 } from './Icons/avatar 3.svg';
 
 export {
-  chatinput1, chatinput2, chatinput3, chatinput4, chatinput5, chatinput6,
-  chatinput7, chatinput8, chatinput9, chatinput10, chatinput11,
-  chatinput12, chatinput13, chatinputline, chatinput14, chatinput15,
+  BoldIcon, ItalicIcon, UnderLineIcon, FrameIcon3Icon, TextColorIcon, TextFormatIcon,
+  SpaceRightAlignIcon, SpaceLeftAlignIcon, AddNumberListAlignIcon, AddListAlignIcon, ApostropheIcon,
+  ThreeDotIcon, VoiceMessage, PlayCircleIcon, PinnedMessageIcon,
+  ChatActive,
+  LinkIcon, CodeIcon, chatinputlineIcon, chatinput14, Ttext,
   smileIcon, imageIcon, attachmentIcon, micIcon, sendIcon, audioCallIcon,
   videoCallIcon, locationIcon, mailIcon, fileIcon, searchIcon,
   downloadIcon, linkIcon, homeIcon, dashboardIcon, projectIcon, chatIcon,
@@ -89,5 +97,5 @@ export {
   editIcon, tagIcon, subtaskIcon, addUserIcon, arrowRightIconNew, folderIcon,
   loveIcon, pentagonIcon, IssueTypesIcon, DeleteIcon, avatar1, avatar2, avatar3,
   CalendarIcon, cancel, ArrowRight, ArrowLeft,
-  PriorityFlag, LowPriority, HighPriority, MediumPriority,
+  PriorityFlag, LowPriority, HighPriority, MediumPriority, ChatAvatar,
 };

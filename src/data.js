@@ -16,6 +16,7 @@ import {
   flashIconTwo,
   flashIconOne,
   avatar3,
+  ChatAvatar,
 } from './Assets/SVGcomponents';
 
 const subData = [
@@ -343,6 +344,160 @@ const issuetypes = [
   },
 ];
 
+const pinnedMessages = [
+  {
+    id: 1,
+    avatar: avatar1,
+    username: 'Moinul Islam',
+    author: 'other',
+    message: 'Hi, How are You?',
+    unseen: 0,
+    isWriting: true,
+    time: '4.55 PM',
+  },
+  {
+    id: 2,
+    username: 'Moinul Islam',
+    avatar: avatar2,
+    author: 'other',
+    message: 'Hi, How are You?',
+    isWriting: true,
+    unseen: 5,
+    time: '4.55 PM',
+  },
+  {
+    id: 3,
+    username: 'Moinul Islam',
+    avatar: avatar3,
+    message: 'Hi, How are You?',
+    author: 'other',
+    isWriting: false,
+    unseen: 0,
+    time: '4.55 PM',
+  },
+];
+const RecentMessages = [
+  {
+    id: 1,
+    avatar: avatar1,
+    username: 'Moinul Islam',
+    author: 'other',
+    message: 'How are You?',
+    unseen: 5,
+    isWriting: false,
+    time: '4.55 PM',
+  },
+  {
+    id: 2,
+    username: 'Moinul Islam',
+    avatar: avatar2,
+    author: 'other',
+    message: 'How are You?',
+    isWriting: true,
+    unseen: 5,
+    time: '4.55 PM',
+  },
+  {
+    id: 3,
+    username: 'Moinul Islam',
+    avatar: avatar3,
+    message: 'How are You?',
+    author: 'other',
+    isWriting: false,
+    unseen: 0,
+    time: 'yestarday',
+  },
+  {
+    id: 4,
+    username: 'Moinul Islam',
+    avatar: avatar1,
+    message: 'How are You?',
+    author: 'other',
+    isWriting: false,
+    unseen: 0,
+    time: 'yestarday',
+  },
+  {
+    id: 5,
+    username: 'Moinul Islam',
+    avatar: avatar2,
+    message: 'How are You?',
+    author: 'other',
+    isWriting: false,
+    unseen: 0,
+    time: 'jan 23',
+  },
+];
+
+const ChattingData = [
+  {
+    id: 1,
+    avatar: ChatAvatar,
+    username: 'Moinul Islam',
+    author: 'me',
+    message: 'Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.',
+    time: '4.55 PM',
+  },
+  {
+    id: 2,
+    avatar: ChatAvatar,
+    username: 'Moinul Islam',
+    author: 'me',
+    message: 'Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.',
+    time: '4.55 PM',
+  },
+  {
+    id: 3,
+    avatar: ChatAvatar,
+    username: 'Moinul Islam',
+    author: 'me',
+    message: 'Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.',
+    time: '4.55 PM',
+  },
+  {
+    id: 4,
+    avatar: ChatAvatar,
+    username: 'Moinul Islam',
+    author: 'me',
+    message: 'Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.',
+    time: '4.55 PM',
+  },
+  {
+    id: 5,
+    avatar: ChatAvatar,
+    username: 'Moinul Islam',
+    author: 'other',
+    message: 'Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.',
+    time: '4.55 PM',
+  },
+  {
+    id: 6,
+    avatar: ChatAvatar,
+    username: 'Moinul Islam',
+    author: 'other',
+    message: 'Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.',
+    time: '4.55 PM',
+  },
+  {
+    id: 7,
+    avatar: ChatAvatar,
+    username: 'Moinul Islam',
+    author: 'other',
+    message: 'Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.',
+    time: '4.55 PM',
+  },
+];
+const personDetails = {
+  id: 1,
+  avatar: ChatAvatar,
+  username: 'Moinul Islam',
+  designation: 'MERN Developer',
+  email: 'moinul@coredevs.ltd',
+  phone: '+880 1235-889250',
+  location: 'Core Devs Ltd.',
+  isActive: true,
+};
+
 export {
   subData,
   users,
@@ -350,4 +505,8 @@ export {
   Options,
   Status,
   issuetypes,
+  pinnedMessages,
+  RecentMessages,
+  ChattingData,
+  personDetails,
 };
