@@ -16,7 +16,9 @@ import {
   flashIconTwo,
   flashIconOne,
   avatar3,
-  ChatAvatar,
+  fileIcon,
+  downloadIcon,
+  linkIcon,
 } from './Assets/SVGcomponents';
 
 const subData = [
@@ -348,7 +350,7 @@ const pinnedMessages = [
   {
     id: 1,
     avatar: avatar1,
-    username: 'Moinul Islam',
+    username: 'Rakibul Yeasin',
     author: 'other',
     message: 'Hi, How are You?',
     unseen: 0,
@@ -367,7 +369,7 @@ const pinnedMessages = [
   },
   {
     id: 3,
-    username: 'Moinul Islam',
+    username: 'Pranta Das',
     avatar: avatar3,
     message: 'Hi, How are You?',
     author: 'other',
@@ -389,7 +391,7 @@ const RecentMessages = [
   },
   {
     id: 2,
-    username: 'Moinul Islam',
+    username: 'Ramjan Ali Anik',
     avatar: avatar2,
     author: 'other',
     message: 'How are You?',
@@ -399,7 +401,7 @@ const RecentMessages = [
   },
   {
     id: 3,
-    username: 'Moinul Islam',
+    username: 'Rakibul Yeasin',
     avatar: avatar3,
     message: 'How are You?',
     author: 'other',
@@ -409,7 +411,7 @@ const RecentMessages = [
   },
   {
     id: 4,
-    username: 'Moinul Islam',
+    username: 'Jayeen Bin Alam',
     avatar: avatar1,
     message: 'How are You?',
     author: 'other',
@@ -419,7 +421,7 @@ const RecentMessages = [
   },
   {
     id: 5,
-    username: 'Moinul Islam',
+    username: 'Walid Bin Jashim',
     avatar: avatar2,
     message: 'How are You?',
     author: 'other',
@@ -427,76 +429,164 @@ const RecentMessages = [
     unseen: 0,
     time: 'jan 23',
   },
+  {
+    id: 6,
+    username: 'Mijanur Hasan',
+    avatar: avatar3,
+    message: 'How are You?',
+    author: 'other',
+    isWriting: false,
+    unseen: 0,
+    time: 'Mar 24',
+  },
 ];
 
 const ChattingData = [
   {
     id: 1,
-    avatar: ChatAvatar,
+    avatar: avatar2,
     username: 'Moinul Islam',
-    author: 'me',
+    author: false,
     message: 'Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.',
     time: '4.55 PM',
   },
   {
     id: 2,
-    avatar: ChatAvatar,
+    avatar: avatar3,
     username: 'Moinul Islam',
-    author: 'me',
+    author: true,
     message: 'Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.',
     time: '4.55 PM',
   },
   {
     id: 3,
-    avatar: ChatAvatar,
+    avatar: avatar2,
     username: 'Moinul Islam',
-    author: 'me',
+    author: false,
     message: 'Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.',
     time: '4.55 PM',
   },
   {
     id: 4,
-    avatar: ChatAvatar,
+    avatar: avatar2,
     username: 'Moinul Islam',
-    author: 'me',
+    author: false,
     message: 'Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.',
     time: '4.55 PM',
   },
   {
     id: 5,
-    avatar: ChatAvatar,
+    avatar: avatar3,
     username: 'Moinul Islam',
-    author: 'other',
+    author: true,
     message: 'Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.',
     time: '4.55 PM',
   },
   {
     id: 6,
-    avatar: ChatAvatar,
+    avatar: avatar3,
     username: 'Moinul Islam',
-    author: 'other',
+    author: false,
     message: 'Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.',
     time: '4.55 PM',
   },
   {
     id: 7,
-    avatar: ChatAvatar,
+    avatar: avatar3,
     username: 'Moinul Islam',
-    author: 'other',
+    author: true,
     message: 'Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.',
     time: '4.55 PM',
   },
 ];
-const personDetails = {
-  id: 1,
-  avatar: ChatAvatar,
-  username: 'Moinul Islam',
-  designation: 'MERN Developer',
-  email: 'moinul@coredevs.ltd',
-  phone: '+880 1235-889250',
-  location: 'Core Devs Ltd.',
-  isActive: true,
-};
+const PersonInformations = [
+  {
+    id: 1,
+    avatar: avatar2,
+    username: 'Moinul Islam',
+    designation: 'MERN Developer',
+    email: 'moinul@coredevs.ltd',
+    phone: '+880 1235-889250',
+    location: 'Core Devs Ltd.',
+    isActive: true,
+  },
+];
+
+const Attachments = [
+  {
+    id: 1,
+    fileIcon,
+    fileName: 'Core Devs Ltd.docs',
+    time: '25 Feb 2023',
+    downloadIcon,
+
+  },
+  {
+    id: 2,
+    fileIcon,
+    fileName: 'Core Devs Ltd.docs',
+    time: '25 Feb 2023',
+    downloadIcon,
+
+  },
+  {
+    id: 3,
+    fileIcon,
+    fileName: 'Core Devs Ltd.docs',
+    time: '25 Feb 2023',
+    downloadIcon,
+
+  },
+  {
+    id: 4,
+    fileIcon,
+    fileName: 'Core Devs Ltd.docs',
+    time: '25 Feb 2023',
+    downloadIcon,
+
+  },
+  {
+    id: 5,
+    fileIcon,
+    fileName: 'Core Devs Ltd.docs',
+    time: '25 Feb 2023',
+    downloadIcon,
+
+  },
+];
+
+const Links = [
+  {
+    id: 1,
+    linkIcon,
+    linkAddress: 'https://www.coredevs.ltd/',
+  },
+  {
+    id: 2,
+    linkIcon,
+    linkAddress: 'https://www.coredevs.ltd/',
+  },
+  {
+    id: 3,
+    linkIcon,
+    linkAddress: 'https://www.coredevs.ltd/',
+  },
+  {
+    id: 4,
+    linkIcon,
+    linkAddress: 'https://www.coredevs.ltd/',
+  },
+  {
+    id: 5,
+    linkIcon,
+    linkAddress: 'https://www.coredevs.ltd/',
+  },
+  {
+    id: 6,
+    linkIcon,
+    linkAddress: 'https://www.coredevs.ltd/',
+  },
+];
 
 export {
   subData,
@@ -508,5 +598,7 @@ export {
   pinnedMessages,
   RecentMessages,
   ChattingData,
-  personDetails,
+  PersonInformations,
+  Attachments,
+  Links,
 };

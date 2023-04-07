@@ -76,6 +76,10 @@ import { ReactComponent as VoiceMessage } from './Icons/VoiceMessage.svg';
 import { ReactComponent as PlayCircleIcon } from './Icons/PlayCircleIcon.svg';
 import { ReactComponent as PinnedMessageIcon } from './Icons/pin 1.svg';
 import { ReactComponent as ChatActive } from './Icons/ChatActive.svg';
+import { ReactComponent as GreenIcon } from './Icons/GreenIcon.svg';
+import { ReactComponent as PersonAudioCall } from './Icons/PersonAudioCall.svg';
+import { ReactComponent as PersonVideoCall } from './Icons/PersonVideoCall.svg';
+import { ReactComponent as PhoneCallIcon } from './Icons/PhoneCallIcon.svg';
 import { ReactComponent as avatar1 } from './Icons/avatar 1.svg';
 import { ReactComponent as avatar2 } from './Icons/avatar 2.svg';
 import { ReactComponent as avatar3 } from './Icons/avatar 3.svg';
@@ -84,7 +88,8 @@ export {
   BoldIcon, ItalicIcon, UnderLineIcon, FrameIcon3Icon, TextColorIcon, TextFormatIcon,
   SpaceRightAlignIcon, SpaceLeftAlignIcon, AddNumberListAlignIcon, AddListAlignIcon, ApostropheIcon,
   ThreeDotIcon, VoiceMessage, PlayCircleIcon, PinnedMessageIcon,
-  ChatActive,
+  ChatActive, GreenIcon, PersonAudioCall, PersonVideoCall,
+  PhoneCallIcon,
   LinkIcon, CodeIcon, chatinputlineIcon, chatinput14, Ttext,
   smileIcon, imageIcon, attachmentIcon, micIcon, sendIcon, audioCallIcon,
   videoCallIcon, locationIcon, mailIcon, fileIcon, searchIcon,

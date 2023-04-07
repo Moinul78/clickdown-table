@@ -5,7 +5,7 @@ import ChatBoxBody from './ChatBoxBody';
 
 export default function ChatBox() {
   return (
-    <div className="px-5 h-screen flex flex-col justify-between bg-[#F5F5F5] p-2">
+    <div className="px-5 py-2 h-screen flex flex-col justify-between bg-[#F5F5F5]">
       <div>
         <div><ChatBoxHeader /></div>
         <div><ChatBoxBody /></div>

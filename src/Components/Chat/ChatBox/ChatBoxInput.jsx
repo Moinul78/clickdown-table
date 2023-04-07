@@ -26,8 +26,8 @@ import SVGIcon from '../../../SVGIcon/SVGIcon';
 export default function ChatBoxInput() {
   return (
     <div>
-      <div className="border border-[#6239ED] bg-[#F8FAFC] rounded h-[12.188rem] p-[1.5rem] mb-[1.13rem]">
-        <div className="flex flex-row gap-x-2 mb-[1.229rem]">
+      <div className="border border-[#6239ED] bg-[#F8FAFC] rounded h-[9.188rem] p-[1rem] mb-[0.7rem]">
+        <div className="flex flex-row gap-x-2 mb-[0.7rem]">
           <SVGIcon Icon={BoldIcon} />
           <SVGIcon Icon={ItalicIcon} />
           <SVGIcon Icon={UnderLineIcon} />
@@ -44,7 +44,7 @@ export default function ChatBoxInput() {
           <SVGIcon Icon={CodeIcon} />
         </div>
         <div className="">
-          <textarea style={{ width: '100%', height: '7.75rem', resize: 'none' }} className="focus:outline-none text-sm bg-[#F8FAFC] placeholder:text-slate-500 font-normal  focus:text-[#6239ED]" name="message" id="message" placeholder="Type a new message...">{ }</textarea>
+          <textarea style={{ width: '100%', height: '4rem', resize: 'none' }} className="focus:outline-none text-sm bg-[#F8FAFC] placeholder:text-slate-500 font-normal  focus:text-[#6239ED]" name="message" id="message" placeholder="Type a new message...">{ }</textarea>
         </div>
       </div>
       <div className="flex flex-row justify-between mb-[1.13rem]">
