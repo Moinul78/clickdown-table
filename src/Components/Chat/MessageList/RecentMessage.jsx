@@ -38,7 +38,7 @@ export default function RecentMessage() {
                 <p className="text-[#64748B] font-semibold text-xs leading-4">{recentMessage.time}</p>
                 {
                   recentMessage.unseen
-                    ? <p className="flex justify-end bg-[#FF754C] w-5 h-5 text-[0.8rem] pl-2 pr-[6px] py-[1px] ml-6 rounded-full">{recentMessage.unseen}</p>
+                    ? <p className="flex justify-end bg-[#FF754C] w-5 h-5 text-[0.8rem] text-[#FFFFFF] pl-2 pr-[6px] py-[1px] ml-6 rounded-full">{recentMessage.unseen}</p>
                     : ''
                 }
               </div>

@@ -31,7 +31,6 @@ export default function ChatBoxBody() {
           </div>
         ))
       }
-      {/* ref={messageEndRef} */}
     </div>
     // <div className="border-t-[1px] border-slate-100">
     //   <div className="flex justify-between w-[20.813rem] mt-[1rem]">

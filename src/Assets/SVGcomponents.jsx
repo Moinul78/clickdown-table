@@ -17,14 +17,13 @@ import { ReactComponent as FrameIcon3Icon } from './Icons/Frame-3.svg';
 import { ReactComponent as TextColorIcon } from './Icons/Frame-4.svg';
 import { ReactComponent as TextFormatIcon } from './Icons/Frame-5.svg';
 import { ReactComponent as SpaceRightAlignIcon } from './Icons/Frame-6.svg';
-import { ReactComponent as SpaceLeftAlignIcon } from './Icons/Frame 135.svg';
+import { ReactComponent as SpaceLeftAlignIcon } from './Icons/Frame-7.svg';
 import { ReactComponent as AddNumberListAlignIcon } from './Icons/Frame-8.svg';
 import { ReactComponent as AddListAlignIcon } from './Icons/Frame-9.svg';
 import { ReactComponent as ApostropheIcon } from './Icons/Frame-10.svg';
 import { ReactComponent as LinkIcon } from './Icons/Frame-11.svg';
 import { ReactComponent as CodeIcon } from './Icons/Frame-12.svg';
 import { ReactComponent as chatinputlineIcon } from './Icons/Line 24.svg';
-import { ReactComponent as chatinput14 } from './Icons/Frame-7.svg';
 import { ReactComponent as Ttext } from './Icons/Tt.svg';
 import { ReactComponent as smileIcon } from './Icons/smile 1.svg';
 import { ReactComponent as imageIcon } from './Icons/image-01 1.svg';
@@ -90,7 +89,7 @@ export {
   ThreeDotIcon, VoiceMessage, PlayCircleIcon, PinnedMessageIcon,
   ChatActive, GreenIcon, PersonAudioCall, PersonVideoCall,
   PhoneCallIcon,
-  LinkIcon, CodeIcon, chatinputlineIcon, chatinput14, Ttext,
+  LinkIcon, CodeIcon, chatinputlineIcon, Ttext,
   smileIcon, imageIcon, attachmentIcon, micIcon, sendIcon, audioCallIcon,
   videoCallIcon, locationIcon, mailIcon, fileIcon, searchIcon,
   downloadIcon, linkIcon, homeIcon, dashboardIcon, projectIcon, chatIcon,

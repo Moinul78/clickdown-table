@@ -11,46 +11,54 @@ import {
 
 export default function PersonInformation() {
   return (
-    <div className="bg-[#6239ED] rounded-xl">
-      <div className="py-[0.5rem] mx-5">
-        {
-          PersonInformations.map((personInfo) => (
-            <div key={personInfo.id}>
-              <div className="flex flex-row border-b-[1px] border-[#FFFFFF] border-opacity-20">
-                <SVGIcon className="w-[2rem] h-[2rem] mr-[1rem]" Icon={personInfo.avatar} />
-                <div>
-                  <div className="flex">
-                    <p className="font-semibold text-[16px] leading-4 text-[#FFFFFF]">
-                      {personInfo.username}
-                    </p>
-                    {personInfo.isActive ? <p className="bg-[#22C55E] rounded-full p-1 w-2 h-2 ml-2 mt-[0.1rem]">{ }</p> : ''}
-                  </div>
-                  <p className="font-normal text-[12px] leading-4 text-[#CBD5E1] mb-2">{personInfo.designation}</p>
+    <div>
+      {
+        PersonInformations.map((personDetails) => (
+          <div key={personDetails.id} className="h-[17.875rem] bg-[#6239ED] rounded-xl px-5 py-[1.125rem]">
+            <div className="flex flex-row items-center">
+              <SVGIcon className="w-[2.625rem] h-[2.625rem] rounded-full border-2 bg-white p-[0.125rem]" Icon={personDetails?.avatar} />
+              <div className="ml-[1.125rem]">
+                <div className="flex flex-row items-center">
+                  <p className="text-white font-semibold text-lg">{personDetails?.username}</p>
+                  {
+                    personDetails?.isActive && (
+                      <div className="w-2 h-2 rounded-full bg-[#22C55E] ml-2">{ }</div>
+                    )
+                  }
                 </div>
+                <p className="text-slate-300 font-normal text-sm">{personDetails?.designation}</p>
               </div>
-              <div className="flex gap-x-2 py-1">
-                <SVGIcon Icon={PersonAudioCall} />
-                <SVGIcon Icon={PersonVideoCall} />
+            </div>
+            <hr className="opacity-20 mt-3" />
+            <div className="mt-[0.875rem] flex flex-row gap-x-[0.5rem]">
+              <div className="w-10 h-10 bg-white bg-opacity-20 rounded-md flex flex-row justify-center items-center">
+                <SVGIcon className="stroke-white" Icon={PersonAudioCall} />
               </div>
-              <div className="text-[#E2E8F0] text-sm font-normal leading-3 mt-1">
-                <p className="pb-1">Contact: </p>
-                <div className="flex gap-x-2 items-center py-[0.1rem]">
+              <div className="w-10 h-10 bg-white bg-opacity-20 rounded-md flex flex-row justify-center items-center">
+                <SVGIcon className="stroke-white" Icon={PersonVideoCall} />
+              </div>
+            </div>
+            <div className="mt-5">
+              <p className="text-sm font-normal text-slate-200">Contact:</p>
+              <div className="mt-4">
+                <div className="flex flex-row items-center mt-[0.875rem]">
+                  <SVGIcon className="stroke-white" Icon={PhoneCallIcon} />
+                  <p className="text-white text-sm font-normal ml-[0.917rem]">{personDetails?.phone}</p>
+                </div>
+                <div className="flex flex-row items-center  mt-[0.875rem]">
                   <SVGIcon Icon={mailIcon} />
-                  <p>{personInfo.email}</p>
+                  <p className="text-white text-sm font-normal ml-[0.917rem]">{personDetails?.email}</p>
                 </div>
-                <div className="flex gap-x-2 items-center pb-[0.1rem]">
-                  <SVGIcon Icon={PhoneCallIcon} />
-                  <p>{personInfo.phone}</p>
-                </div>
-                <div className="flex gap-x-2 items-center">
+                <div className="flex flex-row items-center  mt-[0.875rem]">
                   <SVGIcon Icon={locationIcon} />
-                  <p>{personInfo.location}</p>
+                  <p className="text-white text-sm font-normal ml-[0.917rem]">{personDetails?.location}</p>
                 </div>
               </div>
             </div>
-          ))
-        }
-      </div>
+          </div>
+        ))
+      }
     </div>
+
   );
 }

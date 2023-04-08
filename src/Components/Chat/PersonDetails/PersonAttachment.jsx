@@ -14,7 +14,7 @@ export default function PersonAttachment() {
           <SVGIcon onClick={() => setCollapse(!collapse)} className={collapse ? 'rotate-90' : ''} Icon={arrowRightIcon} />
         </div>
       </div>
-      <div className="mx-5">
+      <div className={`mx - 5 ${collapse ? 'h-[10rem] overflow-y-auto' : ''}`}>
         {
           collapse && Attachments.map((attachment) => (
             <div key={attachment.id} className="flex flex-row justify-between border-b border-slate-200 py-1">
