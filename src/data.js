@@ -506,7 +506,7 @@ const PersonInformations = [
     username: 'Moinul Islam',
     designation: 'MERN Developer',
     email: 'moinul@coredevs.ltd',
-    phone: '+880 1235-889250',
+    phone: '+880 1717171717',
     location: 'Core Devs Ltd.',
     isActive: true,
   },

@@ -87,14 +87,15 @@ export default function ChatBoxInput() {
   function makeSpaceLeft() {
     const text = document.getElementById('text');
     const icon = document.getElementById('spaceLeft');
-    text.style.paddingLeft = '10px';
+    console.log(Number(text.style.paddingLeft));
+    text.style.paddingLeft = '20px';
     icon.style.backgroundColor = 'black';
     icon.style.borderRadius = '4px';
   }
 
   return (
     <div>
-      <div className="border border-[#6239ED] bg-[#F8FAFC] rounded h-[9.188rem] p-[1rem] mb-[0.7rem]">
+      <div className="border border-[#6239ED] bg-[#F8FAFC] rounded h-[9.188rem] p-[1rem] mb-[0.7rem] cursor-pointer">
         <div className="flex flex-row gap-x-2 mb-[0.7rem]">
           <div onClick={makeBold} id="boldIcon" role="contentinfo" onKeyDown={() => { }}>
             <SVGIcon Icon={BoldIcon} />
@@ -124,7 +125,7 @@ export default function ChatBoxInput() {
           <SVGIcon Icon={CodeIcon} />
         </div>
         <div className="">
-          <textarea id="text" style={{ width: '100%', height: '4rem', resize: 'none' }} className="focus:outline-none text-sm bg-[#F8FAFC] placeholder:text-slate-500 font-normal  focus:text-[#6239ED]" placeholder="Type a new message...">{ }</textarea>
+          <textarea id="text" style={{ width: '100%', height: '4rem', resize: 'none' }} className="focus:outline-none select-text text-sm bg-[#F8FAFC] placeholder:text-slate-500 font-normal  focus:text-[#6239ED]" placeholder="Type a new message...">{ }</textarea>
         </div>
       </div>
       <div className="flex flex-row justify-between mb-[1.13rem]">

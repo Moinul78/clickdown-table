@@ -19,7 +19,7 @@ export default function PersonInformation() {
               <SVGIcon className="w-[2.625rem] h-[2.625rem] rounded-full border-2 bg-white p-[0.125rem]" Icon={personDetails?.avatar} />
               <div className="ml-[1.125rem]">
                 <div className="flex flex-row items-center">
-                  <p className="text-white font-semibold text-lg">{personDetails?.username}</p>
+                  <p className="text-white font-semibold text-lg cursor-pointer">{personDetails?.username}</p>
                   {
                     personDetails?.isActive && (
                       <div className="w-2 h-2 rounded-full bg-[#22C55E] ml-2">{ }</div>
@@ -31,25 +31,25 @@ export default function PersonInformation() {
             </div>
             <hr className="opacity-20 mt-3" />
             <div className="mt-[0.875rem] flex flex-row gap-x-[0.5rem]">
-              <div className="w-10 h-10 bg-white bg-opacity-20 rounded-md flex flex-row justify-center items-center">
+              <div className="bg-white bg-opacity-20 rounded-md cursor-pointer">
                 <SVGIcon className="stroke-white" Icon={PersonAudioCall} />
               </div>
-              <div className="w-10 h-10 bg-white bg-opacity-20 rounded-md flex flex-row justify-center items-center">
+              <div className=" bg-white bg-opacity-20 rounded-md cursor-pointer">
                 <SVGIcon className="stroke-white" Icon={PersonVideoCall} />
               </div>
             </div>
             <div className="mt-5">
               <p className="text-sm font-normal text-slate-200">Contact:</p>
               <div className="mt-4">
-                <div className="flex flex-row items-center mt-[0.875rem]">
+                <div className="flex flex-row items-center mt-[0.675rem]">
                   <SVGIcon className="stroke-white" Icon={PhoneCallIcon} />
                   <p className="text-white text-sm font-normal ml-[0.917rem]">{personDetails?.phone}</p>
                 </div>
-                <div className="flex flex-row items-center  mt-[0.875rem]">
+                <div className="flex flex-row items-center  mt-[0.675rem]">
                   <SVGIcon Icon={mailIcon} />
                   <p className="text-white text-sm font-normal ml-[0.917rem]">{personDetails?.email}</p>
                 </div>
-                <div className="flex flex-row items-center  mt-[0.875rem]">
+                <div className="flex flex-row items-center  mt-[0.675rem]">
                   <SVGIcon Icon={locationIcon} />
                   <p className="text-white text-sm font-normal ml-[0.917rem]">{personDetails?.location}</p>
                 </div>

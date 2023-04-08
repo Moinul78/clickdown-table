@@ -11,7 +11,7 @@ export default function ChatBoxBody() {
     scrollToBottom();
   }, []);
   return (
-    <div className="px-5 w-full h-[60vh] overflow-y-auto">
+    <div className="px-5 w-full h-[60vh] overflow-y-scroll no-scrollbar">
       {
         ChattingData?.map((msg) => (
           <div key={msg.id}>
@@ -19,11 +19,11 @@ export default function ChatBoxBody() {
               <SVGIcon className="w-[2rem] h-[2rem]" Icon={msg.avatar} />
               <div className={`w-[20rem] border rounded ${msg.author ? 'bg-[#6239ED] mr-[0.5rem] p-[0.5rem]' : 'bg-[#F8FAFC] ml-[0.5rem] p-1'}`}>
                 <div className="flex flex-row justify-between">
-                  <p className={`font-medium text-sm ${msg.author ? 'text-white' : 'text-heading'}`}>{msg.username}</p>
-                  <p className={`font-semibold text-xs ${msg.author ? 'text-slate-300' : 'text-slate-500'}`}>{msg.time}</p>
+                  <p className={`font-medium text-sm ${msg.author ? 'text-white cursor-pointer' : 'text-[#0F172A] cursor-pointer'}`}>{msg.username}</p>
+                  <p className={`font-semibold text-xs ${msg.author ? 'text-slate-300 cursor-pointer' : 'text-slate-500 cursor-pointer'}`}>{msg.time}</p>
                 </div>
                 <div className="">
-                  <p className={`text-xs font-normal ${msg.author ? 'text-white' : 'text-slate-500'}`}>{msg.message}</p>
+                  <p className={`text-xs font-normal ${msg.author ? 'text-white cursor-pointer' : 'text-slate-500 cursor-pointer'}`}>{msg.message}</p>
                 </div>
               </div>
             </div>

@@ -14,7 +14,7 @@ export default function RecentMessage() {
           <SVGIcon className="" Icon={ChatActive} />
           <p className="text-[#94A3B8] font-medium text-sm leading-5">Recent Message</p>
         </div>
-        <div>
+        <div className="cursor-pointer">
           <SVGIcon onClick={() => setCollapse(!collapse)} className={collapse ? 'rotate-90' : ''} Icon={arrowRightIcon} />
         </div>
       </div>
@@ -25,7 +25,7 @@ export default function RecentMessage() {
               <div className="flex flex-row">
                 <SVGIcon className="w-[2rem] h-[2rem] mr-[0.75rem]" Icon={recentMessage.avatar} />
                 <div>
-                  <p className="font-semibold text-sm leading-4 text-[#0F172A]">{recentMessage.username}</p>
+                  <p className="font-semibold text-sm leading-4 text-[#0F172A] cursor-pointer">{recentMessage.username}</p>
                   <div>
                     {
                       recentMessage.isWriting ? <p className="text-[#22C55E] font-medium text-[12px]">Typing...</p>
@@ -35,10 +35,10 @@ export default function RecentMessage() {
                 </div>
               </div>
               <div className="flex flex-col">
-                <p className="text-[#64748B] font-semibold text-xs leading-4">{recentMessage.time}</p>
+                <p className="text-[#64748B] font-semibold text-xs leading-4 cursor-pointer">{recentMessage.time}</p>
                 {
                   recentMessage.unseen
-                    ? <p className="flex justify-end bg-[#FF754C] w-5 h-5 text-[0.8rem] text-[#FFFFFF] pl-2 pr-[6px] py-[1px] ml-6 rounded-full">{recentMessage.unseen}</p>
+                    ? <p className="flex justify-end bg-[#FF754C] w-5 h-5 text-[0.8rem] text-[#FFFFFF] cursor-pointer pl-2 pr-[6px] py-[1px] ml-6 rounded-full">{recentMessage.unseen}</p>
                     : ''
                 }
               </div>
