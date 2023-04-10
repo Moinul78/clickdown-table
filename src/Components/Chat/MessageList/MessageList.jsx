@@ -23,9 +23,9 @@ export default function MessageList() {
   return (
     <div className="p-[1.25rem] bg-[#F8FAFC] border-r-[1px] border-[#E2E8F0]">
       <p className="text-lg font-semibold leading-5 text-[#6239ED]">Message</p>
-      <div className="flex flex-row py-[0.688rem] px-[0.5rem] bg-[#FFFFFF] mt-[1rem]">
+      <div className="w-[17.875rem] h-[2.625rem] flex flex-row items-center py-[0.688rem] px-[0.5rem] bg-[#FFFFFF] mt-[1rem]">
         <SVGIcon className="mr-[0.75rem] w-[1.25rem] h-[1rem]" Icon={searchIcon} />
-        <input className="outline-none" type="text" placeholder="search" />
+        <input className="outline-none font-medium text-[#475569] text-sm leading-5 w-[10rem] h-[1.25]" type="text" placeholder="Search" />
         {/*  onChange={(e) => handleSearchMembers(e.target.value)} */}
       </div>
       <PinnedMessage />

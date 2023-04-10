@@ -484,7 +484,7 @@ const ChattingData = [
   },
   {
     id: 6,
-    avatar: avatar3,
+    avatar: avatar2,
     username: 'Moinul Islam',
     author: false,
     message: 'Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.',

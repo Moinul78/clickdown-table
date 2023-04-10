@@ -14,12 +14,12 @@ export default function ChatBoxBody() {
     <div className="px-5 w-full h-[60vh] overflow-y-scroll no-scrollbar">
       {
         ChattingData?.map((msg) => (
-          <div key={msg.id}>
-            <div className={`flex items-start py-2 ${msg.author ? 'flex-row-reverse justify-start' : 'flex-row justify-start'}`}>
+          <div key={msg.id} className="bg-[#F8FAFC]">
+            <div className={`flex items-start p-[8px] ${msg.author ? 'flex-row-reverse justify-start' : 'flex-row justify-start'}`}>
               <SVGIcon className="w-[2rem] h-[2rem]" Icon={msg.avatar} />
               <div className={`w-[20rem] border rounded ${msg.author ? 'bg-[#6239ED] mr-[0.5rem] p-[0.5rem]' : 'bg-[#F8FAFC] ml-[0.5rem] p-1'}`}>
                 <div className="flex flex-row justify-between">
-                  <p className={`font-medium text-sm ${msg.author ? 'text-white cursor-pointer' : 'text-[#0F172A] cursor-pointer'}`}>{msg.username}</p>
+                  <p className={`font-medium text-sm leading-3 ${msg.author ? 'text-white cursor-pointer' : 'text-[#0F172A] cursor-pointer'}`}>{msg.username}</p>
                   <p className={`font-semibold text-xs ${msg.author ? 'text-slate-300 cursor-pointer' : 'text-slate-500 cursor-pointer'}`}>{msg.time}</p>
                 </div>
                 <div className="">

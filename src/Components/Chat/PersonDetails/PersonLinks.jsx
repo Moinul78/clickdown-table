@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import SVGIcon from '../../../SVGIcon/SVGIcon';
 import { arrowRightIcon, searchIcon } from '../../../Assets/SVGcomponents';
 import { Links } from '../../../data';
+import CallingModal from './CallingModal';
 
 export default function PersonLinks() {
   const [collapse, setCollapse] = useState(false);
@@ -14,7 +15,7 @@ export default function PersonLinks() {
           <SVGIcon onClick={() => setCollapse(!collapse)} className={collapse ? 'rotate-90' : ''} Icon={arrowRightIcon} />
         </div>
       </div>
-      <div className={`mx - 5 ${collapse ? 'h-[6rem] overflow-y-auto' : ''}`}>
+      <div className={`mx-5 ${collapse ? 'h-[6rem] overflow-y-auto' : ''}`}>
         {
           collapse && Links.map((link) => (
             <div key={link.id}>
@@ -26,10 +27,10 @@ export default function PersonLinks() {
                   <a href={link.linkAddress} className="font-medium text-sm leading-4 text-[#6239ED] underline">{link.linkAddress}</a>
                 </div>
               </div>
-
             </div>
           ))
         }
+        <CallingModal />
       </div>
     </div>
   );

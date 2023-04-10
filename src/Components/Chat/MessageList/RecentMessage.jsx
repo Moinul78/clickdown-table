@@ -18,27 +18,27 @@ export default function RecentMessage() {
           <SVGIcon onClick={() => setCollapse(!collapse)} className={collapse ? 'rotate-90' : ''} Icon={arrowRightIcon} />
         </div>
       </div>
-      <div className="mt-1">
+      <div className="mt-4">
         {
           collapse && RecentMessages.map((recentMessage) => (
-            <div key={recentMessage.id} className="flex justify-between my-2 h-[2rem] ">
+            <div key={recentMessage.id} className="flex justify-between my-2">
               <div className="flex flex-row">
                 <SVGIcon className="w-[2rem] h-[2rem] mr-[0.75rem]" Icon={recentMessage.avatar} />
                 <div>
-                  <p className="font-semibold text-sm leading-4 text-[#0F172A] cursor-pointer">{recentMessage.username}</p>
+                  <p className="font-semibold text-sm leading-4 text-[#0F172A] cursor-pointer mb-[2px]">{recentMessage.username}</p>
                   <div>
                     {
-                      recentMessage.isWriting ? <p className="text-[#22C55E] font-medium text-[12px]">Typing...</p>
-                        : <p className="text-[#475569] font-medium text-[12px]">{recentMessage.message}</p>
+                      recentMessage.isWriting ? <p className="text-[#22C55E] font-medium text-xs">Typing...</p>
+                        : <p className="text-[#475569] font-medium text-xs">{recentMessage.message}</p>
                     }
                   </div>
                 </div>
               </div>
               <div className="flex flex-col">
-                <p className="text-[#64748B] font-semibold text-xs leading-4 cursor-pointer">{recentMessage.time}</p>
+                <p className="text-[#475569] font-semibold text-xs leading-4 cursor-pointer">{recentMessage.time}</p>
                 {
                   recentMessage.unseen
-                    ? <p className="flex justify-end bg-[#FF754C] w-5 h-5 text-[0.8rem] text-[#FFFFFF] cursor-pointer pl-2 pr-[6px] py-[1px] ml-6 rounded-full">{recentMessage.unseen}</p>
+                    ? <p className="flex justify-end bg-[#FF754C] w-5 h-5 text-[10px] text-semibold text-[#FFFFFF] pr-[7px] py-[3px] ml-7 rounded-full cursor-pointer">{recentMessage.unseen}</p>
                     : ''
                 }
               </div>
