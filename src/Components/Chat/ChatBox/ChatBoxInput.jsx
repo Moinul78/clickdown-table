@@ -27,12 +27,12 @@ export default function ChatBoxInput() {
   function makeBold() {
     const text = document.getElementById('text');
     const icon = document.getElementById('boldIcon');
-    if (text.style.fontWeight === 'bold') {
+    if (text?.style.fontWeight === 'bold') {
       text.style.fontWeight = 'normal';
-      icon.style.backgroundColor = '';
+      icon.style.stroke = '';
     } else {
       text.style.fontWeight = 'bold';
-      icon.style.backgroundColor = 'black';
+      icon.style.stroke = '#6239ED';
       icon.style.borderRadius = '4px';
     }
   }
@@ -41,10 +41,10 @@ export default function ChatBoxInput() {
     const icon = document.getElementById('iconItalic');
     if (text.style.fontStyle === 'italic') {
       text.style.fontStyle = 'normal';
-      icon.style.backgroundColor = '';
+      icon.style.stroke = '';
     } else {
       text.style.fontStyle = 'italic';
-      icon.style.backgroundColor = 'black';
+      icon.style.stroke = '#6239ED';
       icon.style.borderRadius = '4px';
     }
   }
@@ -53,10 +53,10 @@ export default function ChatBoxInput() {
     const icon = document.getElementById('underlineIcon');
     if (text.style.textDecoration === 'underline') {
       text.style.textDecoration = 'none';
-      icon.style.backgroundColor = '';
+      icon.style.stroke = '';
     } else {
       text.style.textDecoration = 'underline';
-      icon.style.backgroundColor = 'black';
+      icon.style.stroke = '#6239ED';
       icon.style.borderRadius = '4px';
     }
   }
@@ -65,10 +65,10 @@ export default function ChatBoxInput() {
     const icon = document.getElementById('lineThroughIcon');
     if (text.style.textDecoration === 'line-through') {
       text.style.textDecoration = 'none';
-      icon.style.backgroundColor = '';
+      icon.style.stroke = '';
     } else {
       text.style.textDecoration = 'line-through';
-      icon.style.backgroundColor = 'black';
+      icon.style.stroke = '#6239ED';
       icon.style.borderRadius = '4px';
     }
   }
@@ -77,20 +77,20 @@ export default function ChatBoxInput() {
     const icon = document.getElementById('textCapitalFormat');
     if (text.style.textTransform === 'capitalize') {
       text.style.textTransform = 'none';
-      icon.style.backgroundColor = '';
+      icon.style.stroke = '';
     } else {
       text.style.textTransform = 'capitalize';
-      icon.style.backgroundColor = 'black';
+      icon.style.stroke = '#6239ED';
       icon.style.borderRadius = '4px';
     }
   }
   function makeSpaceLeft() {
     const text = document.getElementById('text');
-    const icon = document.getElementById('spaceLeft');
-    console.log(Number(text.style.paddingLeft));
     text.style.paddingLeft = '20px';
-    icon.style.backgroundColor = 'black';
-    icon.style.borderRadius = '4px';
+  }
+  function makeSpaceRight() {
+    const text = document.getElementById('text');
+    text.style.paddingRight = '20px';
   }
 
   return (
@@ -117,7 +117,9 @@ export default function ChatBoxInput() {
           <div onClick={makeSpaceLeft} id="spaceLeft" role="contentinfo" onKeyDown={() => { }}>
             <SVGIcon Icon={SpaceLeftAlignIcon} />
           </div>
-          <SVGIcon Icon={SpaceRightAlignIcon} />
+          <div onClick={makeSpaceRight} role="contentinfo" onKeyDown={() => { }}>
+            <SVGIcon Icon={SpaceRightAlignIcon} />
+          </div>
           <SVGIcon Icon={AddNumberListAlignIcon} />
           <SVGIcon Icon={AddListAlignIcon} />
           <SVGIcon Icon={ApostropheIcon} />
@@ -125,6 +127,7 @@ export default function ChatBoxInput() {
           <SVGIcon Icon={CodeIcon} />
         </div>
         <div className="">
+          { }
           <textarea id="text" style={{ width: '100%', height: '4rem', resize: 'none' }} className="focus:outline-none select-text text-sm bg-[#F8FAFC] placeholder:text-slate-500 font-normal  focus:text-[#6239ED]" placeholder="Type a new message...">{ }</textarea>
         </div>
       </div>
