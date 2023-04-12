@@ -21,7 +21,7 @@ export default function MessageList() {
   //   }
   // };
   return (
-    <div className="p-[1.25rem] bg-[#F8FAFC] border-r-[1px] border-[#E2E8F0]">
+    <div className="p-[1.25rem] w-[20.375rem] h-screen bg-[#F8FAFC] border-r-[1px] border-[#E2E8F0]">
       <p className="text-lg font-semibold leading-5 text-[#6239ED]">Message</p>
       <div className="w-[17.875rem] h-[2.625rem] flex flex-row items-center py-[0.688rem] px-[0.5rem] bg-[#FFFFFF] mt-[1rem]">
         <SVGIcon className="mr-[0.75rem] w-[1.25rem] h-[1rem]" Icon={searchIcon} />

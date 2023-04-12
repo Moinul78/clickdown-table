@@ -7,13 +7,13 @@ export default function Chat() {
   return (
     <div>
       <div className="grid grid-cols-4 h-screen w-full">
-        <div>
+        <div className="col-span-1">
           <MessageList />
         </div>
         <div className="col-span-2">
           <ChatBox />
         </div>
-        <div>
+        <div className="col-span-1">
           <UserDetails />
         </div>
       </div>

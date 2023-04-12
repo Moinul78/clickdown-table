@@ -20,6 +20,9 @@ import {
   downloadIcon,
   linkIcon,
 } from './Assets/SVGcomponents';
+import img1 from './Assets/Images/img1.jpg';
+import img2 from './Assets/Images/img2.png';
+import img3 from './Assets/Images/img3.jpg';
 
 const subData = [
   {
@@ -349,7 +352,7 @@ const issuetypes = [
 const pinnedMessages = [
   {
     id: 1,
-    avatar: avatar1,
+    avatar: img1,
     username: 'Rakibul Yeasin',
     author: 'other',
     message: 'Hi, How are You?',
@@ -360,7 +363,7 @@ const pinnedMessages = [
   {
     id: 2,
     username: 'Moinul Islam',
-    avatar: avatar2,
+    avatar: img2,
     author: 'other',
     message: 'Hi, How are You?',
     isWriting: true,
@@ -370,7 +373,7 @@ const pinnedMessages = [
   {
     id: 3,
     username: 'Pranta Das',
-    avatar: avatar3,
+    avatar: img3,
     message: 'Hi, How are You?',
     author: 'other',
     isWriting: false,
@@ -381,7 +384,7 @@ const pinnedMessages = [
 const RecentMessages = [
   {
     id: 1,
-    avatar: avatar1,
+    avatar: img1,
     username: 'Moinul Islam',
     author: 'other',
     message: 'How are You?',
@@ -392,7 +395,7 @@ const RecentMessages = [
   {
     id: 2,
     username: 'Ramjan Ali Anik',
-    avatar: avatar2,
+    avatar: img2,
     author: 'other',
     message: 'How are You?',
     isWriting: true,
@@ -402,7 +405,7 @@ const RecentMessages = [
   {
     id: 3,
     username: 'Rakibul Yeasin',
-    avatar: avatar3,
+    avatar: img3,
     message: 'How are You?',
     author: 'other',
     isWriting: false,
@@ -412,7 +415,7 @@ const RecentMessages = [
   {
     id: 4,
     username: 'Jayeen Bin Alam',
-    avatar: avatar1,
+    avatar: img1,
     message: 'How are You?',
     author: 'other',
     isWriting: false,
@@ -422,7 +425,7 @@ const RecentMessages = [
   {
     id: 5,
     username: 'Walid Bin Jashim',
-    avatar: avatar2,
+    avatar: img2,
     message: 'How are You?',
     author: 'other',
     isWriting: false,
@@ -432,7 +435,7 @@ const RecentMessages = [
   {
     id: 6,
     username: 'Mijanur Hasan',
-    avatar: avatar3,
+    avatar: img3,
     message: 'How are You?',
     author: 'other',
     isWriting: false,
@@ -444,7 +447,7 @@ const RecentMessages = [
 const ChattingData = [
   {
     id: 1,
-    avatar: avatar2,
+    avatar: img1,
     username: 'Moinul Islam',
     author: false,
     message: 'Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.',
@@ -452,7 +455,7 @@ const ChattingData = [
   },
   {
     id: 2,
-    avatar: avatar3,
+    avatar: img3,
     username: 'Moinul Islam',
     author: true,
     message: 'Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.',
@@ -460,7 +463,7 @@ const ChattingData = [
   },
   {
     id: 3,
-    avatar: avatar2,
+    avatar: img1,
     username: 'Moinul Islam',
     author: false,
     message: 'Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.',
@@ -468,7 +471,7 @@ const ChattingData = [
   },
   {
     id: 4,
-    avatar: avatar2,
+    avatar: img1,
     username: 'Moinul Islam',
     author: false,
     message: 'Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.',
@@ -476,7 +479,7 @@ const ChattingData = [
   },
   {
     id: 5,
-    avatar: avatar3,
+    avatar: img3,
     username: 'Moinul Islam',
     author: true,
     message: 'Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.',
@@ -484,7 +487,7 @@ const ChattingData = [
   },
   {
     id: 6,
-    avatar: avatar2,
+    avatar: img1,
     username: 'Moinul Islam',
     author: false,
     message: 'Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.',
@@ -492,7 +495,7 @@ const ChattingData = [
   },
   {
     id: 7,
-    avatar: avatar3,
+    avatar: img3,
     username: 'Moinul Islam',
     author: true,
     message: 'Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.',
@@ -502,7 +505,7 @@ const ChattingData = [
 const PersonInformations = [
   {
     id: 1,
-    avatar: avatar2,
+    avatar: img1,
     username: 'Moinul Islam',
     designation: 'MERN Developer',
     email: 'moinul@coredevs.ltd',

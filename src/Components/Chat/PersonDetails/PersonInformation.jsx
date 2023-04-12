@@ -16,7 +16,7 @@ export default function PersonInformation() {
         PersonInformations.map((personDetails) => (
           <div key={personDetails.id} className="h-[17.875rem] bg-[#6239ED] rounded-xl px-5 py-[1.125rem]">
             <div className="flex flex-row items-center">
-              <SVGIcon className="w-[2.625rem] h-[2.625rem] rounded-full border-2 bg-white" Icon={personDetails?.avatar} />
+              <img className="w-[2.625rem] h-[2.625rem] rounded-full border-2 bg-white" src={personDetails?.avatar} alt="" />
               <div className="ml-[1.125rem]">
                 <div className="flex flex-row items-center">
                   <p className="text-white font-semibold text-lg cursor-pointer">{personDetails?.username}</p>

@@ -92,7 +92,6 @@ export default function ChatBoxInput() {
     const text = document.getElementById('text');
     text.style.paddingRight = '20px';
   }
-
   return (
     <div>
       <div className="border border-[#6239ED] bg-[#F8FAFC] rounded h-[9.188rem] p-[1rem] mb-[0.7rem] cursor-pointer">
