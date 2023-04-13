@@ -5,17 +5,17 @@ import { Links } from '../../../data';
 import CallingModal from './CallingModal';
 
 export default function PersonLinks() {
-  const [collapse, setCollapse] = useState(false);
+  const [collapse, setCollapse] = useState(true);
   return (
     <div>
       <div className="flex flex-row justify-between items-center mt-2 mb-2 mx-2">
         <p className="font-medium text-sm leading-5 text-slate-900">Links</p>
         <div className="flex flex-row items-center cursor-pointer">
-          <SVGIcon Icon={searchIcon} />
-          <SVGIcon onClick={() => setCollapse(!collapse)} className={collapse ? 'rotate-90' : ''} Icon={arrowRightIcon} />
+          <SVGIcon className="w-[15px] h-[15px]" Icon={searchIcon} />
+          <SVGIcon onClick={() => setCollapse(!collapse)} className={collapse ? '' : 'rotate-90'} Icon={arrowRightIcon} />
         </div>
       </div>
-      <div className={`mx-5 ${collapse ? 'h-[6rem] overflow-y-auto' : ''}`}>
+      <div className={`mx-5 ${collapse ? 'w-full h-[6rem] overflow-y-auto' : ''}`}>
         {
           collapse && Links.map((link) => (
             <div key={link.id}>

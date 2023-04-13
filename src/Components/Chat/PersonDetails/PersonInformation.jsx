@@ -32,10 +32,10 @@ export default function PersonInformation() {
             <hr className="opacity-20 mt-3" />
             <div className="mt-[0.875rem] flex flex-row gap-x-[0.5rem]">
               <div className="bg-[#ffffff33] bg-opacity-20 rounded-md cursor-pointer">
-                <SVGIcon className="stroke-white" Icon={PersonAudioCall} />
+                <SVGIcon Icon={PersonAudioCall} />
               </div>
               <div className=" bg-[#ffffff33] bg-opacity-20 rounded-md cursor-pointer">
-                <SVGIcon className="stroke-white" Icon={PersonVideoCall} />
+                <SVGIcon Icon={PersonVideoCall} />
               </div>
             </div>
             <div className="mt-5">

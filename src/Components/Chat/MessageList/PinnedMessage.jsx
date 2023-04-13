@@ -7,7 +7,7 @@ export default function PinnedMessage() {
   const [collapse, setCollapse] = useState(true);
   return (
     <div className="mt-[2rem]">
-      <div className="flex justify-between items-centerem">
+      <div className="flex justify-between items-center">
         <div className="flex flex-row gap-x-2 justify-center items-center">
           <SVGIcon className="" Icon={PinnedMessageIcon} />
           <p className="text-[#94A3B8] font-medium text-sm leading-5">Pinned Message</p>
@@ -16,12 +16,12 @@ export default function PinnedMessage() {
           <SVGIcon onClick={() => setCollapse(!collapse)} className={collapse ? '' : 'rotate-90'} Icon={arrowRightIcon} />
         </div>
       </div>
-      <div className="mt-4">
+      <div className="mt-4 w-full">
         {
           collapse && pinnedMessages.slice(0, 3).map((pinnedMessage) => (
             <div key={pinnedMessage.id} className="flex justify-between mb-[8px]">
               <div className="flex flex-row">
-                <img className="w-[3rem] h-[3rem] mr-[0.75rem]" src={pinnedMessage.avatar} alt="" />
+                <img className="w-[3rem] h-[3rem] mr-[0.75rem] mt-[-1px]" src={pinnedMessage.avatar} alt="" />
                 <div>
                   <p className="font-semibold text-sm  text-[#0F172A] cursor-pointer mb-[2px]">{pinnedMessage.username}</p>
                   {

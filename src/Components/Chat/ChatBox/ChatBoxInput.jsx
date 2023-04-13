@@ -94,7 +94,7 @@ export default function ChatBoxInput() {
   }
   return (
     <div>
-      <div className="border border-[#6239ED] bg-[#F8FAFC] rounded h-[9.188rem] p-[1rem] mb-[0.7rem] cursor-pointer">
+      <div className="border border-[#6239ED] bg-[#F8FAFC] rounded w-full h-[9.188rem] p-[1rem] mb-[0.7rem] cursor-pointer">
         <div className="flex flex-row gap-x-2 mb-[0.7rem]">
           <div onClick={makeBold} id="boldIcon" role="contentinfo" onKeyDown={() => { }}>
             <SVGIcon Icon={BoldIcon} />

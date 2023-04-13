@@ -10,7 +10,7 @@ export default function ChatBoxBody() {
     scrollToBottom();
   }, []);
   return (
-    <div className="w-full h-[24.4rem] overflow-y-auto">
+    <div className="w-full h-screen overflow-y-auto">
       {
         ChattingData?.map((msg) => (
           <div key={msg.id}>

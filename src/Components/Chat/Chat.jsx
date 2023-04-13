@@ -5,17 +5,15 @@ import UserDetails from './PersonDetails/PersonDetails';
 
 export default function Chat() {
   return (
-    <div>
-      <div className="grid grid-cols-4 h-screen w-full">
-        <div className="col-span-1">
-          <MessageList />
-        </div>
-        <div className="col-span-2">
-          <ChatBox />
-        </div>
-        <div className="col-span-1">
-          <UserDetails />
-        </div>
+    <div className="grid grid-cols-4 max-h-screen overflow-y-auto">
+      <div className="col-span-1 w-full max-h-screen overflow-y-auto">
+        <MessageList />
+      </div>
+      <div className="col-span-2 w-full max-h-screen overflow-y-auto">
+        <ChatBox />
+      </div>
+      <div className="col-span-1 w-full max-h-screen overflow-y-auto">
+        <UserDetails />
       </div>
     </div>
   );

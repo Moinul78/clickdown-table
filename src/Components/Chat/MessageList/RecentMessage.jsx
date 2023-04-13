@@ -8,7 +8,7 @@ import { ChatActive, arrowRightIcon } from '../../../Assets/SVGcomponents';
 export default function RecentMessage() {
   const [collapse, setCollapse] = useState(true);
   return (
-    <div className="mt-[1.5rem]">
+    <div className="mt-[1.5rem] ">
       <div className="flex justify-between items-center">
         <div className="flex flex-row gap-x-2 justify-center items-center">
           <SVGIcon className="" Icon={ChatActive} />
@@ -18,7 +18,7 @@ export default function RecentMessage() {
           <SVGIcon onClick={() => setCollapse(!collapse)} className={collapse ? '' : 'rotate-90'} Icon={arrowRightIcon} />
         </div>
       </div>
-      <div className="mt-4 h-[17rem] overflow-y-auto">
+      <div className="mt-4 h-[17rem] flex-grow w-full overflow-y-auto">
         {
           collapse && RecentMessages.map((recentMessage) => (
             <div key={recentMessage.id} className="flex justify-between mb-[8px]">
