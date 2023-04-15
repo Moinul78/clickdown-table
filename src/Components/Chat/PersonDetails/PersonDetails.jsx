@@ -5,7 +5,7 @@ import PersonLinks from './PersonLinks';
 
 export default function PersonDetails() {
   return (
-    <div className="mr-6 mt-2 bg-slate-50 max-h-screen overflow-y-scroll">
+    <div className="mr-6 bg-slate-50 h-screen ">
       <PersonInformation />
       <PersonAttachment />
       <PersonLinks />

@@ -60,7 +60,7 @@ export default function SelectUser() {
               {
                 selected.length > 4 && (
                   <div onClick={() => setModalOpen(true)} onKeyDown={() => setModalOpen(!modalOpen)} role="contentinfo" className="w-8 h-8 ml-[-17px] rounded-full bg-[#E3DBFC] flex flex-row justify-center items-center">
-                    <p className=" text-primary font-medium text-[0.813rem]">
+                    <p className=" text-[#6239ED] font-medium text-[0.813rem]">
                       {
                         selected.length - 3
                       }

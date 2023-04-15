@@ -15,7 +15,7 @@ export default function PersonLinks() {
           <SVGIcon onClick={() => setCollapse(!collapse)} className={collapse ? '' : 'rotate-90'} Icon={arrowRightIcon} />
         </div>
       </div>
-      <div className={`mx-5 ${collapse ? 'w-full h-[6rem] overflow-y-auto' : ''}`}>
+      <div className={`mx-5 ${collapse ? 'w-full h-[150px] overflow-y-auto' : ''}`}>
         {
           collapse && Links.map((link) => (
             <div key={link.id}>

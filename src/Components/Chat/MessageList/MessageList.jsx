@@ -5,34 +5,23 @@ import PinnedMessage from './PinnedMessage';
 import RecentMessage from './RecentMessage';
 
 export default function MessageList() {
-  // const [person, setPerson] = useState(RecentMessages);
-  // const handleSearchMembers = (searchName) => {
-  //   const searchString = searchName.trim();
-  //   if (searchString === '') {
-  //     const remainingMembers = person.filter((member) => !selected.some(
-  //       (selectedMember) => selectedMember.id === member.id,
-  //     ));
-  //     setPerson(remainingMembers);
-  //   } else {
-  //     const remainingMembers = person.filter(
-  //       (member) => member.name.toLowerCase().includes(searchString.toLowerCase()),
-  //     );
-  //     setPerson(remainingMembers);
-  //   }
-  // };
   return (
-
-    <div className="p-[1.25rem] bg-[#F8FAFC] border-r-[1px] border-[#E2E8F0] flex-grow max-h-screen">
-      <div className="w-full h-[4rem]">
+    <div className="h-screen p-[1.25rem] bg-[#F8FAFC] border-r-[1px] border-[#E2E8F0]">
+      <div className="w-full mb-[32px]">
         <p className="text-lg font-semibold leading-5 text-[#6239ED]">Message</p>
-        <div className="w-full h-[2.625rem] flex flex-row items-center py-[0.688rem] px-[0.5rem] bg-[#FFFFFF] mt-[1rem]">
-          <SVGIcon className="mr-[0.75rem] w-[1.25rem] h-[1rem]" Icon={searchIcon} />
-          <input className="outline-none font-medium text-[#475569] text-sm leading-5 w-[10rem] h-[1.25]" type="text" placeholder="Search" />
-          {/*  onChange={(e) => handleSearchMembers(e.target.value)} */}
+        <div className="mt-[32px]">
+          <div className="relative block">
+            <span className="absolute inset-y-0 left-0 flex items-center pl-2">
+              <SVGIcon className="w-[20px] h-[20px]" Icon={searchIcon} />
+            </span>
+            <input autoComplete="off" className="placeholder:text-slate-600 text-sm font-medium block bg-white w-full border-0 rounded-md py-[0.688rem] pl-9 pr-3 focus:outline-none focus:border-[#6239ED] focus:ring-[#6239ED] focus:ring-1 sm:text-sm focus:text-[#6239ED]" placeholder="Search" type="text" name="search" />
+          </div>
         </div>
       </div>
       <PinnedMessage />
-      <RecentMessage />
+      <div>
+        <RecentMessage />
+      </div>
     </div>
   );
 }

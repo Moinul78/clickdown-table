@@ -14,7 +14,7 @@ export default function PersonAttachment() {
           <SVGIcon onClick={() => setCollapse(!collapse)} className={collapse ? '' : 'rotate-90'} Icon={arrowRightIcon} />
         </div>
       </div>
-      <div className={`mx-5 ${collapse ? 'w-full h-[12rem] overflow-y-auto overscroll-none' : ''}`}>
+      <div className={`mx-5 ${collapse ? 'w-full h-[250px] overflow-y-auto overscroll-none' : ''}`}>
         {
           collapse && Attachments.map((attachment) => (
             <div key={attachment.id} className="flex flex-row justify-between border-b border-slate-200 py-2">
@@ -27,7 +27,7 @@ export default function PersonAttachment() {
                   <p className="font-medium text-[11px] leading-4 text-[#475569]">{attachment.time}</p>
                 </div>
               </div>
-              <div className="cursor-pointer">
+              <div className="cursor-pointer mr-5">
                 <SVGIcon Icon={attachment.downloadIcon} />
               </div>
             </div>

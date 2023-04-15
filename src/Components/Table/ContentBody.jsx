@@ -51,7 +51,7 @@ function Row({ data }) {
         </div>
         {/* col-3 */}
         <div className="col-span-4 flex flex-row justify-start items-center gap-x-2 ml-[-4.5rem] cursor-pointer">
-          <h3 className="text-heading text-sm font-medium leading-6">{data.text}</h3>
+          <h3 className="text-[#0F172A] text-sm font-medium leading-6">{data.text}</h3>
           <div className="flex flex-row items-center">
             <SVGIcon Icon={data.subTaskIcon} />
             <p className="text-slate-500 font-medium text-[0.688rem]">{data.subTaskQuantity}</p>

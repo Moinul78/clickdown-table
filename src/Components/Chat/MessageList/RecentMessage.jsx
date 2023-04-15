@@ -18,7 +18,7 @@ export default function RecentMessage() {
           <SVGIcon onClick={() => setCollapse(!collapse)} className={collapse ? '' : 'rotate-90'} Icon={arrowRightIcon} />
         </div>
       </div>
-      <div className="mt-4 h-[17rem] flex-grow w-full overflow-y-auto">
+      <div className="mt-4 sm:h-[100px] md:h-[220px] lg:h-[400px] overflow-y-auto">
         {
           collapse && RecentMessages.map((recentMessage) => (
             <div key={recentMessage.id} className="flex justify-between mb-[8px]">

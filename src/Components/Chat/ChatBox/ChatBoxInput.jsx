@@ -94,52 +94,53 @@ export default function ChatBoxInput() {
   }
   return (
     <div>
-      <div className="border border-[#6239ED] bg-[#F8FAFC] rounded w-full h-[9.188rem] p-[1rem] mb-[0.7rem] cursor-pointer">
-        <div className="flex flex-row gap-x-2 mb-[0.7rem]">
-          <div onClick={makeBold} id="boldIcon" role="contentinfo" onKeyDown={() => { }}>
-            <SVGIcon Icon={BoldIcon} />
+      <div className="px-5">
+        <div className="h-[12.188rem] border-[0.063rem] rounded-[0.25rem] border-[#6239ED]">
+          <div className="flex flex-row gap-3 p-6">
+            <div onClick={makeBold} id="boldIcon" role="contentinfo" onKeyDown={() => { }}>
+              <SVGIcon Icon={BoldIcon} />
+            </div>
+            <div onClick={makeItalic} id="iconItalic" role="contentinfo" onKeyDown={() => { }}>
+              <SVGIcon Icon={ItalicIcon} />
+            </div>
+            <div onClick={makeUnderLine} role="contentinfo" id="underlineIcon" onKeyDown={() => { }}>
+              <SVGIcon Icon={UnderLineIcon} />
+            </div>
+            <div onClick={makeLineThrough} role="contentinfo" id="lineThroughIcon" onKeyDown={() => { }}>
+              <SVGIcon Icon={FrameIcon3Icon} />
+            </div>
+            <SVGIcon Icon={chatinputlineIcon} />
+            <SVGIcon Icon={TextColorIcon} />
+            <div className="px-[2px]" onClick={makeCapitalText} id="textCapitalFormat" role="contentinfo" onKeyDown={() => { }}>
+              <SVGIcon Icon={TextFormatIcon} />
+            </div>
+            <div onClick={makeSpaceLeft} id="spaceLeft" role="contentinfo" onKeyDown={() => { }}>
+              <SVGIcon Icon={SpaceLeftAlignIcon} />
+            </div>
+            <div onClick={makeSpaceRight} role="contentinfo" onKeyDown={() => { }}>
+              <SVGIcon Icon={SpaceRightAlignIcon} />
+            </div>
+            <SVGIcon Icon={AddNumberListAlignIcon} />
+            <SVGIcon Icon={AddListAlignIcon} />
+            <SVGIcon Icon={ApostropheIcon} />
+            <SVGIcon Icon={LinkIcon} />
+            <SVGIcon Icon={CodeIcon} />
           </div>
-          <div onClick={makeItalic} id="iconItalic" role="contentinfo" onKeyDown={() => { }}>
-            <SVGIcon Icon={ItalicIcon} />
+          <div className="pl-5">
+            <textarea style={{ width: '100%', height: '7.75rem', resize: 'none' }} className="focus:outline-none text-sm placeholder:text-slate-500 font-normal focus:text-[#6239ED]" id="text" placeholder="Type a new message...">{ }</textarea>
           </div>
-          <div onClick={makeUnderLine} role="contentinfo" id="underlineIcon" onKeyDown={() => { }}>
-            <SVGIcon Icon={UnderLineIcon} />
-          </div>
-          <div onClick={makeLineThrough} role="contentinfo" id="lineThroughIcon" onKeyDown={() => { }}>
-            <SVGIcon Icon={FrameIcon3Icon} />
-          </div>
-          <SVGIcon Icon={chatinputlineIcon} />
-          <SVGIcon Icon={TextColorIcon} />
-          <div className="px-[2px]" onClick={makeCapitalText} id="textCapitalFormat" role="contentinfo" onKeyDown={() => { }}>
-            <SVGIcon Icon={TextFormatIcon} />
-          </div>
-          <div onClick={makeSpaceLeft} id="spaceLeft" role="contentinfo" onKeyDown={() => { }}>
-            <SVGIcon Icon={SpaceLeftAlignIcon} />
-          </div>
-          <div onClick={makeSpaceRight} role="contentinfo" onKeyDown={() => { }}>
-            <SVGIcon Icon={SpaceRightAlignIcon} />
-          </div>
-          <SVGIcon Icon={AddNumberListAlignIcon} />
-          <SVGIcon Icon={AddListAlignIcon} />
-          <SVGIcon Icon={ApostropheIcon} />
-          <SVGIcon Icon={LinkIcon} />
-          <SVGIcon Icon={CodeIcon} />
         </div>
-        <div className="">
-          { }
-          <textarea id="text" style={{ width: '100%', height: '4rem', resize: 'none' }} className="focus:outline-none select-text text-sm bg-[#F8FAFC] placeholder:text-slate-500 font-normal  focus:text-[#6239ED]" placeholder="Type a new message...">{ }</textarea>
-        </div>
-      </div>
-      <div className="flex flex-row justify-between mb-[1.13rem]">
-        <div className="flex flex-row gap-x-2">
-          <SVGIcon Icon={Ttext} />
-          <SVGIcon Icon={smileIcon} />
-          <SVGIcon Icon={imageIcon} />
-          <SVGIcon Icon={attachmentIcon} />
-        </div>
-        <div className="flex flex-row gap-x-2">
-          <SVGIcon Icon={micIcon} />
-          <SVGIcon Icon={sendIcon} />
+        <div className="flex flex-row justify-between mt-2">
+          <div className="flex flex-row gap-x-2">
+            <SVGIcon Icon={Ttext} />
+            <SVGIcon Icon={smileIcon} />
+            <SVGIcon Icon={imageIcon} />
+            <SVGIcon Icon={attachmentIcon} />
+          </div>
+          <div className="flex flex-row gap-x-2">
+            <SVGIcon Icon={micIcon} />
+            <SVGIcon Icon={sendIcon} />
+          </div>
         </div>
       </div>
     </div>
