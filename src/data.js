@@ -23,6 +23,10 @@ import {
 import img1 from './Assets/Images/img1.jpg';
 import img2 from './Assets/Images/img2.png';
 import img3 from './Assets/Images/img3.jpg';
+import SmileEmoji from './Assets/Images/SmileEmoji.jpg';
+import KissEmoji from './Assets/Images/KissEmoji.jpg';
+import CryEmoji from './Assets/Images/CryEmoji.jpg';
+import RedHeart from './Assets/Images/RedHeart.jpg';
 
 const subData = [
   {
@@ -380,6 +384,76 @@ const pinnedMessages = [
     unseen: 0,
     time: '4.55 PM',
   },
+  {
+    id: 4,
+    username: 'Pranta Das',
+    avatar: img3,
+    message: 'Hi, How are You?',
+    author: 'other',
+    isWriting: false,
+    unseen: 0,
+    time: '4.55 PM',
+  },
+  {
+    id: 5,
+    username: 'Pranta Das',
+    avatar: img3,
+    message: 'Hi, How are You?',
+    author: 'other',
+    isWriting: false,
+    unseen: 0,
+    time: '4.55 PM',
+  },
+  {
+    id: 6,
+    username: 'Pranta Das',
+    avatar: img3,
+    message: 'Hi, How are You?',
+    author: 'other',
+    isWriting: false,
+    unseen: 0,
+    time: '4.55 PM',
+  },
+  {
+    id: 7,
+    username: 'Pranta Das',
+    avatar: img3,
+    message: 'Hi, How are You?',
+    author: 'other',
+    isWriting: false,
+    unseen: 0,
+    time: '4.55 PM',
+  },
+  {
+    id: 8,
+    username: 'Pranta Das',
+    avatar: img3,
+    message: 'Hi, How are You?',
+    author: 'other',
+    isWriting: false,
+    unseen: 0,
+    time: '4.55 PM',
+  },
+  {
+    id: 9,
+    username: 'Pranta Das',
+    avatar: img3,
+    message: 'Hi, How are You?',
+    author: 'other',
+    isWriting: false,
+    unseen: 0,
+    time: '4.55 PM',
+  },
+  {
+    id: 10,
+    username: 'Pranta Das',
+    avatar: img3,
+    message: 'Hi, How are You?',
+    author: 'other',
+    isWriting: false,
+    unseen: 0,
+    time: '4.55 PM',
+  },
 ];
 const RecentMessages = [
   {
@@ -502,6 +576,37 @@ const RecentMessages = [
     unseen: 0,
     time: 'Mar 24',
   },
+  {
+    id: 13,
+    username: 'Mijanur Hasan',
+    avatar: img3,
+    message: 'How are You?',
+    author: 'other',
+    isWriting: false,
+    unseen: 0,
+    time: 'Mar 24',
+  },
+  {
+    id: 14,
+    username: 'Mijanur Hasan',
+    avatar: img3,
+    message: 'How are You?',
+    author: 'other',
+    isWriting: false,
+    unseen: 0,
+    time: 'Mar 24',
+  },
+  {
+    id: 15,
+    username: 'Mijanur Hasan',
+    avatar: img3,
+    message: 'How are You?',
+    author: 'other',
+    isWriting: false,
+    unseen: 0,
+    time: 'Mar 24',
+  },
+
 ];
 
 const ChattingData = [
@@ -512,6 +617,7 @@ const ChattingData = [
     author: false,
     message: 'Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.',
     time: '4.55 PM',
+    emoji: [],
   },
   {
     id: 2,
@@ -520,6 +626,7 @@ const ChattingData = [
     author: true,
     message: 'Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.',
     time: '4.55 PM',
+    emoji: [],
   },
   {
     id: 3,
@@ -528,6 +635,7 @@ const ChattingData = [
     author: false,
     message: 'Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.',
     time: '4.55 PM',
+    emoji: [],
   },
   {
     id: 4,
@@ -536,6 +644,7 @@ const ChattingData = [
     author: false,
     message: 'Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.',
     time: '4.55 PM',
+    emoji: [],
   },
   {
     id: 5,
@@ -544,30 +653,34 @@ const ChattingData = [
     author: true,
     message: 'Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.',
     time: '4.55 PM',
+    emoji: [],
   },
   {
     id: 6,
     avatar: img1,
     username: 'Moinul Islam',
     author: false,
-    message: 'Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.',
+    message: 'Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.',
     time: '4.55 PM',
+    emoji: [],
   },
   {
     id: 7,
     avatar: img1,
     username: 'Moinul Islam',
     author: false,
-    message: 'Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.',
+    message: 'Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.',
     time: '4.55 PM',
+    emoji: [],
   },
   {
     id: 8,
     avatar: img3,
     username: 'Moinul Islam',
     author: true,
-    message: 'Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.',
+    message: 'Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.',
     time: '4.55 PM',
+    emoji: [],
   },
   {
     id: 9,
@@ -576,14 +689,16 @@ const ChattingData = [
     author: false,
     message: 'Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.',
     time: '4.55 PM',
+    emoji: [],
   },
   {
     id: 10,
     avatar: img1,
     username: 'Moinul Islam',
     author: false,
-    message: 'Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.',
+    message: 'Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.',
     time: '4.55 PM',
+    emoji: [],
   },
   {
     id: 11,
@@ -592,6 +707,7 @@ const ChattingData = [
     author: true,
     message: 'Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.',
     time: '4.55 PM',
+    emoji: [],
   },
 ];
 const PersonInformations = [
@@ -648,6 +764,54 @@ const Attachments = [
     downloadIcon,
 
   },
+  {
+    id: 6,
+    fileIcon,
+    fileName: 'Core Devs Ltd.docs',
+    time: '25 Feb 2023',
+    downloadIcon,
+
+  },
+  {
+    id: 7,
+    fileIcon,
+    fileName: 'Core Devs Ltd.docs',
+    time: '25 Feb 2023',
+    downloadIcon,
+
+  },
+  {
+    id: 8,
+    fileIcon,
+    fileName: 'Core Devs Ltd.docs',
+    time: '25 Feb 2023',
+    downloadIcon,
+
+  },
+  {
+    id: 9,
+    fileIcon,
+    fileName: 'Core Devs Ltd.docs',
+    time: '25 Feb 2023',
+    downloadIcon,
+
+  },
+  {
+    id: 10,
+    fileIcon,
+    fileName: 'Core Devs Ltd.docs',
+    time: '25 Feb 2023',
+    downloadIcon,
+
+  },
+  {
+    id: 11,
+    fileIcon,
+    fileName: 'Core Devs Ltd.docs',
+    time: '25 Feb 2023',
+    downloadIcon,
+
+  },
 ];
 
 const Links = [
@@ -681,6 +845,45 @@ const Links = [
     linkIcon,
     linkAddress: 'https://www.coredevs.ltd/',
   },
+  {
+    id: 7,
+    linkIcon,
+    linkAddress: 'https://www.coredevs.ltd/',
+  },
+  {
+    id: 8,
+    linkIcon,
+    linkAddress: 'https://www.coredevs.ltd/',
+  },
+  {
+    id: 9,
+    linkIcon,
+    linkAddress: 'https://www.coredevs.ltd/',
+  },
+  {
+    id: 10,
+    linkIcon,
+    linkAddress: 'https://www.coredevs.ltd/',
+  },
+];
+
+const Emoji = [
+  {
+    id: 1,
+    emoji: SmileEmoji,
+  },
+  {
+    id: 2,
+    emoji: KissEmoji,
+  },
+  {
+    id: 3,
+    emoji: CryEmoji,
+  },
+  {
+    id: 4,
+    emoji: RedHeart,
+  },
 ];
 
 export {
@@ -696,4 +899,5 @@ export {
   PersonInformations,
   Attachments,
   Links,
+  Emoji,
 };

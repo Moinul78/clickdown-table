@@ -1,13 +1,15 @@
 import React from 'react';
-import { searchIcon } from '../../../Assets/SVGcomponents';
+import {
+  searchIcon,
+} from '../../../Assets/SVGcomponents';
 import SVGIcon from '../../../SVGIcon/SVGIcon';
 import PinnedMessage from './PinnedMessage';
 import RecentMessage from './RecentMessage';
 
 export default function MessageList() {
   return (
-    <div className="h-screen p-[1.25rem] bg-[#F8FAFC] border-r-[1px] border-[#E2E8F0]">
-      <div className="w-full mb-[32px]">
+    <div className="h-screen p-[1.25rem] bg-[#F8FAFC] border-r-[1px] border-[#E2E8F0] pt-2">
+      <div className="w-full mb-[32px] h-[10%]">
         <p className="text-lg font-semibold leading-5 text-[#6239ED]">Message</p>
         <div className="mt-[32px]">
           <div className="relative block">
@@ -19,9 +21,7 @@ export default function MessageList() {
         </div>
       </div>
       <PinnedMessage />
-      <div>
-        <RecentMessage />
-      </div>
+      <RecentMessage />
     </div>
   );
 }

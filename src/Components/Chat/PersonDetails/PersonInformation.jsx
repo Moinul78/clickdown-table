@@ -11,10 +11,10 @@ import {
 
 export default function PersonInformation() {
   return (
-    <div>
+    <div className="">
       {
         PersonInformations.map((personDetails) => (
-          <div key={personDetails.id} className="h-[17.875rem] bg-[#6239ED] rounded-xl px-5 py-[1.125rem]">
+          <div key={personDetails.id} className="h-[35%] mb-4 bg-[#6239ED] rounded-xl px-5 py-[1.125rem]">
             <div className="flex flex-row items-center">
               <img className="w-[2.625rem] h-[2.625rem] rounded-full border-2 bg-white" src={personDetails?.avatar} alt="" />
               <div className="ml-[1.125rem]">

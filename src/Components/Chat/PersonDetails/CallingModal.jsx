@@ -9,7 +9,7 @@ export default function CallingModal() {
       <button onClick={() => setModalOpen(true)}>call</button>
       {
         modalOpen && (
-          <div style={{ boxShadow: '0px 10px 15px -3px rgba(0, 0, 0, 0.1), 0px 4px 6px -2px rgba(0, 0, 0, 0.05' }} className="absolute z-10 h-auto right-1/6 top-[30rem] bg-[#FFFFFF] border border-[#FFFFFF] rounded-xl cursor-pointer">
+          <div style={{ boxShadow: '0px 10px 15px -3px rgba(0, 0, 0, 0.1), 0px 4px 6px -2px rgba(0, 0, 0, 0.05' }} className="absolute z-10 h-auto right-1/6 bottom-0 bg-[#FFFFFF] border border-[#FFFFFF] rounded-xl cursor-pointer">
             <div className="p-[20px] w-[16.625rem] h-[10.5rem]">
               <div className="flex flex-row items-center">
                 <SVGIcon className="w-[3rem] h-[3rem] rounded-full" Icon={avatar2} />

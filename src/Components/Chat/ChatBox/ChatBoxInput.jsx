@@ -93,9 +93,9 @@ export default function ChatBoxInput() {
     text.style.paddingRight = '20px';
   }
   return (
-    <div>
+    <div className="h-full">
       <div className="px-5">
-        <div className="h-[12.188rem] border-[0.063rem] rounded-[0.25rem] border-[#6239ED]">
+        <div className="h-[70%] border-[0.063rem] rounded-[0.25rem] border-[#6239ED]">
           <div className="flex flex-row gap-3 p-6">
             <div onClick={makeBold} id="boldIcon" role="contentinfo" onKeyDown={() => { }}>
               <SVGIcon Icon={BoldIcon} />
@@ -130,7 +130,7 @@ export default function ChatBoxInput() {
             <textarea style={{ width: '100%', height: '7.75rem', resize: 'none' }} className="focus:outline-none text-sm placeholder:text-slate-500 font-normal focus:text-[#6239ED]" id="text" placeholder="Type a new message...">{ }</textarea>
           </div>
         </div>
-        <div className="flex flex-row justify-between mt-2">
+        <div className="h-[20%] flex flex-row justify-between mt-2">
           <div className="flex flex-row gap-x-2">
             <SVGIcon Icon={Ttext} />
             <SVGIcon Icon={smileIcon} />

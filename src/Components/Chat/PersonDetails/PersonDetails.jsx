@@ -1,11 +1,11 @@
 import React from 'react';
 import PersonInformation from './PersonInformation';
-import PersonAttachment from './PersonAttachment';
 import PersonLinks from './PersonLinks';
+import PersonAttachment from './PersonAttachment';
 
 export default function PersonDetails() {
   return (
-    <div className="mr-6 bg-slate-50 h-screen ">
+    <div className="mr-6 h-[100vh] bg-slate-50 pt-2">
       <PersonInformation />
       <PersonAttachment />
       <PersonLinks />
