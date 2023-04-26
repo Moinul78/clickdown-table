@@ -41,7 +41,7 @@ export default function ChatBoxBody() {
                 </div>
               </div>
             </div>
-            <div className={`flex ${msg.author ? 'justify-between ml-[31rem] w-[35rem] items-start flex-row' : 'w-[35rem] items-start flex-row justify-between ml-[60px]'}`}>
+            <div className={`flex ${msg.author ? 'justify-between ml-[35rem]  items-start flex-row' : 'w-[35rem] items-start flex-row justify-between ml-[60px]'}`}>
               <div style={{ boxShadow: '0px 1px 3px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.06)' }} className="flex flex-row">
                 {
                   msg.emoji.map((e) => (
