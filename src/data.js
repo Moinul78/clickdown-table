@@ -611,7 +611,7 @@ const RecentMessages = [
 
 const ChattingData = [
   {
-    id: 1,
+    id: 0,
     avatar: img1,
     username: 'Moinul Islam',
     author: false,
@@ -620,10 +620,19 @@ const ChattingData = [
     emoji: [],
   },
   {
-    id: 2,
+    id: 1,
     avatar: img3,
     username: 'Moinul Islam',
     author: true,
+    message: 'Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.',
+    time: '4.55 PM',
+    emoji: [],
+  },
+  {
+    id: 2,
+    avatar: img1,
+    username: 'Moinul Islam',
+    author: false,
     message: 'Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.',
     time: '4.55 PM',
     emoji: [],
@@ -639,19 +648,19 @@ const ChattingData = [
   },
   {
     id: 4,
-    avatar: img1,
+    avatar: img3,
     username: 'Moinul Islam',
-    author: false,
+    author: true,
     message: 'Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.',
     time: '4.55 PM',
     emoji: [],
   },
   {
     id: 5,
-    avatar: img3,
+    avatar: img1,
     username: 'Moinul Islam',
-    author: true,
-    message: 'Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.',
+    author: false,
+    message: 'Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.',
     time: '4.55 PM',
     emoji: [],
   },
@@ -666,15 +675,6 @@ const ChattingData = [
   },
   {
     id: 7,
-    avatar: img1,
-    username: 'Moinul Islam',
-    author: false,
-    message: 'Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.',
-    time: '4.55 PM',
-    emoji: [],
-  },
-  {
-    id: 8,
     avatar: img3,
     username: 'Moinul Islam',
     author: true,
@@ -683,7 +683,7 @@ const ChattingData = [
     emoji: [],
   },
   {
-    id: 9,
+    id: 8,
     avatar: img1,
     username: 'Moinul Islam',
     author: false,
@@ -692,7 +692,7 @@ const ChattingData = [
     emoji: [],
   },
   {
-    id: 10,
+    id: 9,
     avatar: img1,
     username: 'Moinul Islam',
     author: false,
@@ -701,7 +701,7 @@ const ChattingData = [
     emoji: [],
   },
   {
-    id: 11,
+    id: 10,
     avatar: img3,
     username: 'Moinul Islam',
     author: true,
