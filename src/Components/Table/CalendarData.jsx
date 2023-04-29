@@ -3,18 +3,13 @@ import { arrowDownIcon, CalendarIcon, cancel } from '../../Assets/SVGcomponents'
 import useOnclickOutside from '../../Hooks/UseOnClickOutSide';
 import SVGIcon from '../../SVGIcon/SVGIcon';
 
-function parseDate(date) {
-  // if (!date || typeof (date) !== 'string')
-  //   console.log('A valid string must be provided e.g. DD/MM/YYYY');
-  const [day, month, year] = date.split('/');
-  return new Date(`${month}-${day}-${year}`);
-}
 export default function CalendarData() {
   const [date, setDate] = useState(new Date());
   const [dueDate, setDueDate] = useState({ from: null, to: null });
   const [modalOpen, setModalOpen] = useState(false);
   const [borderRed, setBorderRed] = useState(false);
   const [edit, setEdit] = useState(false);
+  // const [error, setError] = useState(false);
   const ref = useRef();
   useOnclickOutside(ref, () => setModalOpen(false));
   const monthNames = [
@@ -31,6 +26,18 @@ export default function CalendarData() {
   const weeksInMonth = Math.ceil((firstDayOfWeek + daysInMonth) / 7);
   const daysInPrevMonth = new Date(year, month, 0).getDate();
 
+  function parseDate(dd) {
+    if (!dd || typeof (dd) !== 'string') {
+      // setError(true);
+    } else {
+      // setError(false);
+    }
+    const [d, m, y] = dd.split('/');
+    return new Date(`${m}-${d}-${y}`);
+  }
+  function formatDate(dd) {
+    return dd.toLocaleDateString('en-GB');
+  }
   const handlePrevMonth = () => {
     setDate((prevDate) => new Date(prevDate.getFullYear(), prevDate.getMonth() - 1));
   };
@@ -69,21 +76,20 @@ export default function CalendarData() {
     if (edit) {
       if (startDateInput.length === 0) {
         document.getElementById('startDate').value = dueDate.from
-          ? new Date(d).toLocaleDateString() : '';
+          ? new Date(d).toLocaleDateString('en-GB') : '';
         setDueDate((prev) => ({ ...prev, from: new Date(d) }));
       }
       if (!dueDate.from || newStartDate) {
         document.getElementById('startDate').value = dueDate.from
-          ? new Date(d).toLocaleDateString() : '';
+          ? new Date(d).toLocaleDateString('en-GB') : '';
       } else {
         document.getElementById('endDate').value = dueDate.to
-          ? new Date(d).toLocaleDateString() : '';
+          ? new Date(d).toLocaleDateString('en-GB') : '';
       }
     }
   }
   function InputStartDate() {
     const startDateInput = document.getElementById('startDate').value;
-    console.log(startDateInput.length);
     setEdit(true);
     if ((typeof (new Date(startDateInput).getTime()) === 'number') || startDateInput.length === 0) {
       setDueDate((prev) => ({ ...prev, from: parseDate(startDateInput) }));
@@ -111,32 +117,32 @@ export default function CalendarData() {
     }
   }
   const handleDateClick = (d) => {
-    console.log(dueDate);
-    const newStartDate = dueDate.from >= d;
-    if (!dueDate.from || newStartDate) {
-      setDueDate((prev) => ({ ...prev, from: new Date(d) }));
-    } else {
-      setDueDate((prev) => ({ ...prev, to: new Date(d) }));
-    }
-    if ((calculateDaysInRange <= 0)) {
-      setBorderRed(true);
-    } else {
-      setBorderRed(false);
-    }
+    console.log(d.toLocaleDateString('en-GB'));
+    const newStartDate = dueDate.from?.getTime() >= new Date(d)?.getTime();
+    setDueDate((prev) => ({ ...prev, [!dueDate.from || newStartDate ? 'from' : 'to']: new Date(d) }));
+    setBorderRed(calculateDaysInRange <= 0);
+
     if (new Date(d)?.getTime() === dueDate.from?.getTime()) {
-      setDueDate((prev) => ({ ...prev, from: new Date(dueDate.to) }));
+      if (dueDate.to) {
+        setDueDate((prev) => ({ ...prev, from: dueDate.to }));
+      } else {
+        setDueDate((prev) => ({ ...prev, to: null }));
+      }
       setDueDate((prev) => ({ ...prev, to: null }));
     }
     if (new Date(d)?.getTime() === dueDate.to?.getTime()) {
       setDueDate((prev) => ({ ...prev, to: null }));
     }
+    // console.log(new Date(d)?.getTime() === dueDate.from?.getTime());
+    // console.log(dueDate.from);
+    // console.log(dueDate.to);
   };
   return (
     <div className="flex flex-row justify-center items-start relative cursor-pointer">
       <div onClick={() => setModalOpen(!modalOpen)} role="contentinfo" onKeyDown={() => setModalOpen(!modalOpen)} className="w-6 h-6 rounded-md right-1/3 flex flex-row justify-center items-center">
         {
           modalOpen === false
-            && dueDate.to ? <p className="text-center font-semibold text-[0.688rem] text-[#64748B]">{new Date(dueDate.to).toLocaleDateString()}</p>
+            && dueDate.to ? <p className="text-center font-semibold text-[0.688rem] text-[#64748B]">{new Date(dueDate.to).toLocaleDateString('en-GB')}</p>
             : <SVGIcon Icon={CalendarIcon} />
         }
       </div>
@@ -178,9 +184,9 @@ export default function CalendarData() {
                                 <td
                                   key={j}
                                   className={`text-center text-xs font-semibold h-8 w-8 transition-all duration-300 rounded-lg cursor-pointer
-                                ${(new Date(dates).toLocaleDateString() === new Date(dueDate?.to).toLocaleDateString()
-                                      || new Date(dates).toLocaleDateString()
-                                      === new Date(dueDate?.from).toLocaleDateString())
+                                ${(new Date(dates).toLocaleDateString('en-GB') === new Date(dueDate?.to).toLocaleDateString('en-GB')
+                                      || new Date(dates).toLocaleDateString('en-GB')
+                                      === new Date(dueDate?.from).toLocaleDateString('en-GB'))
                                       ? 'bg-[#6239ED] text-white' : `${new Date(dates).getMonth() === month
                                         ? 'text-[#000316]' : 'text-[#64748B]'}`}                       
                                    ${((new Date(dueDate?.from).getTime() < new Date(dates).getTime()) && (new Date(dueDate?.to).getTime() > new Date(dates).getTime()))
@@ -220,10 +226,15 @@ export default function CalendarData() {
                           <div className="flex justify-start items-center py-2 w-[150px] h-[32px]">
                             <SVGIcon Icon={CalendarIcon} />
                             <h1 className="text-[#475569] text-sm leading-4 font-medium ml-[0.3rem]">
-                              <input onChange={InputStartDate} defaultValue={dueDate?.from ? new Date(dueDate.from).toLocaleDateString() : ''} className="w-[110px] h-[25px] outline-none font-medium text-[11px] leading-[16px] text-[#475569] p-2" autoComplete="off" placeholder="dd/mm/yyyy" type="text" id="startDate" />
+                              <input onChange={InputStartDate} defaultValue={dueDate?.from ? (formatDate(dueDate.from)) : ''} className="w-[110px] h-[25px] outline-none font-medium text-[11px] leading-[16px] text-[#475569] p-2" autoComplete="off" placeholder="dd/mm/yyyy" type="text" id="startDate" />
                             </h1>
                           </div>
                         </div>
+                        {/* <p className="w-[80px] text-[10px] leading-[16px] text-red-400">
+                          {
+                            error ? 'Enter valid date!' : ''
+                          }
+                        </p> */}
                       </div>
                       <div className="mt-2">
                         <p className="w-[70px] font-medium text-[11px] leading-[16px] text-[#475569] ">End date:</p>
@@ -231,10 +242,15 @@ export default function CalendarData() {
                           <div className="flex justify-start items-center py-2 w-[150px] h-[32px]">
                             <SVGIcon Icon={CalendarIcon} />
                             <h1 className="text-[#475569] text-sm leading-4 font-medium ml-[0.3rem]">
-                              <input onChange={InputEndDate} defaultValue={dueDate?.to ? new Date(dueDate.to).toLocaleDateString() : ''} className="w-[110px] h-[25px] outline-none font-medium text-[11px] leading-[16px] p-2" autoComplete="off" placeholder="dd/mm/yyyy" type="text" id="endDate" />
+                              <input onChange={InputEndDate} defaultValue={dueDate?.to ? formatDate(dueDate.to) : ''} className="w-[110px] h-[25px] outline-none font-medium text-[11px] leading-[16px] p-2" autoComplete="off" placeholder="dd/mm/yyyy" type="text" id="endDate" />
                             </h1>
                           </div>
                         </div>
+                        {/* <p className="w-[80px] text-[10px] leading-[16px] text-red-400">
+                          {
+                            error ? 'Enter valid date!' : ''
+                          }
+                        </p> */}
                       </div>
                     </div>
                   </div>
@@ -250,6 +266,5 @@ export default function CalendarData() {
         )
       }
     </div>
-
   );
 }
