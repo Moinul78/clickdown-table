@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { arrowDownIcon, CalendarIcon, cancel } from '../../Assets/SVGcomponents';
 import useOnclickOutside from '../../Hooks/UseOnClickOutSide';
 import SVGIcon from '../../SVGIcon/SVGIcon';
@@ -17,7 +17,6 @@ export default function CalendarData() {
     'July', 'August', 'September', 'October', 'November', 'December',
   ];
   const weekdays = ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'];
-
   const year = date.getFullYear();
   const month = date.getMonth();
   const firstDay = new Date(year, month, 1);
@@ -28,15 +27,13 @@ export default function CalendarData() {
 
   function parseDate(dd) {
     if (!dd || typeof (dd) !== 'string') {
-      // setError(true);
-    } else {
-      // setError(false);
+      console.log('got error');
     }
     const [d, m, y] = dd.split('/');
     return new Date(`${m}-${d}-${y}`);
   }
   function formatDate(dd) {
-    return dd.toLocaleDateString('en-GB');
+    return new Date(dd).toLocaleDateString('en-GB');
   }
   const handlePrevMonth = () => {
     setDate((prevDate) => new Date(prevDate.getFullYear(), prevDate.getMonth() - 1));
@@ -63,86 +60,91 @@ export default function CalendarData() {
     }
   }
   function calculateDaysInRange(range) {
-    const startDate = new Date(range.from);
-    const endDate = new Date(range.to);
-    const differenceInMs = endDate.getTime() - startDate.getTime();
-    const differenceInDays = Math.floor(differenceInMs / (1000 * 60 * 60 * 24));
-    if (differenceInDays === 0) return null;
-    return differenceInDays + 1;
+    const differenceInDays = Math.ceil((new Date(range.to)
+      - new Date(range.from)) / (1000 * 60 * 60 * 24));
+    return differenceInDays > 0 ? differenceInDays : null;
   }
   function Input(d) {
-    const newStartDate = dueDate.from >= d;
-    const startDateInput = document.getElementById('startDate').value;
-    if (edit) {
-      if (startDateInput.length === 0) {
-        document.getElementById('startDate').value = dueDate.from
-          ? new Date(d).toLocaleDateString('en-GB') : '';
-        setDueDate((prev) => ({ ...prev, from: new Date(d) }));
-      }
-      if (!dueDate.from || newStartDate) {
-        document.getElementById('startDate').value = dueDate.from
-          ? new Date(d).toLocaleDateString('en-GB') : '';
-      } else {
-        document.getElementById('endDate').value = dueDate.to
-          ? new Date(d).toLocaleDateString('en-GB') : '';
-      }
-    }
-  }
-  function InputStartDate() {
-    const startDateInput = document.getElementById('startDate').value;
-    setEdit(true);
-    if ((typeof (new Date(startDateInput).getTime()) === 'number') || startDateInput.length === 0) {
-      setDueDate((prev) => ({ ...prev, from: parseDate(startDateInput) }));
-    }
-    if ((new Date(dueDate.to).getTime() < new Date(parseDate(startDateInput)).getTime()) && (typeof (new Date(startDateInput).getTime()) === 'number')) {
-      setBorderRed(true);
-    } else {
-      setBorderRed(false);
-    }
-  }
-  function InputEndDate() {
-    const endDateInput = document.getElementById('endDate').value;
-    setEdit(true);
-    if (typeof (new Date(endDateInput).getTime()) === 'number') {
-      setDueDate((prev) => ({ ...prev, to: parseDate(endDateInput) }));
-    }
-    const differenceInMs = new Date(parseDate(endDateInput)).getTime()
-      - new Date(dueDate.from).getTime();
-    const differenceInDays = Math.floor(differenceInMs / (1000 * 60 * 60 * 24));
-    const time = differenceInDays + 1;
-    if ((time <= 0) && (typeof (new Date(endDateInput).getTime()) === 'number')) {
-      setBorderRed(true);
-    } else {
-      setBorderRed(false);
-    }
-  }
-  const handleDateClick = (d) => {
-    console.log(d.toLocaleDateString('en-GB'));
     const newStartDate = dueDate.from?.getTime() >= new Date(d)?.getTime();
-    setDueDate((prev) => ({ ...prev, [!dueDate.from || newStartDate ? 'from' : 'to']: new Date(d) }));
-    setBorderRed(calculateDaysInRange <= 0);
-
+    const updatedDueDate = { ...dueDate, [!dueDate.from || newStartDate ? 'from' : 'to']: new Date(d) };
+    setDueDate(updatedDueDate);
+    if (!dueDate.from || newStartDate) {
+      setDueDate((prevDueDate) => ({ ...prevDueDate, from: new Date(d) }));
+      document.getElementById('startDate').value = formatDate(d);
+    } else {
+      setDueDate((prevDueDate) => ({ ...prevDueDate, to: new Date(d) }));
+      document.getElementById('endDate').value = formatDate(d);
+    }
     if (new Date(d)?.getTime() === dueDate.from?.getTime()) {
-      if (dueDate.to) {
-        setDueDate((prev) => ({ ...prev, from: dueDate.to }));
-      } else {
-        setDueDate((prev) => ({ ...prev, to: null }));
-      }
-      setDueDate((prev) => ({ ...prev, to: null }));
+      setDueDate((prevDueDate) => {
+        const newDueDate = { from: prevDueDate.to || null, to: null };
+        document.getElementById('startDate').value = formatDate(newDueDate.from) || '';
+        if (newDueDate.from) {
+          document.getElementById('endDate').value = '';
+        }
+        return newDueDate;
+      });
     }
     if (new Date(d)?.getTime() === dueDate.to?.getTime()) {
-      setDueDate((prev) => ({ ...prev, to: null }));
+      setDueDate((prevDueDate) => ({ ...prevDueDate, to: null }));
+      document.getElementById('endDate').value = null;
     }
-    // console.log(new Date(d)?.getTime() === dueDate.from?.getTime());
-    // console.log(dueDate.from);
-    // console.log(dueDate.to);
+  }
+  function handleDateInput(event) {
+    const targetId = event.target.id;
+    const dateInput = event.target;
+    const dateRegex = /^\d{2}\/\d{2}\/\d{4}$/;
+    const parentDiv = event.target.closest('div');
+
+    if (!dateRegex.test(dateInput.value) && dateInput.value !== '') {
+      parentDiv.style.border = '1px solid red';
+    } else {
+      parentDiv.style.border = 'none';
+
+      const startDateInput = targetId === 'startDate' ? event.target.value : document.getElementById('startDate').value;
+      const endDateInput = targetId === 'endDate' ? event.target.value : document.getElementById('endDate').value;
+      const startDate = targetId === 'startDate' ? parseDate(startDateInput) : null;
+      const endDate = targetId === 'endDate' ? parseDate(endDateInput) : null;
+      setEdit(true);
+      if (startDate && !Number.isNaN(startDate.getTime())) {
+        setDueDate((prev) => ({ ...prev, from: startDate }));
+      }
+      if (endDate && dueDate.from) {
+        setDueDate((prev) => ({ ...prev, to: endDate }));
+        const time = Math.ceil((endDate.getTime() - dueDate.from.getTime())
+          / (1000 * 60 * 60 * 24));
+        setBorderRed(time <= 0);
+      }
+      if (endDate?.getTime() < startDate?.getTime()) {
+        setBorderRed(true);
+      } else {
+        setBorderRed(false);
+      }
+    }
+  }
+
+  const handleDateClick = (d) => {
+    const newStartDate = dueDate.from?.getTime() >= new Date(d)?.getTime();
+    const updatedDueDate = { ...dueDate, [!dueDate.from || newStartDate ? 'from' : 'to']: new Date(d) };
+    setDueDate(updatedDueDate);
+    if (new Date(d)?.getTime() === dueDate.from?.getTime()) {
+      setDueDate((prevDueDate) => ({ ...prevDueDate, from: prevDueDate.to || null, to: null }));
+    }
+    if (new Date(d)?.getTime() === dueDate.to?.getTime()) {
+      setDueDate((prevDueDate) => ({ ...prevDueDate, to: null }));
+    }
   };
+  useEffect(() => {
+    if (dueDate.to) {
+      setBorderRed(calculateDaysInRange(dueDate) <= 0);
+    }
+  }, [dueDate]);
   return (
     <div className="flex flex-row justify-center items-start relative cursor-pointer">
       <div onClick={() => setModalOpen(!modalOpen)} role="contentinfo" onKeyDown={() => setModalOpen(!modalOpen)} className="w-6 h-6 rounded-md right-1/3 flex flex-row justify-center items-center">
         {
           modalOpen === false
-            && dueDate.to ? <p className="text-center font-semibold text-[0.688rem] text-[#64748B]">{new Date(dueDate.to).toLocaleDateString('en-GB')}</p>
+            && dueDate.to ? <p className="text-center font-semibold text-[0.688rem] text-[#64748B]">{formatDate(dueDate?.to)}</p>
             : <SVGIcon Icon={CalendarIcon} />
         }
       </div>
@@ -184,14 +186,17 @@ export default function CalendarData() {
                                 <td
                                   key={j}
                                   className={`text-center text-xs font-semibold h-8 w-8 transition-all duration-300 rounded-lg cursor-pointer
-                                ${(new Date(dates).toLocaleDateString('en-GB') === new Date(dueDate?.to).toLocaleDateString('en-GB')
-                                      || new Date(dates).toLocaleDateString('en-GB')
-                                      === new Date(dueDate?.from).toLocaleDateString('en-GB'))
+                                ${(formatDate(dates) === formatDate(dueDate?.to)
+                                      || formatDate(dates)
+                                      === formatDate(dueDate?.from))
                                       ? 'bg-[#6239ED] text-white' : `${new Date(dates).getMonth() === month
-                                        ? 'text-[#000316]' : 'text-[#64748B]'}`}                       
+                                        ? 'text-[#000316]' : 'text-[#64748B]'}`}                      
                                    ${((new Date(dueDate?.from).getTime() < new Date(dates).getTime()) && (new Date(dueDate?.to).getTime() > new Date(dates).getTime()))
                                       ? 'rounded-none bg-[#EFEBFD]' : ''}`}
-                                  onClick={() => { handleDateClick(dates); Input(dates); }}
+                                  onClick={() => {
+                                    handleDateClick(dates);
+                                    if (edit) { Input(dates); }
+                                  }}
                                   onKeyDown={() => { }}
                                 >
                                   {new Date(dates).getDate()}
@@ -222,35 +227,25 @@ export default function CalendarData() {
                     <div>
                       <div>
                         <p className="w-[70px] first-line:font-medium text-[11px] leading-[16px] text-[#475569] ">Start date:</p>
-                        <div className="border rouded-md">
+                        <div className="border rounded-md" id="parent-div">
                           <div className="flex justify-start items-center py-2 w-[150px] h-[32px]">
                             <SVGIcon Icon={CalendarIcon} />
                             <h1 className="text-[#475569] text-sm leading-4 font-medium ml-[0.3rem]">
-                              <input onChange={InputStartDate} defaultValue={dueDate?.from ? (formatDate(dueDate.from)) : ''} className="w-[110px] h-[25px] outline-none font-medium text-[11px] leading-[16px] text-[#475569] p-2" autoComplete="off" placeholder="dd/mm/yyyy" type="text" id="startDate" />
+                              <input onChange={(event) => handleDateInput(event)} defaultValue={dueDate?.from ? (formatDate(dueDate.from)) : ''} className="w-[110px] h-[25px] outline-none font-medium text-[11px] leading-[16px] text-[#475569] p-2" autoComplete="off" placeholder="dd/mm/yyyy" type="text" id="startDate" />
                             </h1>
                           </div>
                         </div>
-                        {/* <p className="w-[80px] text-[10px] leading-[16px] text-red-400">
-                          {
-                            error ? 'Enter valid date!' : ''
-                          }
-                        </p> */}
                       </div>
                       <div className="mt-2">
                         <p className="w-[70px] font-medium text-[11px] leading-[16px] text-[#475569] ">End date:</p>
-                        <div className={borderRed ? 'border border-red-900 rounded-md' : 'border rounded-md'}>
+                        <div id="parent-div" className={borderRed ? 'border border-red-900 rounded-md' : 'border rounded-md'}>
                           <div className="flex justify-start items-center py-2 w-[150px] h-[32px]">
                             <SVGIcon Icon={CalendarIcon} />
                             <h1 className="text-[#475569] text-sm leading-4 font-medium ml-[0.3rem]">
-                              <input onChange={InputEndDate} defaultValue={dueDate?.to ? formatDate(dueDate.to) : ''} className="w-[110px] h-[25px] outline-none font-medium text-[11px] leading-[16px] p-2" autoComplete="off" placeholder="dd/mm/yyyy" type="text" id="endDate" />
+                              <input onChange={(event) => handleDateInput(event)} defaultValue={dueDate?.to ? formatDate(dueDate.to) : ''} className="w-[110px] h-[25px] outline-none font-medium text-[11px] leading-[16px] p-2" autoComplete="off" placeholder="dd/mm/yyyy" type="text" id="endDate" />
                             </h1>
                           </div>
                         </div>
-                        {/* <p className="w-[80px] text-[10px] leading-[16px] text-red-400">
-                          {
-                            error ? 'Enter valid date!' : ''
-                          }
-                        </p> */}
                       </div>
                     </div>
                   </div>
