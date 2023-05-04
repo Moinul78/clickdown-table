@@ -27,13 +27,14 @@ export default function CalendarData() {
 
   function parseDate(dd) {
     if (!dd || typeof (dd) !== 'string') {
-      console.log('got error');
+      return null;
     }
     const [d, m, y] = dd.split('/');
     return new Date(`${m}-${d}-${y}`);
   }
   function formatDate(dd) {
-    return new Date(dd).toLocaleDateString('en-GB');
+    const newDate = dd ? new Date(dd).toLocaleDateString('en-GB') : null;
+    return newDate;
   }
   const handlePrevMonth = () => {
     setDate((prevDate) => new Date(prevDate.getFullYear(), prevDate.getMonth() - 1));
@@ -60,8 +61,11 @@ export default function CalendarData() {
     }
   }
   function calculateDaysInRange(range) {
-    const differenceInDays = Math.ceil((new Date(range.to)
-      - new Date(range.from)) / (1000 * 60 * 60 * 24));
+    if (!range.from) {
+      return null;
+    }
+    const differenceInDays = Math.ceil(((range.to)
+      - (range.from)) / (1000 * 60 * 60 * 24));
     return differenceInDays > 0 ? differenceInDays : null;
   }
   function Input(d) {
@@ -106,21 +110,21 @@ export default function CalendarData() {
       const startDate = targetId === 'startDate' ? parseDate(startDateInput) : null;
       const endDate = targetId === 'endDate' ? parseDate(endDateInput) : null;
       setEdit(true);
+      if (targetId === 'startDate' && !startDate) {
+        return setDueDate((prev) => ({ ...prev, from: null }));
+      }
+      if (targetId === 'endDate' && !endDate) {
+        console.log('endDate null');
+        return setDueDate((prev) => ({ ...prev, to: null }));
+      }
       if (startDate && !Number.isNaN(startDate.getTime())) {
-        setDueDate((prev) => ({ ...prev, from: startDate }));
+        return setDueDate((prev) => ({ ...prev, from: startDate }));
       }
-      if (endDate && dueDate.from) {
-        setDueDate((prev) => ({ ...prev, to: endDate }));
-        const time = Math.ceil((endDate.getTime() - dueDate.from.getTime())
-          / (1000 * 60 * 60 * 24));
-        setBorderRed(time <= 0);
-      }
-      if (endDate?.getTime() < startDate?.getTime()) {
-        setBorderRed(true);
-      } else {
-        setBorderRed(false);
+      if (endDate && !Number.isNaN(endDate.getTime() && dueDate.from)) {
+        return setDueDate((prev) => ({ ...prev, to: endDate }));
       }
     }
+    return dueDate;
   }
 
   const handleDateClick = (d) => {
@@ -188,10 +192,10 @@ export default function CalendarData() {
                                   className={`text-center text-xs font-semibold h-8 w-8 transition-all duration-300 rounded-lg cursor-pointer
                                 ${(formatDate(dates) === formatDate(dueDate?.to)
                                       || formatDate(dates)
-                                      === formatDate(dueDate?.from))
+                                      === formatDate(!dueDate?.from ? false : dueDate?.from))
                                       ? 'bg-[#6239ED] text-white' : `${new Date(dates).getMonth() === month
                                         ? 'text-[#000316]' : 'text-[#64748B]'}`}                      
-                                   ${((new Date(dueDate?.from).getTime() < new Date(dates).getTime()) && (new Date(dueDate?.to).getTime() > new Date(dates).getTime()))
+                                   ${(((dueDate?.from ? new Date(dueDate?.from).getTime() : NaN) < new Date(dates).getTime()) && (new Date(dueDate?.to).getTime() > new Date(dates).getTime()))
                                       ? 'rounded-none bg-[#EFEBFD]' : ''}`}
                                   onClick={() => {
                                     handleDateClick(dates);
